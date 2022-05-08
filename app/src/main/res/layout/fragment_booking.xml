@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F2F2F2"
+    android:layout_margin="7dp"
+    tools:context=".activities.ui.main.PlaceholderFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:gravity="right"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Booking status : "
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/booking_status"
+            android:layout_width="wrap_content"
+            android:text="Confirmed"
+            android:textColor="#4CAF50"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="7dp"
+        android:elevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking start"
+                android:textColor="@color/colourHINT"
+                />
+            <TextView
+                android:id="@+id/booking_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29 march 2022"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking end"
+                android:textColor="@color/colourHINT"
+                />
+            <TextView
+                android:id="@+id/booking_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="29 march 2022"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ridobiko Vendor</string>
+    <string name="title_activity_booking">BookingActivity</string>
+    <string name="booking">Booking &amp; Customer</string>
+    <string name="pickup">Pickup</string>
+    <string name="drop">Drop</string>
+    <string name="Other">Other</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Other">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_margin="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extend Booking"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            />
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:elevation="5dp"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pickup date and time"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="5dp"
+                    />
+              <LinearLayout
+                  android:layout_weight="6"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content">
+                  <EditText android:textSize="15sp"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:id="@+id/p_date"
+                      android:textAllCaps="false"
+                      android:background="@drawable/btn_grey"
+                      android:layout_gravity="center"
+                      android:hint="Date"
+                      android:layout_marginRight="5dp"
+                      android:layout_width="0dp"
+                      android:layout_height="40dp"/>
+
+                  <EditText android:textSize="15sp"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:id="@+id/p_time"
+                      android:textAllCaps="false"
+                      android:background="@drawable/btn_grey"
+                      android:layout_gravity="center"
+                      android:hint="Time"
+                      android:layout_width="0dp"
+                      android:layout_height="40dp"/>
+
+              </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Drop date and time"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="5dp"
+                    />
+              <LinearLayout
+                  android:layout_weight="6"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content">
+                  <EditText android:textSize="15sp"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:id="@+id/d_date"
+                      android:textAllCaps="false"
+                      android:background="@drawable/btn_grey"
+                      android:layout_gravity="center"
+                      android:hint="Date"
+                      android:layout_marginRight="5dp"
+                      android:layout_width="0dp"
+                      android:layout_height="40dp"/>
+
+                  <EditText android:textSize="15sp"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:id="@+id/d_time"
+                      android:textAllCaps="false"
+                      android:background="@drawable/btn_grey"
+                      android:layout_gravity="center"
+                      android:hint="Time"
+                      android:layout_width="0dp"
+                      android:layout_height="40dp"/>
+
+              </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Calculate rent"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:backgroundTint="#2C2C2C"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="5dp"
+                    />
+                <Button
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Create booking"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:backgroundTint="#2C2C2C"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Total rent"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="5dp"
+                    />
+                <EditText android:textSize="15sp"
+                    android:layout_weight="6"
+                    android:gravity="center"
+                    android:id="@+id/fuel_at_pickup"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_grey"
+                    android:layout_gravity="center"
+                    android:hint="Total rent"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_margin="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exchange Bike"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            />
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:elevation="5dp"
+            android:padding="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Select vehicle"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="5dp"
+                    />
+                <Spinner android:textSize="15sp"
+                    android:layout_weight="6"
+                    android:gravity="center"
+                    android:id="@+id/select_vehicle"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_grey"
+                    android:layout_gravity="center"
+                    android:hint="Total rent"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"/>
+            </LinearLayout>
+            <TextView
+        android:layout_margin="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehicle images"
+        android:textColor="@color/colourHINT"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:padding="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:background="@color/white"
+        android:orientation="vertical">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <LinearLayout
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:text="Left"
+                   android:textColor="@color/black"
+                   android:gravity="center"
+                   />
+               <ImageView
+                   android:background="@color/colourHINT"
+                   android:layout_gravity="center"
+                   android:id="@+id/left"
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"/>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:text="Right"
+                   android:textColor="@color/black"
+                   android:gravity="center"
+                   />
+               <ImageView                   android:background="@color/colourHINT"
+
+                   android:layout_gravity="center"
+                   android:id="@+id/right"
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"/>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:text="Front"
+                   android:textColor="@color/black"
+                   android:gravity="center"
+                   />
+               <ImageView                   android:background="@color/colourHINT"
+
+                   android:layout_gravity="center"
+                   android:id="@+id/front"
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"/>
+           </LinearLayout>
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <LinearLayout
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:text="Back"
+                   android:textColor="@color/black"
+                   android:gravity="center"
+                   />
+               <ImageView                   android:background="@color/colourHINT"
+
+                   android:layout_gravity="center"
+                   android:id="@+id/back"
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"/>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:text="Feul meter"
+                   android:textColor="@color/black"
+                   android:gravity="center"
+                   />
+               <ImageView                   android:background="@color/colourHINT"
+
+                   android:layout_gravity="center"
+                   android:id="@+id/feul_meter"
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"/>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_weight="1"
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:text="With customer"
+                   android:textColor="@color/black"
+                   android:gravity="center"
+                   />
+               <ImageView      android:background="@color/colourHINT"
+
+                   android:layout_gravity="center"
+                   android:id="@+id/with_customer"
+                   android:layout_width="100dp"
+                   android:layout_height="100dp"/>
+           </LinearLayout>
+
+       </LinearLayout>
+
+    </LinearLayout>
+
+            <Button
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                android:ems="10"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:backgroundTint="#2C2C2C"
+                android:textColor="@color/white"
+                android:layout_marginRight="5dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
