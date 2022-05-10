@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.AddBikeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_margin="7dp"
+            android:gravity="center"
+            android:text="Add Bike"
+            android:textColor="@color/colourHINT"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+
+                <!--            bike brand-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Select Brand"></TextView>
+
+                    <Spinner
+                        android:id="@+id/brand"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+                <!--            select bike-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Select Bike">
+
+                    </TextView>
+
+                    <Spinner
+                        android:id="@+id/bike"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+
+                <!--            plate type-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Select Plate Type"></TextView>
+
+                    <Spinner
+                        android:id="@+id/plate_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+                <!--             model year-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Select Model Year">
+
+                    </TextView>
+
+                    <Spinner
+                        android:id="@+id/model_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+
+                </LinearLayout>
+
+                <!--plate number-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Bike Plate Number">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/plate_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="Bike Plate Number"
+                        android:inputType="number"
+                        android:paddingLeft="8dp"
+
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!--week day-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Rent/Week day">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/rent_week"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="Rent/Week day"
+                        android:inputType="text"
+                        android:paddingLeft="8dp"
+
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!--            weekend day-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Rent/Weekend day">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/weekend"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="Rent/Weekend day"
+                        android:inputType="text"
+                        android:paddingLeft="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!--            rent hours-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Rent/Hour">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/hour"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="Rent/Hour"
+                        android:inputType="number"
+                        android:paddingLeft="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!--            speed limit-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Speed Limit">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/speed_Limit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="Speed Limit"
+                        android:inputType="number"
+                        android:paddingLeft="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+
+
+                <!--            limit day-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="KM Limit/Day">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/kmLimit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="KM Limit/Day"
+                        android:inputType="text"
+                        android:paddingLeft="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!--            limit month-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="KM Limit/Month">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/km_limitMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="KM Limit/ Month"
+                        android:inputType="number"
+                        android:paddingLeft="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <!--additional-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Additonal per KM charge">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/km_Charge"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="Additional per KM charge"
+                        android:inputType="number"
+                        android:paddingLeft="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!--            deposit-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Deposit">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/Deposit"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center|left"
+                        android:hint="Deposit"
+                        android:inputType="number"
+                        android:paddingLeft="8dp"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:backgroundTint="#2C2C2C"
+            android:text="Add Bike"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
