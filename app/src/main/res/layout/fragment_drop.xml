@@ -31,7 +31,6 @@
                />
             <EditText
             android:textSize="15sp"
-                
                 android:layout_weight="1"
                 android:gravity="center"
                 android:id="@+id/helmets_at_pickup"
@@ -78,6 +77,7 @@
                   android:gravity="center"
                   android:id="@+id/fuel_at_pickup"
                   android:textAllCaps="false"
+                  android:inputType="number"
                   android:background="@drawable/btn_grey"
                   android:layout_gravity="center"
                   android:hint="Fuel meter at pickup"
@@ -107,7 +107,7 @@
                   android:textAllCaps="false"
                   android:background="@drawable/btn_grey_faded"
                   android:layout_gravity="center"
-                  android:hint="No of helmets at pickup"
+                  android:hint="Fuel charge"
                   android:layout_width="0dp"
                   android:layout_height="40dp"/>
           </LinearLayout>
@@ -117,6 +117,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
               <Button
+                  android:id="@+id/calculate_fuel_cost"
                   android:layout_gravity="center"
                   android:layout_weight="1"
                   android:layout_width="0dp"
@@ -256,7 +257,7 @@
                    android:textAllCaps="false"
                    android:background="@drawable/btn_grey_faded"
                    android:layout_gravity="center"
-                   android:hint="No of helmets at pickup"
+                   android:hint="Extra charge per KM"
                    android:layout_width="0dp"
                    android:layout_height="40dp"/>
            </LinearLayout>
@@ -266,6 +267,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content">
                <Button
+                   android:id="@+id/calculate_km_cost"
                    android:layout_gravity="center"
                    android:layout_weight="1"
                    android:layout_width="0dp"
@@ -723,7 +725,7 @@
                     android:textColor="@color/black"
                     android:layout_marginRight="5dp"
                     />
-                <Spinner
+                <EditText
                     android:layout_weight="1"
                     android:gravity="center"
                     android:id="@+id/collected_by"

@@ -86,6 +86,17 @@ public class BookingResponseModel implements Serializable {
     pickup,
     drop,
     bike_image,
+           max_fuel_bars,
+           km_limit,
+           additional_km_cost,
+           rent_per_day,
+           fuel_tank,
+
+           no_of_helmets,
+           fuel_pickup,
+           petrol_charge,
+           KM_meter_pickup,
+
     security_deposit;
 
 }
