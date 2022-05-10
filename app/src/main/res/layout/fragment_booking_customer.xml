@@ -525,7 +525,7 @@
                 android:layout_gravity="left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pickup tyle"
+                android:text="Pickup time"
                 android:textColor="@color/black"
                 />
             <ImageView
