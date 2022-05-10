@@ -57,6 +57,7 @@ public interface ApiService {
             @Field("helmet_front_2") String helmet_front_2,
             @Field("helmet_back_2") String helmet_back_2
     );
+
     @FormUrlEncoded
     @POST("insertPickup.php")
     Call<ApiResponseModel<String>> submitPickup(
@@ -78,6 +79,28 @@ public interface ApiService {
             @Field("change_vid") String change_vid,
             @Field("change_vehicle_id") String change_vehicle_id,
             @Field("city") String city
+    );
+
+    @FormUrlEncoded
+    @POST("insertDrop.php")
+    Call<ApiResponseModel<String>> submitDrop(
+            @Field("order_id") String order_id,
+            @Field("drop_date") String drop_date,
+            @Field("no_of_helemets_drop") String no_of_helemets_drop,
+            @Field("comment") String comment,
+            @Field("km_drop") String km_drop,
+            @Field("fuel_drop") String fuel_drop,
+            @Field("fuel_charges") String fuel_charges,
+            @Field("extra_km_charge") String extra_km_charge,
+            @Field("main_cost") String main_cost,
+            @Field("main_comment") String main_comment,
+            @Field("vehicle_condition") String vehicle_condition,
+            @Field("original_id") String original_id,
+            @Field("collected_by") String collected_by,
+            @Field("fuel_charges_apply") String fuel_charges_apply,
+            @Field("km_charges_apply") String km_charges_apply,
+            @Field("maintenance_charge_apply") String maintenance_charge_apply,
+            @Field("charges_confirmed") String charges_confirmed
     );
 
 }
