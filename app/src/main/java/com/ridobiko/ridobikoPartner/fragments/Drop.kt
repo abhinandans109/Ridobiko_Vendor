@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.Toast
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.api.API
@@ -34,17 +33,6 @@ class Drop : Fragment() {
         binding.helmetsAtPickup.hint = selectedBooking.no_of_helmets
         binding.fuelAtPickup.hint = selectedBooking.fuel_pickup
         binding.kmReadingPickup.hint = selectedBooking.KM_meter_pickup
-
-        binding.fuelYes.setOnClickListener{
-            if(binding.fuelNo.isChecked) {
-                binding.fuelNo.toggle()
-            }
-        }
-        binding.fuelNo.setOnClickListener{
-            if(binding.fuelYes.isChecked) {
-                binding.fuelYes.toggle()
-            }
-        }
 
         //fuel charge
         binding.calculateFuelCost.setOnClickListener{
@@ -156,40 +144,17 @@ class Drop : Fragment() {
             }
         }
         binding.submit.setOnClickListener{
+            var chargesConfirmed=0
+            if(binding.fuelYes.isChecked) chargesConfirmed+=binding.fuelCost.text.toString().toInt()
+            if(binding.kmYes.isChecked) chargesConfirmed+=binding.kmCost.text.toString().toInt()
+            if(binding.mainYes.isChecked) chargesConfirmed+=binding.maintainaceCost.text.toString().toInt()
 
-            if(binding.helmetsAtPickup.text.isNullOrEmpty()){
-                binding.helmetsAtPickup.error="This feild can'nt be empty"
-            }else if(){
-
-            }else {
-                var chargesConfirmed = 0
-                if (binding.fuelYes.isChecked) chargesConfirmed += binding.fuelCost.text.toString()
-                    .toInt()
-                if (binding.kmYes.isChecked) chargesConfirmed += binding.kmCost.text.toString()
-                    .toInt()
-                if (binding.mainYes.isChecked) chargesConfirmed += binding.maintainaceCost.text.toString()
-                    .toInt()
-
-                API.get().submitDrop(
-                    selectedBooking.trans_id,
-                    selectedBooking.drop_date,
-                    binding.helmetsAtPickup.text.toString(),
-                    binding.comment
-                        .text.toString(),
-                    binding.kmReadingPickup.text.toString(),
-                    binding.fuelAtPickup.text.toString(),
-                    binding.fuelCost.text.toString(),
-                    binding.kmCost.text.toString(),
-                    binding.maintainaceCost.text.toString(),
-                    binding.maintainaceDetails.text.toString(),
-                    if (binding.condYes.isChecked) "1" else "0",
-                    if (binding.idYes.isChecked) "1" else "0",
-                    binding.collectedBy.text.toString(),
-                    if (binding.fuelYes.isChecked) "1" else "0",
-                    if (binding.kmYes.isChecked) "1" else "0",
-                    if (binding.mainYes.isChecked) "1" else "0",
-                    chargesConfirmed.toString()
-                ).enqueue(object : Callback<ApiResponseModel<String>> {
+                API.get().submitDrop(selectedBooking.trans_id,selectedBooking.drop_date,binding.helmetsAtPickup.text.toString(),binding.comment
+                    .text.toString(),binding.kmReadingPickup.text.toString(),binding.fuelAtPickup.text.toString(),binding.fuelCost.text.toString()
+                    ,binding.kmCost.text.toString(),binding.maintainaceCost.text.toString(),binding.maintainaceDetails.text.
+                    toString(),if(binding.condYes.isChecked)"1" else "0",if(binding.idYes.isChecked)"1" else "0",
+                    binding.collectedBy.text.toString(),if(binding.fuelYes.isChecked)"1" else "0",if(binding.kmYes.isChecked)"1" else "0",if(binding.mainYes.isChecked)"1" else "0",
+                    chargesConfirmed.toString()).enqueue(object :Callback<ApiResponseModel<String>>{
                     override fun onResponse(
                         call: Call<ApiResponseModel<String>>,
                         response: Response<ApiResponseModel<String>>
@@ -202,7 +167,6 @@ class Drop : Fragment() {
                     }
 
                 })
-            }
         }
 
         return binding.root

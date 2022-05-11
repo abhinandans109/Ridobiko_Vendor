@@ -78,30 +78,30 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
                 android:gravity="right"
                 android:orientation="vertical"
                 android:paddingRight="7dp"
                 tools:ignore="RtlHardcoded">
+
                 <TextView
-                    android:gravity="right"
                     android:id="@+id/cus_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="Rs 500"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:gravity="right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:text="Customer address"
-                    android:textColor="@color/black"
-                    />
+                    android:textColor="@color/black" />
             </LinearLayout>
 
 
