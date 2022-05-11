@@ -10,12 +10,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EAD4D4"
+        android:background="#E8E7E7"
         android:elevation="5dp"
         android:orientation="vertical"
         android:padding="7dp">
 
-        <TextView
+        TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
