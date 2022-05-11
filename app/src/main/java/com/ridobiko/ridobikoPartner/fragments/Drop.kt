@@ -34,6 +34,62 @@ class Drop : Fragment() {
         binding.fuelAtPickup.hint = selectedBooking.fuel_pickup
         binding.kmReadingPickup.hint = selectedBooking.KM_meter_pickup
 
+        //checkbox
+        binding.fuelYes.setOnClickListener{
+            if(binding.fuelNo.isChecked){
+                binding.fuelNo.toggle()
+            }
+        }
+        binding.fuelNo.setOnClickListener{
+            if(binding.fuelYes.isChecked){
+                binding.fuelYes.toggle()
+            }
+        }
+        binding.kmYes.setOnClickListener{
+            if(binding.kmNo.isChecked){
+                binding.kmNo.toggle()
+            }
+        }
+        binding.kmNo.setOnClickListener{
+            if(binding.kmYes.isChecked){
+                binding.kmYes.toggle()
+            }
+        }
+        binding.mainYes.setOnClickListener{
+            if(binding.mainNo.isChecked){
+                binding.mainNo.toggle()
+            }
+        }
+        binding.mainNo.setOnClickListener{
+            if(binding.mainYes.isChecked){
+                binding.mainYes.toggle()
+            }
+        }
+        binding.condYes.setOnClickListener{
+            if(binding.condNo.isChecked){
+                binding.condNo.toggle()
+            }
+        }
+        binding.condNo.setOnClickListener{
+            if(binding.condYes.isChecked){
+                binding.condYes.toggle()
+            }
+        }
+        binding.idYes.setOnClickListener{
+            if(binding.idNo.isChecked){
+                binding.idNo.toggle()
+            }
+        }
+        binding.idNo.setOnClickListener{
+            if(binding.idYes.isChecked){
+                binding.idYes.toggle()
+            }
+        }
+
+
+
+
+
         //fuel charge
         binding.calculateFuelCost.setOnClickListener{
             if(binding.fuelAtPickup.text.isNullOrEmpty()){
@@ -144,17 +200,60 @@ class Drop : Fragment() {
             }
         }
         binding.submit.setOnClickListener{
-            var chargesConfirmed=0
-            if(binding.fuelYes.isChecked) chargesConfirmed+=binding.fuelCost.text.toString().toInt()
-            if(binding.kmYes.isChecked) chargesConfirmed+=binding.kmCost.text.toString().toInt()
-            if(binding.mainYes.isChecked) chargesConfirmed+=binding.maintainaceCost.text.toString().toInt()
 
-                API.get().submitDrop(selectedBooking.trans_id,selectedBooking.drop_date,binding.helmetsAtPickup.text.toString(),binding.comment
-                    .text.toString(),binding.kmReadingPickup.text.toString(),binding.fuelAtPickup.text.toString(),binding.fuelCost.text.toString()
-                    ,binding.kmCost.text.toString(),binding.maintainaceCost.text.toString(),binding.maintainaceDetails.text.
-                    toString(),if(binding.condYes.isChecked)"1" else "0",if(binding.idYes.isChecked)"1" else "0",
-                    binding.collectedBy.text.toString(),if(binding.fuelYes.isChecked)"1" else "0",if(binding.kmYes.isChecked)"1" else "0",if(binding.mainYes.isChecked)"1" else "0",
-                    chargesConfirmed.toString()).enqueue(object :Callback<ApiResponseModel<String>>{
+            //editText errors
+            if (binding.helmetsAtPickup.text.isNullOrEmpty()){
+                binding.helmetsAtPickup.error="this field can't be empty"
+            }
+            else if (binding.fuelAtPickup.text.isNullOrEmpty()){
+                binding.fuelAtPickup.error="this field can't be empty"
+            }
+           else if (binding.kmReadingPickup.text.isNullOrEmpty()){
+                binding.kmReadingPickup.error="this field can't be empty"
+            }
+            else if (binding.maintainaceCost.text.isNullOrEmpty()){
+                binding.maintainaceCost.error="this field can't be empty"
+            }
+            else if (binding.maintainaceDetails.text.isNullOrEmpty()){
+                binding.maintainaceDetails.error="this field can't be empty"
+            }
+            else if (binding.collectedBy.text.isNullOrEmpty()){
+                binding.collectedBy.error="this field can't be empty"
+            }
+            else if (binding.comment.text.isNullOrEmpty()){
+                binding.comment.error="this field can't be empty"
+            }
+
+          else
+            {
+                var chargesConfirmed = 0
+                if (binding.fuelYes.isChecked) chargesConfirmed += binding.fuelCost.text.toString()
+                    .toInt()
+                if (binding.kmYes.isChecked) chargesConfirmed += binding.kmCost.text.toString()
+                    .toInt()
+                if (binding.mainYes.isChecked) chargesConfirmed += binding.maintainaceCost.text.toString()
+                    .toInt()
+
+                API.get().submitDrop(
+                    selectedBooking.trans_id,
+                    selectedBooking.drop_date,
+                    binding.helmetsAtPickup.text.toString(),
+                    binding.comment
+                        .text.toString(),
+                    binding.kmReadingPickup.text.toString(),
+                    binding.fuelAtPickup.text.toString(),
+                    binding.fuelCost.text.toString(),
+                    binding.kmCost.text.toString(),
+                    binding.maintainaceCost.text.toString(),
+                    binding.maintainaceDetails.text.toString(),
+                    if (binding.condYes.isChecked) "1" else "0",
+                    if (binding.idYes.isChecked) "1" else "0",
+                    binding.collectedBy.text.toString(),
+                    if (binding.fuelYes.isChecked) "1" else "0",
+                    if (binding.kmYes.isChecked) "1" else "0",
+                    if (binding.mainYes.isChecked) "1" else "0",
+                    chargesConfirmed.toString()
+                ).enqueue(object : Callback<ApiResponseModel<String>> {
                     override fun onResponse(
                         call: Call<ApiResponseModel<String>>,
                         response: Response<ApiResponseModel<String>>
@@ -167,6 +266,7 @@ class Drop : Fragment() {
                     }
 
                 })
+            }
         }
 
         return binding.root
