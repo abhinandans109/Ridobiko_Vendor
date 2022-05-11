@@ -1,11 +1,20 @@
 package com.ridobiko.ridobikoPartner.fragments
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.databinding.FragmentDropBinding
@@ -14,10 +23,19 @@ import com.ridobiko.ridobikoPartner.models.BookingResponseModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.ByteArrayOutputStream
+import java.io.FileNotFoundException
+import java.io.InputStream
 
 class Drop : Fragment() {
     lateinit var binding: FragmentDropBinding;
     lateinit var selectedBooking: BookingResponseModel
+
+    lateinit var bikeLeft: Uri
+    lateinit var bikeRight: Uri
+    lateinit var bikeFront: Uri
+    lateinit var bikeBack: Uri
+    lateinit var bikeFuel: Uri
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -87,6 +105,25 @@ class Drop : Fragment() {
         }
 
 
+
+
+
+
+        binding.left.setOnClickListener {
+            ImagePicker.with(this).start(5)
+        }
+        binding.right.setOnClickListener {
+            ImagePicker.with(this).start(6)
+        }
+        binding.front.setOnClickListener {
+            ImagePicker.with(this).start(7)
+        }
+        binding.back.setOnClickListener {
+            ImagePicker.with(this).start(8)
+        }
+        binding.feulMeter.setOnClickListener {
+            ImagePicker.with(this).start(9)
+        }
 
 
 
@@ -258,6 +295,9 @@ class Drop : Fragment() {
                         call: Call<ApiResponseModel<String>>,
                         response: Response<ApiResponseModel<String>>
                     ) {
+                        doAsync {
+                            uploadImages()
+                        }.execute()
 
                     }
 
@@ -270,5 +310,77 @@ class Drop : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode== Activity.RESULT_OK){
+            when (requestCode) {
+                5 -> {
+                    binding.left.setImageURI(data!!.data)
+                    bikeLeft=data.data!!
+
+                }
+                6 -> {
+                    binding.right.setImageURI(data!!.data)
+                    bikeRight=data.data!!
+
+                }
+                7 -> {
+                    binding.front.setImageURI(data!!.data)
+                    bikeFront=data.data!!
+                }
+                8 -> {
+                    binding.back.setImageURI(data!!.data)
+                    bikeBack=data.data!!
+
+                }
+                9 -> {
+                    binding.feulMeter.setImageURI(data!!.data)
+                    bikeFuel=data.data!!
+                }
+            }
+        }
+    }
+    fun photoConvert(uri: Uri?): String? {
+        try {
+            return if (uri != null) {
+//                val applicationContext: Context = BookingActivity.getContextOfApplication()
+//                applicationContext.getContentResolver()
+                val inputStream: InputStream = activity?.applicationContext!!.getContentResolver().openInputStream(uri)!!
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                val outputStream = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 70, outputStream)
+                val bytes = outputStream.toByteArray()
+                val encode = Base64.encodeToString(bytes, Base64.DEFAULT)
+                Log.e("ENCODE", encode)
+                encode
+            } else {
+                null
+            }
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        }
+        return null
+    }
+    private fun uploadImages() {
+        API.get().uploadDropImages(selectedBooking.trans_id,selectedBooking.bikes_id,
+            photoConvert(bikeLeft),photoConvert(bikeRight),photoConvert(bikeFront),photoConvert(bikeBack),photoConvert(bikeFuel)).enqueue(object:Callback<ApiResponseModel<String>>{
+            override fun onResponse(
+                call: Call<ApiResponseModel<String>>,
+                response: Response<ApiResponseModel<String>>
+            ) {
+            }
+
+            override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
+            }
+
+        })
+    }
+    class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
+        override fun doInBackground(vararg params: Void?): Void? {
+            handler()
+            return null
+        }
     }
 }

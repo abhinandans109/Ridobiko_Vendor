@@ -57,6 +57,17 @@ public interface ApiService {
             @Field("helmet_front_2") String helmet_front_2,
             @Field("helmet_back_2") String helmet_back_2
     );
+    @FormUrlEncoded
+    @POST("imageUploadDrop.php")
+    Call<ApiResponseModel<String>> uploadDropImages(
+            @Field("orderId") String orderId,
+            @Field("bikeId") String bikeId,
+            @Field("bikeLeft") String bikeLeft,
+            @Field("bikeRight") String bikeRight,
+            @Field("bikeFront") String bikeFront,
+            @Field("bikeBack") String bikeBack,
+            @Field("bikeFuel") String bikeFuel
+    );
 
     @FormUrlEncoded
     @POST("insertPickup.php")

@@ -2,7 +2,7 @@ package com.ridobiko.ridobikoPartner.constants;
 
  public class Constants {
 
-    public static final String BASE_URL="http://192.168.0.108/RidoVendor/";
+    public static final String BASE_URL="https://www.ridobiko.com/RidoVendor/";
     public static final String SUCCESS="1";
     public static final String PREFS_LOGIN_DETAILS="login_details";
     public static final String IS_VENDOR="is_vendor";

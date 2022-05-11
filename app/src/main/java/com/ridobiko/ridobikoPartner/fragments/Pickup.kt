@@ -165,7 +165,9 @@ class Pickup : Fragment() {
                 ) {
                     if(response.body()?.success.equals("1"))
                     Toast.makeText(requireContext(),"Pickup done",Toast.LENGTH_SHORT).show()
-                    uploadImages()
+                    doAsync {
+                        uploadImages()
+                    }.execute()
 
                 }
 
@@ -284,6 +286,11 @@ class Pickup : Fragment() {
         }
         return null
     }
-
+    class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
+        override fun doInBackground(vararg params: Void?): Void? {
+            handler()
+            return null
+        }
+    }
 
 }

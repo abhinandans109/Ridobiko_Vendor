@@ -22,7 +22,7 @@
             android:layout_margin="7dp"
             android:gravity="center"
             android:text="Add Bike"
-            android:textColor="@color/colourHINT"
+            android:textColor="@color/purple_500"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -48,21 +48,19 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_select_brand"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Select Brand"></TextView>
+                        android:text="Select Brand"/>
 
                     <Spinner
                         android:id="@+id/brand"
+                        android:background="@drawable/new_border_edt"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
-                        android:gravity="center"
-                        android:textAllCaps="false" />
+                        />
                 </LinearLayout>
 
                 <!--            select bike-->
@@ -151,6 +149,8 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:textColor="@color/colourHINT"
+                        android:id="@+id/tv_bike_plate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
@@ -160,11 +160,12 @@
                     </TextView>
 
                     <EditText
+
                         android:id="@+id/plate_number"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="Bike Plate Number"
                         android:inputType="number"

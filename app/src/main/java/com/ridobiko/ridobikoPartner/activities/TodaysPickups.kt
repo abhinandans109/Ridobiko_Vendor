@@ -27,7 +27,7 @@ class TodaysPickups : AppCompatActivity() {
 
 
         API.get()
-            .getTodaysPickups("dileepmeena57@gmail.com").enqueue(object:Callback<ApiResponseModel<ArrayList<BookingResponseModel>>>{
+            .getTodaysPickups(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"")).enqueue(object:Callback<ApiResponseModel<ArrayList<BookingResponseModel>>>{
                 override fun onResponse(
                     call: Call<ApiResponseModel<ArrayList<BookingResponseModel>>>,
                     response: Response<ApiResponseModel<ArrayList<BookingResponseModel>>>
