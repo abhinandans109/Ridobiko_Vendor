@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#EAD4D4"
         android:elevation="5dp"
         android:orientation="vertical"
         android:padding="7dp">
@@ -31,15 +32,15 @@
             android:layout_height="wrap_content"
             android:elevation="5dp"
             android:orientation="vertical"
-            android:padding="7dp">
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="#F8F4F4"
                 android:orientation="vertical"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp">
+                android:padding="30dp">
 
                 <!--            bike brand-->
                 <LinearLayout
@@ -53,14 +54,13 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Select Brand"/>
+                        android:text="Select Brand" />
 
                     <Spinner
                         android:id="@+id/brand"
-                        android:background="@drawable/new_border_edt"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        />
+                        android:background="@drawable/new_border_edt" />
                 </LinearLayout>
 
                 <!--            select bike-->
@@ -71,11 +71,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvselect_bike"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Select Bike">
+                        android:text="Select Bike"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -83,10 +85,7 @@
                         android:id="@+id/bike"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
-                        android:gravity="center"
-                        android:textAllCaps="false" />
+                        android:background="@drawable/new_border_edt" />
                 </LinearLayout>
 
 
@@ -98,20 +97,20 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_platetype"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Select Plate Type"></TextView>
+                        android:text="Select Plate Type"
+                        android:textColor="#666666"></TextView>
+
 
                     <Spinner
                         android:id="@+id/plate_type"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
-                        android:gravity="center"
-                        android:textAllCaps="false" />
+                        android:background="@drawable/new_border_edt" />
                 </LinearLayout>
 
                 <!--             model year-->
@@ -122,11 +121,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_modelYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Select Model Year">
+                        android:text="Select Model Year"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -134,11 +135,7 @@
                         android:id="@+id/model_year"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
-                        android:gravity="center"
-                        android:textAllCaps="false" />
-
+                        android:background="@drawable/new_border_edt" />
                 </LinearLayout>
 
                 <!--plate number-->
@@ -149,13 +146,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:textColor="@color/colourHINT"
+
                         android:id="@+id/tv_bike_plate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Bike Plate Number">
+                        android:text="Bike Plate Number"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -183,11 +181,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_rentWeek"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Rent/Week day">
+                        android:text="Rent/Week day"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -196,7 +196,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="Rent/Week day"
                         android:inputType="text"
@@ -214,11 +214,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_rentWeekend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Rent/Weekend day">
+                        android:text="Rent/Weekend day"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -227,7 +229,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="Rent/Weekend day"
                         android:inputType="text"
@@ -244,11 +246,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_rentHour"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Rent/Hour">
+                        android:text="Rent/Hour"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -257,7 +261,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="Rent/Hour"
                         android:inputType="number"
@@ -274,11 +278,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_speedLimit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Speed Limit">
+                        android:text="Speed Limit"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -287,7 +293,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="Speed Limit"
                         android:inputType="number"
@@ -307,11 +313,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_kmDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="KM Limit/Day">
+                        android:text="KM Limit/Day"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -320,7 +328,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="KM Limit/Day"
                         android:inputType="text"
@@ -337,11 +345,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_kmMonth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="KM Limit/Month">
+                        android:text="KM Limit/Month"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -350,7 +360,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="KM Limit/ Month"
                         android:inputType="number"
@@ -368,11 +378,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_additional"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Additonal per KM charge">
+                        android:text="Additonal per KM charge"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -381,7 +393,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="Additional per KM charge"
                         android:inputType="number"
@@ -398,11 +410,13 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_deposit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
-                        android:text="Deposit">
+                        android:text="Deposit"
+                        android:textColor="#666666">
 
                     </TextView>
 
@@ -411,7 +425,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/btn_grey"
+                        android:background="@drawable/new_border_edt"
                         android:gravity="center|left"
                         android:hint="Deposit"
                         android:inputType="number"
@@ -444,7 +458,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
-            android:backgroundTint="#2C2C2C"
+            android:background="@drawable/btn_addbike"
             android:text="Add Bike"
             android:textAllCaps="false"
             android:textColor="@color/white"
