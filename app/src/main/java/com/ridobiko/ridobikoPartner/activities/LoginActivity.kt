@@ -19,9 +19,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).contains(Constants.EMAIL)){
+            startActivity(Intent(applicationContext,MainActivity::class.java))
+        }
         binding.login.setOnClickListener{
             val email =binding.email.text.toString()
-            val password =binding.email.text.toString()
+            val password =binding.password.text.toString()
             if(email=="")binding.email.error="Enter valid email"
             else if(password=="")binding.password.error="Enter valid password"
             else{
