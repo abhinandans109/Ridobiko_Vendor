@@ -17,6 +17,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Drop status: "
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/drop_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Done"
+                android:textColor="@android:color/holo_green_dark"
+                />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
            <TextView
@@ -792,6 +811,7 @@
             android:textColor="@color/black"
             android:text="Complete Pickup first"
             android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 

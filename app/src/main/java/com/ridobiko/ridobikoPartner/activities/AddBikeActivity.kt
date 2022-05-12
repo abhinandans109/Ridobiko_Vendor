@@ -30,11 +30,11 @@ class AddBikeActivity : AppCompatActivity() {
                 if(hasFocus) binding.tvRentWeek.setTextColor(Color.parseColor("#F44336"))
                 else binding.tvRentWeek.setTextColor(Color.parseColor("#666666"))
             }
-        binding.tvRentWeekend.onFocusChangeListener =
-            View.OnFocusChangeListener { v, hasFocus ->
-                if(hasFocus) binding.tvRentWeekend.setTextColor(Color.parseColor("#F44336"))
-                else binding.tvRentWeekend.setTextColor(Color.parseColor("#666666"))
-            }
+       binding.weekend.onFocusChangeListener =
+           View.OnFocusChangeListener { v, hasFocus ->
+               if(hasFocus) binding.tvRentWeekend.setTextColor(Color.parseColor("#F44336"))
+               else binding.tvRentWeekend.setTextColor(Color.parseColor("#666666"))
+           }
         binding.hour.onFocusChangeListener =
             View.OnFocusChangeListener { v, hasFocus ->
                 if(hasFocus) binding.tvRentHour.setTextColor(Color.parseColor("#F44336"))

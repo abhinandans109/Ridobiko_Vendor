@@ -1,1190 +1,1268 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="7dp"
     android:orientation="vertical"
     tools:context=".fragments.Pickup">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:gravity="right"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pickup status: "
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:id="@+id/pickup_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Not Done"
-            android:textColor="@android:color/holo_green_dark"
-            />
-    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Customer Details"
-        android:textColor="@color/colourHINT"
-        android:layout_gravity="center"
-        android:layout_margin="7dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:padding="7dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        >
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            >
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-
-                tools:ignore="RtlHardcoded">
-                <TextView
-                    android:id="@+id/cus_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Abhinandan"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Customer name"
-                    android:textColor="@color/black"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-                tools:ignore="RtlHardcoded">
-
-                <TextView
-                    android:id="@+id/cus_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="Rs 500"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:gravity="right">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="Customer address"
+                    android:text="Pickup status: "
                     android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/pickup_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Done"
+                    android:textColor="@android:color/holo_green_dark" />
             </LinearLayout>
 
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:background="@color/white"
-            >
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-
-                tools:ignore="RtlHardcoded">
-                <TextView
-                    android:id="@+id/cus_mobile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7007018102"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Customer mobile"
-                    android:textColor="@color/black"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-                tools:ignore="RtlHardcoded">
-                <TextView
-                    android:gravity="right"
-                    android:layout_weight="1"
-                    android:id="@+id/cus_permanent_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lane no 2 vaishnavi bihar colonty ssuwwahi varanasi"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:gravity="right"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Permanent address"
-                    android:textColor="@color/black"
-                    />
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:background="@color/white"
-            >
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-
-                tools:ignore="RtlHardcoded">
-                <TextView
-                    android:id="@+id/emergency_mobile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="7007018102"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Emergency mobile"
-                    android:textColor="@color/black"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="right|center|bottom"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-                tools:ignore="RtlHardcoded">
-                <ImageView
-                    android:id="@+id/show_drop_down"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/drop_down"
-                    android:layout_marginRight="30dp"
-                    />
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/drop_down"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:padding="7dp"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/dl_no"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="DL Number"
-                android:layout_marginRight="10dp"
-                android:drawableRight="@drawable/green_tick"
-                />
-            <TextView
-                android:id="@+id/aadhaar_no"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="Aadhaar Number"
-                android:drawableRight="@drawable/green_tick"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:layout_gravity="center"
+                android:layout_margin="7dp"
+                android:text="Customer Details"
+                android:textColor="@color/colourHINT" />
+
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
                 android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Driving License"
-                    android:textColor="@color/black"
-                    />
+                android:padding="7dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/dl_image"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"/>
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
                     <LinearLayout
-                        android:layout_marginLeft="15dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="left"
                         android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_weight="1"
-                            android:id="@+id/dl_download"
-                            android:layout_width="30dp"
-                            android:src="@drawable/download"
-                            android:layout_height="30dp"/>
-                        <ImageView
-                            android:layout_weight="1"
-                            android:src="@drawable/upload"
-                            android:id="@+id/dl_upload"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"/>
+                        android:paddingRight="7dp"
+
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/cus_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Abhinandan"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Customer name"
+                            android:textColor="@color/black" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:paddingRight="7dp"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/cus_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="Rs 500"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="Customer address"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:orientation="vertical"
+                        android:paddingRight="7dp"
+
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/cus_mobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7007018102"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Customer mobile"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:paddingRight="7dp"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/cus_permanent_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Lane no 2 vaishnavi bihar colonty ssuwwahi varanasi"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:text="Permanent address"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:orientation="vertical"
+                        android:paddingRight="7dp"
+
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/emergency_mobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7007018102"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Emergency mobile"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="right|center|bottom"
+                        android:orientation="vertical"
+                        android:paddingRight="7dp"
+                        tools:ignore="RtlHardcoded">
+
+                        <ImageView
+                            android:id="@+id/show_drop_down"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="30dp"
+                            android:src="@drawable/drop_down" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
             </LinearLayout>
+
             <LinearLayout
-                android:layout_weight="1"
+                android:id="@+id/drop_down"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Aadhaar Front"
-                    android:textColor="@color/black"
-                    />
+                android:padding="7dp"
+                android:visibility="gone">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/af_image"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"/>
-                    <LinearLayout
-                        android:layout_marginLeft="15dp"
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_weight="1"
-                            android:id="@+id/af_download"
-                            android:layout_width="30dp"
-                            android:src="@drawable/download"
-                            android:layout_height="30dp"/>
-                        <ImageView
-                            android:layout_weight="1"
-                            android:src="@drawable/upload"
-                            android:id="@+id/af_upload"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Aadhaar Back"
-                    android:textColor="@color/black"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/ab_image"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"/>
-                    <LinearLayout
-                        android:layout_marginLeft="15dp"
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_weight="1"
-                            android:id="@+id/ab_download"
-                            android:layout_width="30dp"
-                            android:src="@drawable/download"
-                            android:layout_height="30dp"/>
-                        <ImageView
-                            android:layout_weight="1"
-                            android:src="@drawable/upload"
-                            android:id="@+id/ab_upload"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="PAN/Office ID"
-                    android:textColor="@color/black"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/pan_image"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"/>
-                    <LinearLayout
-                        android:layout_marginLeft="15dp"
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_weight="1"
-                            android:id="@+id/pan_download"
-                            android:layout_width="30dp"
-                            android:src="@drawable/download"
-                            android:layout_height="30dp"/>
-                        <ImageView
-                            android:layout_weight="1"
-                            android:src="@drawable/upload"
-                            android:id="@+id/pan_upload"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
 
-    </LinearLayout>
-    <TextView
-        android:layout_margin="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bike Details"
-        android:textColor="@color/colourHINT"
-        android:layout_gravity="center"
-        />
-
-    <LinearLayout
-        android:padding="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        >
-        <ImageView
-            android:id="@+id/bike_image"
-            android:layout_width="80dp"
-            android:layout_gravity="left|center"
-            android:layout_height="80dp"
-            />
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
-            <TextView
-                android:layout_gravity="center"
-                android:id="@+id/bike_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Activa 6g"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:layout_gravity="center"
-                android:id="@+id/bike_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="UP65A4567"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                />
-
-
-        </LinearLayout>
-        <Spinner
-            android:id="@+id/change_bike"
-            android:gravity="center"
-            android:textAllCaps="false"
-            android:background="@drawable/btn_grey"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="40dp"/>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_margin="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rent Collection"
-        android:textColor="@color/colourHINT"
-        android:layout_gravity="center"
-        />
-
-    <LinearLayout
-        android:padding="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        >
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
-            <TextView
-                android:layout_gravity="center"
-                android:id="@+id/remaining_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rs 1000"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remaining rent"
-                android:textColor="@color/black"
-                />
-
-
-        </LinearLayout>
-        <Spinner
-            android:id="@+id/mode_of_remaining_amount"
-            android:textAllCaps="false"
-            android:background="@drawable/btn_grey"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="3"
-            android:layout_width="0dp"
-            android:layout_height="40dp"/>
-
-    </LinearLayout>
-    <TextView
-        android:layout_margin="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Deposit Collection"
-        android:textColor="@color/colourHINT"
-        android:layout_gravity="center"
-        />
-
-    <LinearLayout
-        android:padding="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-                tools:ignore="RtlHardcoded">
-                <TextView
-                    android:layout_gravity="center"
-                    android:id="@+id/amount_in_wallet"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rs 1000"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Amount in wallet"
-                    android:textColor="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_weight="2"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Deposit collected at store"
-                    android:textColor="@color/black"
-                    android:gravity="center"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="wrap_content">
-                    <CheckBox
-                        android:id="@+id/yes"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"/>
                     <TextView
+                        android:id="@+id/dl_no"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Yes"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:drawableRight="@drawable/green_tick"
+                        android:text="DL Number"
                         android:textColor="@color/black"
-                        />
+                        android:textStyle="bold" />
 
-                    <CheckBox
+                    <TextView
+                        android:id="@+id/aadhaar_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:id="@+id/no"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"/>
+                        android:layout_weight="1"
+                        android:drawableRight="@drawable/green_tick"
+                        android:text="Aadhaar Number"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Driving License"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/dl_image"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="15dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/dl_download"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/download" />
+
+                                <ImageView
+                                    android:id="@+id/dl_upload"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/upload" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aadhaar Front"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/af_image"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="15dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/af_download"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/download" />
+
+                                <ImageView
+                                    android:id="@+id/af_upload"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/upload" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Aadhaar Back"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/ab_image"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="15dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ab_download"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/download" />
+
+                                <ImageView
+                                    android:id="@+id/ab_upload"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/upload" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PAN/Office ID"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/pan_image"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="15dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/pan_download"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/download" />
+
+                                <ImageView
+                                    android:id="@+id/pan_upload"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/upload" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="7dp"
+                android:text="Bike Details"
+                android:textColor="@color/colourHINT" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="horizontal"
+                android:padding="7dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/bike_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="left|center" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
                     <TextView
+                        android:id="@+id/bike_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="No"
+                        android:layout_gravity="center"
+                        android:text="Activa 6g"
                         android:textColor="@color/black"
-                        />
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/bike_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="UP65A4567"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
                 </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingRight="7dp"
-                tools:ignore="RtlHardcoded">
-                <TextView
-                    android:layout_gravity="center"
-                    android:id="@+id/security_deposit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rs 1000"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Security Deposit"
-                    android:textColor="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_weight="2"
-                android:orientation="horizontal"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:layout_margin="5dp"
-                    android:id="@+id/amount_collected"
-                    android:hint="Amount collected"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
 
                 <Spinner
-                    android:layout_margin="5dp"
-                    android:gravity="center"
-                    android:id="@+id/mode_of_collection_deposit"
-                    android:textAllCaps="false"
+                    android:id="@+id/change_bike"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
                     android:background="@drawable/btn_grey"
+                    android:gravity="center"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="7dp"
+                android:text="Rent Collection"
+                android:textColor="@color/colourHINT" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="horizontal"
+                android:padding="7dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/remaining_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Rs 1000"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Remaining rent"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/mode_of_remaining_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_weight="3"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
+                    android:background="@drawable/btn_grey"
+                    android:gravity="center"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="7dp"
+                android:text="Deposit Collection"
+                android:textColor="@color/colourHINT" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="vertical"
+                android:padding="7dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingRight="7dp"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/amount_in_wallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Rs 1000"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Amount in wallet"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Deposit collected at store"
+                            android:textColor="@color/black" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center">
+
+                            <CheckBox
+                                android:id="@+id/yes"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textColor="@color/black" />
+
+                            <CheckBox
+                                android:id="@+id/no"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="10dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textColor="@color/black" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingRight="7dp"
+                        tools:ignore="RtlHardcoded">
+
+                        <TextView
+                            android:id="@+id/security_deposit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Rs 1000"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Security Deposit"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/amount_collected"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_weight="3"
+                            android:background="@drawable/btn_grey"
+                            android:gravity="center"
+                            android:hint="Amount collected"
+                            android:textAllCaps="false" />
+
+                        <Spinner
+                            android:id="@+id/mode_of_collection_deposit"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_weight="3"
+                            android:background="@drawable/btn_grey"
+                            android:gravity="center"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
 
-    <TextView
-        android:layout_margin="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Readings"
-        android:textColor="@color/colourHINT"
-        android:layout_gravity="center"
-        />
-
-    <LinearLayout
-        android:padding="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        >
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
             <TextView
-                android:padding="7dp"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fuel meter reading"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                />
-            <Spinner
-
-                android:id="@+id/fuel_meter_reading"
-                android:textAllCaps="false"
-                android:background="@drawable/btn_grey"
                 android:layout_gravity="center"
-                android:gravity="center"
+                android:layout_margin="7dp"
+                android:text="Readings"
+                android:textColor="@color/colourHINT" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
-            <TextView
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="horizontal"
                 android:padding="7dp"
-                android:layout_gravity="center"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="7dp"
+                        android:text="Fuel meter reading"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+
+                        android:id="@+id/fuel_meter_reading"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="7dp"
+                        android:text="KM reading"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/km_reading"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="vertical"
+                android:padding="7dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Number of helmets"
+                        android:textColor="@color/black" />
+
+                    <Spinner
+                        android:id="@+id/no_of_helmets"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="ID collected"
+                        android:textColor="@color/black" />
+
+                    <Spinner
+                        android:id="@+id/id_collected"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Purpose"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/purpose"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingRight="7dp"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="7dp"
+                        android:text="Destination"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/destination"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:textAllCaps="false" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="KM reading"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                />
-            <EditText
-                android:gravity="center"
-                android:id="@+id/km_reading"
-                android:textAllCaps="false"
-                android:background="@drawable/btn_grey"
                 android:layout_gravity="center"
+                android:layout_margin="7dp"
+                android:text="Vehicle images"
+                android:textColor="@color/colourHINT" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"/>
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:padding="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        >
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
-            <TextView
-                android:layout_weight="1"
-                android:padding="7dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Number of helmets"
-                android:textColor="@color/black"
-                />
-            <Spinner
-                android:layout_weight="1"
-                android:id="@+id/no_of_helmets"
-                android:textAllCaps="false"
-                android:background="@drawable/btn_grey"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="40dp"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
-            <TextView
-                android:layout_weight="1"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="vertical"
                 android:padding="7dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="ID collected"
-                android:textColor="@color/black"
-                />
-            <Spinner
-                android:layout_weight="1"
-                android:id="@+id/id_collected"
-                android:textAllCaps="false"
-                android:background="@drawable/btn_grey"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="40dp"/>
-        </LinearLayout>
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Left"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/left"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Right"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/right"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Front"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/front"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Back"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/back"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Feul meter"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/feul_meter"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="With customer"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/with_customer"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
             <TextView
-                android:layout_weight="1"
-                android:padding="7dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Purpose"
-                android:textColor="@color/black"
-                />
-            <EditText
-                android:layout_weight="1"
-                android:id="@+id/purpose"
-                android:textAllCaps="false"
-                android:background="@drawable/btn_grey"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="40dp"/>
+                android:layout_margin="7dp"
+                android:text="Helmet images"
+                android:textColor="@color/colourHINT" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dp"
+                android:orientation="vertical"
+                android:padding="7dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Top"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/h1_top"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Bottom"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/h1_bottom"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Top"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/h2_top"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Bottom"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/h2_bottom"
+
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="left"
+                            android:background="@color/colourHINT" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="40dp"
+                android:background="@drawable/btn_grey"
+                android:text="Submit"
+                android:textAllCaps="false" />
+
+
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingRight="7dp"
-            tools:ignore="RtlHardcoded">
-            <TextView
-                android:layout_weight="1"
-                android:padding="7dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Destination"
-                android:textColor="@color/black"
-                />
-            <EditText
-                android:layout_weight="1"
-                android:id="@+id/destination"
-                android:textAllCaps="false"
-                android:background="@drawable/btn_grey"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_height="40dp"/>
-        </LinearLayout>
+            android:layout_centerInParent="true"
 
 
-    </LinearLayout>
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <TextView
-        android:layout_margin="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vehicle images"
-        android:textColor="@color/colourHINT"
-        android:layout_gravity="center"
-        />
-
-    <LinearLayout
-        android:padding="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/white"
-        android:orientation="vertical">
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Left"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView
-                   android:background="@color/colourHINT"
-                   android:layout_gravity="center"
-                   android:id="@+id/left"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Right"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="center"
-                   android:id="@+id/right"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Front"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="center"
-                   android:id="@+id/front"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-       </LinearLayout>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Back"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="center"
-                   android:id="@+id/back"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Feul meter"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="center"
-                   android:id="@+id/feul_meter"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="With customer"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="center"
-                   android:id="@+id/with_customer"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-       </LinearLayout>
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_margin="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Helmet images"
-        android:textColor="@color/colourHINT"
-        android:layout_gravity="center"
-        />
-
-    <LinearLayout
-        android:padding="7dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:elevation="5dp"
-        android:background="@color/white"
-        android:orientation="vertical">
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Top"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView
-                   android:background="@color/colourHINT"
-                   android:layout_gravity="center"
-                   android:id="@+id/h1_top"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Bottom"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="center"
-                   android:id="@+id/h1_bottom"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-           <LinearLayout
-               android:layout_weight="1"
-               android:orientation="vertical"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Top"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="center"
-                   android:id="@+id/h2_top"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-       </LinearLayout>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <LinearLayout
-               android:layout_marginLeft="15dp"
-               android:orientation="vertical"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center"
-                   android:text="Bottom"
-                   android:textColor="@color/black"
-                   android:gravity="center"
-                   />
-               <ImageView                   android:background="@color/colourHINT"
-
-                   android:layout_gravity="left"
-                   android:id="@+id/h2_bottom"
-                   android:layout_width="100dp"
-                   android:layout_height="100dp"/>
-           </LinearLayout>
-       </LinearLayout>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:text="Submit"
-        android:textAllCaps="false"
-        android:background="@drawable/btn_grey"
-        />
-
-    </LinearLayout>
-</ScrollView>
+   </ScrollView>
