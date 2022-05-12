@@ -730,6 +730,7 @@
                                 android:layout_weight="3"
                                 android:background="@drawable/btn_grey"
                                 android:gravity="center"
+                                android:inputType="number"
                                 android:hint="Amount collected"
                                 android:textAllCaps="false" />
 
@@ -823,6 +824,8 @@
                             android:layout_gravity="center"
                             android:background="@drawable/btn_grey"
                             android:gravity="center"
+                            android:inputType="number
+"
                             android:textAllCaps="false" />
 
 
@@ -1266,6 +1269,7 @@
         </ScrollView>
 
         <ProgressBar
+            android:id="@+id/pb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -1273,7 +1277,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

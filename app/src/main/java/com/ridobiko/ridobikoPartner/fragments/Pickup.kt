@@ -1,8 +1,6 @@
 package com.ridobiko.ridobikoPartner.fragments
 
 import android.app.Activity
-import android.content.ContentResolver
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -10,7 +8,6 @@ import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Base64
-import android.util.JsonReader
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,13 +18,14 @@ import android.widget.Toast
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
-import com.ridobiko.ridobikoPartner.activities.BookingActivity
+import com.ridobiko.ridobikoPartner.activities.TodaysPickups
 import com.ridobiko.ridobikoPartner.api.API
+import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentPickupBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.BikesResponseModel
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel
-import okhttp3.ResponseBody
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,7 +35,7 @@ import java.io.InputStream
 
 class Pickup : Fragment() {
     lateinit var binding: FragmentPickupBinding
-    lateinit var model:BookingResponseModel
+    lateinit var selectedBooking:BookingResponseModel
     lateinit var customerAdhaarFront:Uri
     lateinit var customerAdhaarBack:Uri
     lateinit var customerDriving:Uri
@@ -59,13 +57,17 @@ class Pickup : Fragment() {
         // Inflate the layout for this fragment
         binding=FragmentPickupBinding.inflate(inflater,container,false)
         binding.showDropDown.tag = R.drawable.drop_down
-        model=AppVendor.selectedBooking
-        API.get().getAvailableBikes(model.vendor_email_id).enqueue(object:Callback<ApiResponseModel<ArrayList<BikesResponseModel>>> {
+        selectedBooking=AppVendor.selectedBooking
+        binding.pickupStatus.setText(selectedBooking.pickup)
+        Picasso.get().load(selectedBooking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
+
+
+        API.get().getAvailableBikes(selectedBooking.vendor_email_id).enqueue(object:Callback<ApiResponseModel<ArrayList<BikesResponseModel>>> {
             override fun onResponse(
                 call: Call<ApiResponseModel<ArrayList<BikesResponseModel>>>,
                 response: Response<ApiResponseModel<ArrayList<BikesResponseModel>>>
             ) {
-                var list= mutableListOf<String>(model.bike_name+" | "+model.bikes_id)
+                var list= mutableListOf<String>(selectedBooking.bike_name+" | "+selectedBooking.bikes_id)
                for (i in  response.body()?.data!!) {
                     list.add(i.bike_name+" | "+i.bike_id)
                }
@@ -95,6 +97,8 @@ class Pickup : Fragment() {
             }
         }
         binding.submit.setOnClickListener{
+            binding.pb.visibility=View.VISIBLE
+
             submitData()
         }
         binding.modeOfRemainingAmount.adapter=ArrayAdapter<String>(requireContext(),R.layout.support_simple_spinner_dropdown_item,
@@ -155,30 +159,41 @@ class Pickup : Fragment() {
     }
 
     private fun submitData() {
-        API.get().submitPickup(model.trans_id,model.drop_date,model.bikes_id,model.bookedon,model.status,binding.remainingAmount.text.toString()
+        API.get().submitPickup(selectedBooking.trans_id,selectedBooking.drop_date,selectedBooking.bikes_id,selectedBooking.bookedon,selectedBooking.status,binding.remainingAmount.text.toString()
             ,binding.modeOfRemainingAmount.selectedItem.toString(),binding.amountCollected.text.toString(),binding.modeOfCollectionDeposit.selectedItem.toString(),
-            binding.noOfHelmets.selectedItem.toString(),binding.kmReading.text.toString(),binding.fuelMeterReading.selectedItem.toString(),binding.destination.text.toString(),binding.purpose.text.toString(),binding.idCollected.selectedItem.toString(),if(binding.changeBike.selectedItemPosition==0) "0" else "1",binding.changeBike.selectedItem.toString().split(" | ")[1],if(model.current_address_city.isNullOrEmpty())"city" else model.current_address_city)
+            binding.noOfHelmets.selectedItem.toString(),binding.kmReading.text.toString(),binding.fuelMeterReading.selectedItem.toString(),binding.destination.text.toString(),binding.purpose.text.toString(),binding.idCollected.selectedItem.toString(),if(binding.changeBike.selectedItemPosition==0) "0" else "1",binding.changeBike.selectedItem.toString().split(" | ")[1],if(selectedBooking.current_address_city.isNullOrEmpty())"city" else selectedBooking.current_address_city)
             .enqueue(object : Callback<ApiResponseModel<String>>{
+
                 override fun onResponse(
+
                     call: Call<ApiResponseModel<String>>,
                     response: Response<ApiResponseModel<String>>
                 ) {
-                    if(response.body()?.success.equals("1"))
-                    Toast.makeText(requireContext(),"Pickup done",Toast.LENGTH_SHORT).show()
-                    doAsync {
-                        uploadImages()
-                    }.execute()
-
+                    binding.pb.visibility=View.GONE
+                    if(response.isSuccessful) {
+                        if (response.body()?.success.equals(Constants.SUCCESS))
+                            Toast.makeText(requireContext(), "Pickup done", Toast.LENGTH_SHORT)
+                                .show()
+                        doAsync {
+                            uploadImages()
+                        }.execute()
+                        requireActivity().startActivity(Intent(requireContext(),TodaysPickups::class.java))
+                        requireActivity().finish()
+                    }
                 }
 
                 override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
+                    binding.pb.visibility=View.GONE
+
+                    Toast.makeText(requireContext(), Constants.WENT_WRONG, Toast.LENGTH_SHORT).show()
+
                 }
 
             })
     }
 
     private fun uploadImages() {
-        API.get().uploadPickupImages(model.trans_id,model.bikes_id,photoConvert(customerAdhaarFront),photoConvert(customerAdhaarBack),
+        API.get().uploadPickupImages(selectedBooking.trans_id,selectedBooking.bikes_id,photoConvert(customerAdhaarFront),photoConvert(customerAdhaarBack),
             photoConvert(customerDriving),photoConvert(customerOfficeId),photoConvert(bikeLeft),photoConvert(bikeRight),photoConvert(bikeFront),photoConvert(bikeBack),
             photoConvert(bikeCustomer),photoConvert(bikeFuel),photoConvert(helmet_front_1),photoConvert(helmet_back_1),photoConvert(helmet_front_2),photoConvert(helmet_back_2)).enqueue(object:Callback<ApiResponseModel<String>>{
             override fun onResponse(

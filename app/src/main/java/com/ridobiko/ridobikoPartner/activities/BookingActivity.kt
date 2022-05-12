@@ -19,16 +19,14 @@ class BookingActivity : AppCompatActivity() {
         binding = ActivityBookingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         booking=AppVendor.selectedBooking
-        binding.title.text=booking.trans_id
+       supportActionBar?.title=booking.trans_id
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = binding.viewPager
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
         tabs.setupWithViewPager(viewPager)
 
-        binding.navBack.setOnClickListener{
-            finish()
-        }
+
     }
 
 }

@@ -23,7 +23,7 @@ class TodaysPickups : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityTodaysPickupsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.title="Today's Pickups"
 
 
         API.get()

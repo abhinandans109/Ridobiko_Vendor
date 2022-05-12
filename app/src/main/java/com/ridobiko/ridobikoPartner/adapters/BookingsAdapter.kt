@@ -3,6 +3,7 @@ package com.ridobiko.ridobikoPartner.adapters
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,47 +45,59 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val model=list[position]
-        holder.orderId.text="#"+model.trans_id
-        holder.dateRange.text=model.pickup_date.split(" ")[0]+" - "+model.drop_date.split(" ")[0]
-        holder.name.text=model.customer_name
-        holder.status.text=model.admin_status
-        holder.totalRent.text="Rs "+model.rent
-        holder.bikeName.text=model.bike_name
-        holder.pickup.text=model.pickup
-        holder.drop.text=model.drop
-        holder.rentPaid.text="Rs "+model.amount_paid
-        holder.rentRemaining.text="Rs "+model.amount_left
-        holder.securityDeposit.text="Rs "+model.security_deposit
-        holder.documentUploadStatus.text = if(!model.image_aadhar_front.isNullOrEmpty()) {
+        val model = list[position]
+        holder.orderId.text = "#" + model.trans_id
+        holder.dateRange.text =
+            model.pickup_date.split(" ")[0] + " - " + model.drop_date.split(" ")[0]
+        holder.name.text = model.customer_name
+        if (model.admin_status=="pending")
+            holder.status.setTextColor(Color.parseColor("#FFCC0000"))
+        holder.status.text = model.admin_status
+        holder.totalRent.text = "Rs " + model.rent
+        holder.bikeName.text = model.bike_name
+        if (model.pickup=="Done")
+        holder.pickup.setTextColor(Color.parseColor("#4CAF50"))
+        if (model.drop=="Done")
+        holder.drop.setTextColor(Color.parseColor("#4CAF50"))
+
+        holder.pickup.text = model.pickup
+
+        holder.drop.text = model.drop
+        holder.rentPaid.text = "Rs " + model.amount_paid
+        holder.rentRemaining.text = "Rs " + model.amount_left
+        holder.securityDeposit.text = "Rs " + model.security_deposit
+        holder.documentUploadStatus.text = if (!model.image_aadhar_front.isNullOrEmpty()) {
             "Done"
         } else {
             "Not Done"
         }
-        holder.documentVerificationStatus.text = if(model.aadhar_verified=="1") {
+        holder.documentVerificationStatus.text = if (model.aadhar_verified == "1") {
             "Done"
         } else {
             "Not Done"
         }
         holder.showDropDownButton.tag = R.drawable.drop_down
-        holder.showDropDownButton.setOnClickListener{
-            if(holder.showDropDownButton.tag==R.drawable.drop_down) {
+        holder.showDropDownButton.setOnClickListener {
+            if (holder.showDropDownButton.tag == R.drawable.drop_down) {
                 holder.dropdown.visibility = View.VISIBLE
                 holder.showDropDownButton.setImageResource(R.drawable.drop_up)
                 holder.showDropDownButton.tag = R.drawable.drop_up
 
-            }else{
+            } else {
                 holder.dropdown.visibility = View.GONE
                 holder.showDropDownButton.setImageResource(R.drawable.drop_down)
                 holder.showDropDownButton.tag = R.drawable.drop_down
             }
         }
-        holder.itemView.setOnClickListener{
-            AppVendor.selectedBooking=list[position]
-            context.startActivity(Intent(context,BookingActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        holder.itemView.setOnClickListener {
+            AppVendor.selectedBooking = list[position]
+            context.startActivity(
+                Intent(
+                    context,
+                    BookingActivity::class.java
+                ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
         }
-
-
     }
 
     override fun getItemCount(): Int {

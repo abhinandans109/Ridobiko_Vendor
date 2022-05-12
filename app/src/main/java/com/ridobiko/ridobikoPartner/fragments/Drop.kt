@@ -16,7 +16,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
+import com.ridobiko.ridobikoPartner.activities.TodaysPickups
 import com.ridobiko.ridobikoPartner.api.API
+import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentDropBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel
@@ -42,15 +44,19 @@ class Drop : Fragment() {
     ): View? {
         binding = FragmentDropBinding.inflate(inflater, container, false)
         selectedBooking = AppVendor.selectedBooking
+        //drop status
+        binding.dropStatus.setText(selectedBooking.drop)
+
+
         // Inflate the layout for this fragment
         if (selectedBooking.pickup != "Not Done") {
             binding.pickupNotDone.visibility = View.VISIBLE
         } else {
             binding.pickupDone.visibility = View.VISIBLE
         }
-        binding.helmetsAtPickup.hint = selectedBooking.no_of_helmets
-        binding.fuelAtPickup.hint = selectedBooking.fuel_pickup
-        binding.kmReadingPickup.hint = selectedBooking.KM_meter_pickup
+        binding.helmetsAtPickup.hint = "On Pickup "+selectedBooking.no_of_helmets
+        binding.fuelAtPickup.hint =  "On Pickup "+selectedBooking.fuel_pickup
+        binding.kmReadingPickup.hint =  "On Pickup "+selectedBooking.KM_meter_pickup
 
         //checkbox
         binding.fuelYes.setOnClickListener{
@@ -237,6 +243,7 @@ class Drop : Fragment() {
             }
         }
         binding.submit.setOnClickListener{
+            binding.pb.visibility=View.VISIBLE
 
             //editText errors
             if (binding.helmetsAtPickup.text.isNullOrEmpty()){
@@ -294,14 +301,25 @@ class Drop : Fragment() {
                     override fun onResponse(
                         call: Call<ApiResponseModel<String>>,
                         response: Response<ApiResponseModel<String>>
-                    ) {
-                        doAsync {
-                            uploadImages()
-                        }.execute()
+                    )
 
+                    {
+                        binding.pb.visibility=View.GONE
+                        if(response.isSuccessful) {
+                            if (response.body()?.success.equals(Constants.SUCCESS))
+                                Toast.makeText(requireContext(), "Pickup done", Toast.LENGTH_SHORT)
+                                    .show()
+                            Pickup.doAsync {
+                                uploadImages()
+                            }.execute()
+                            requireActivity().startActivity(Intent(requireContext(), TodaysPickups::class.java))
+                            requireActivity().finish()
+                        }
                     }
 
                     override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
+                        binding.pb.visibility=View.GONE
+                        Toast.makeText(requireContext(), Constants.WENT_WRONG, Toast.LENGTH_SHORT).show()
 
                     }
 

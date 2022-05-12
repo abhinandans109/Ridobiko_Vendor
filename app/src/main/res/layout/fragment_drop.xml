@@ -1,818 +1,850 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".fragments.Drop">
-    <LinearLayout
-        android:layout_margin="5dp"
-
-        android:orientation="vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/pickup_done"
-        android:visibility="visible"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:gravity="right"
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Drop status: "
-                android:textColor="@color/black"
-                />
-            <TextView
-                android:id="@+id/drop_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Not Done"
-                android:textColor="@android:color/holo_green_dark"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-           <TextView
-               android:layout_gravity="center"
-               android:layout_weight="1"
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               android:text="No of helmets collected"
-               android:textStyle="bold"
-               android:textColor="@color/black"
-               android:layout_marginRight="5dp"
-               />
-            <EditText
-            android:textSize="15sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:id="@+id/helmets_at_pickup"
-                android:textAllCaps="false"
-                android:background="@drawable/btn_grey"
-                android:layout_gravity="center"
-                android:hint="No of helmets at pickup"
-                android:layout_width="0dp"
-                android:layout_height="40dp"/>
-        </LinearLayout>
-
-        <TextView
-            android:layout_margin="7dp"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fuel charges"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            />
-
-      <LinearLayout
-          android:background="@color/white"
-          android:orientation="vertical"
-          android:elevation="5dp"
-          android:padding="7dp"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-          <LinearLayout
-              android:layout_margin="5dp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-              <TextView
-                  android:layout_gravity="center"
-                  android:layout_weight="1"
-                  android:layout_width="0dp"
-                  android:layout_height="wrap_content"
-                  android:text="Fuel meter reading"
-                  android:textStyle="bold"
-                  android:textColor="@color/black"
-                  android:layout_marginRight="5dp"
-                  />
-              <EditText android:textSize="15sp"
-                  android:layout_weight="1"
-                  android:gravity="center"
-                  android:id="@+id/fuel_at_pickup"
-                  android:textAllCaps="false"
-                  android:inputType="number"
-                  android:background="@drawable/btn_grey"
-                  android:layout_gravity="center"
-                  android:hint="Fuel meter at pickup"
-                  android:layout_width="0dp"
-                  android:layout_height="40dp"/>
-          </LinearLayout>
-
-          <LinearLayout
-              android:layout_margin="5dp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-              <TextView
-                  android:layout_gravity="center"
-                  android:layout_weight="1"
-                  android:layout_width="0dp"
-                  android:layout_height="wrap_content"
-                  android:text="Fuel charge"
-                  android:textStyle="bold"
-                  android:textColor="@color/black"
-                  android:layout_marginRight="5dp"
-                  />
-              <EditText android:textSize="15sp"
-                  android:layout_weight="1"
-                  android:inputType="none"
-                  android:gravity="center"
-                  android:id="@+id/fuel_charge"
-                  android:textAllCaps="false"
-                  android:background="@drawable/btn_grey_faded"
-                  android:layout_gravity="center"
-                  android:hint="Fuel charge"
-                  android:layout_width="0dp"
-                  android:layout_height="40dp"/>
-          </LinearLayout>
-
-          <LinearLayout
-              android:layout_margin="5dp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-              <Button
-                  android:id="@+id/calculate_fuel_cost"
-                  android:layout_gravity="center"
-                  android:layout_weight="1"
-                  android:layout_width="0dp"
-                  android:layout_height="wrap_content"
-                  android:text="Calculate"
-                  android:textAllCaps="false"
-                  android:textStyle="bold"
-                  android:backgroundTint="#2C2C2C"
-                  android:textColor="@color/white"
-                  android:layout_marginRight="5dp"
-                  />
-              <EditText android:textSize="15sp"
-                  android:layout_weight="1"
-                  android:inputType="none"
-                  android:gravity="center"
-                  android:id="@+id/fuel_cost"
-                  android:textAllCaps="false"
-                  android:background="@drawable/btn_grey_faded"
-                  android:layout_gravity="center"
-                  android:hint="Fuel cost"
-                  android:layout_width="0dp"
-                  android:layout_height="40dp"/>
-          </LinearLayout>
-
-          <LinearLayout
-              android:layout_margin="5dp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-              <TextView
-                  android:layout_gravity="center"
-                  android:layout_weight="1"
-                  android:layout_width="0dp"
-                  android:layout_height="wrap_content"
-                  android:text="Apply fuel charges"
-                  android:textStyle="bold"
-                  android:textColor="@color/black"
-                  android:layout_marginRight="5dp"
-                  />
-              <LinearLayout
-                  android:layout_weight="1"
-                  android:minHeight="40dp"
-                  android:layout_width="0dp"
-                  android:gravity="center"
-                  android:layout_height="wrap_content"
-                  >
-                  <TextView
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="Yes"
-                      android:textStyle="bold"
-                      android:textSize="16sp"
-                      android:textColor="@color/black"
-                      />
-                  <CheckBox
-                      android:id="@+id/fuel_yes"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      />
-                  <TextView
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:text="No"
-                      android:textStyle="bold"
-                      android:textSize="16sp"
-                      android:textColor="@color/black"
-                      />
-                  <CheckBox
-                      android:id="@+id/fuel_no"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      />
-              </LinearLayout>
-          </LinearLayout>
-      </LinearLayout>
-
-
-        <TextView
-            android:layout_margin="7dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="KM charges"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            />
-       <LinearLayout
-           android:background="@color/white"
-           android:orientation="vertical"
-           android:padding="7dp"
-           android:elevation="5dp"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <LinearLayout
-               android:layout_margin="5dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_gravity="center"
-                   android:layout_weight="1"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:text="KM reading"
-                   android:textStyle="bold"
-                   android:textColor="@color/black"
-                   android:layout_marginRight="5dp"
-                   />
-               <EditText android:textSize="15sp"
-                   android:layout_weight="1"
-                   android:gravity="center"
-                   android:id="@+id/km_reading_pickup"
-                   android:textAllCaps="false"
-                   android:background="@drawable/btn_grey"
-                   android:layout_gravity="center"
-                   android:hint="Km reading on pickup"
-                   android:layout_width="0dp"
-                   android:layout_height="40dp"/>
-           </LinearLayout>
-
-           <LinearLayout
-               android:layout_margin="5dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_gravity="center"
-                   android:layout_weight="1"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:text="Extra charge per KM"
-                   android:textStyle="bold"
-                   android:textColor="@color/black"
-                   android:layout_marginRight="5dp"
-                   />
-               <EditText android:textSize="15sp"
-                   android:layout_weight="1"
-                   android:inputType="none"
-                   android:gravity="center"
-                   android:id="@+id/extra_km_charge"
-                   android:textAllCaps="false"
-                   android:background="@drawable/btn_grey_faded"
-                   android:layout_gravity="center"
-                   android:hint="Extra charge per KM"
-                   android:layout_width="0dp"
-                   android:layout_height="40dp"/>
-           </LinearLayout>
-
-           <LinearLayout
-               android:layout_margin="5dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <Button
-                   android:id="@+id/calculate_km_cost"
-                   android:layout_gravity="center"
-                   android:layout_weight="1"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:text="Calculate"
-                   android:textAllCaps="false"
-                   android:textStyle="bold"
-                   android:backgroundTint="#2C2C2C"
-                   android:textColor="@color/white"
-                   android:layout_marginRight="5dp"
-                   />
-               <EditText android:textSize="15sp"
-                   android:layout_weight="1"
-                   android:inputType="none"
-                   android:gravity="center"
-                   android:id="@+id/km_cost"
-                   android:textAllCaps="false"
-                   android:background="@drawable/btn_grey_faded"
-                   android:layout_gravity="center"
-                   android:hint="KM Charges"
-                   android:layout_width="0dp"
-                   android:layout_height="40dp"/>
-           </LinearLayout>
-
-
-           <LinearLayout
-               android:layout_margin="5dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:layout_gravity="center"
-                   android:layout_weight="1"
-                   android:layout_width="0dp"
-                   android:layout_height="wrap_content"
-                   android:text="Apply KM charges"
-                   android:textStyle="bold"
-                   android:textColor="@color/black"
-                   android:layout_marginRight="5dp"
-                   />
-               <LinearLayout
-                   android:layout_weight="1"
-                   android:minHeight="40dp"
-                   android:layout_width="0dp"
-                   android:gravity="center"
-                   android:layout_height="wrap_content"
-                   >
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Yes"
-                       android:textStyle="bold"
-                       android:textSize="16sp"
-                       android:textColor="@color/black"
-                       />
-                   <CheckBox
-                       android:id="@+id/km_yes"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       />
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="No"
-                       android:textStyle="bold"
-                       android:textSize="16sp"
-                       android:textColor="@color/black"
-                       />
-                   <CheckBox
-                       android:id="@+id/km_no"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       />
-               </LinearLayout>
-           </LinearLayout>
-       </LinearLayout>
-
-        <TextView
-            android:layout_margin="7dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Maintenance charges"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            />
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:elevation="5dp"
-            android:padding="7dp"
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Approx maintenance cost"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="5dp"
-                    />
-                <EditText android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/maintainace_cost"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:hint="cost"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
-            </LinearLayout>
+            app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+            >
 
             <LinearLayout
                 android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Apply maintenance charges"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="5dp"
-                    />
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:minHeight="40dp"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Yes"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
-                        android:id="@+id/main_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
-                        android:id="@+id/main_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Maintenance details"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="5dp"
-                    />
-                <EditText android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:id="@+id/maintainace_details"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:hint="Details"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:minHeight="40dp"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            android:layout_margin="7dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vehicle images"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            />
-
-        <LinearLayout
-            android:padding="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            android:elevation="5dp"
-            android:background="@color/white"
-            android:orientation="vertical">
-            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
-                    android:layout_weight="1"
+                    android:id="@+id/pickup_done"
+                    android:visibility="visible"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Left"
-                        android:textColor="@color/black"
-                        android:gravity="center"
-                        />
-                    <ImageView
-                        android:background="@color/colourHINT"
-                        android:layout_gravity="center"
-                        android:id="@+id/left"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
+                        android:layout_height="31dp"
+                        android:gravity="right">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Drop status: "
+                            android:textColor="@color/black"
+                            />
+                        <TextView
+                            android:id="@+id/drop_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Not Done"
+                            android:textColor="@android:color/holo_green_dark"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Right"
-                        android:textColor="@color/black"
-                        android:gravity="center"
-                        />
-                    <ImageView                   android:background="@color/colourHINT"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="No of helmets collected"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_marginRight="5dp"
+                            />
+                        <EditText
+                            android:textSize="15sp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:id="@+id/helmets_at_pickup"
+                            android:textAllCaps="false"
+                            android:inputType="number"
+                            android:background="@drawable/btn_grey"
+                            android:layout_gravity="center"
+                            android:hint="No of helmets at pickup"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"/>
+                    </LinearLayout>
 
-                        android:layout_gravity="center"
-                        android:id="@+id/right"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Front"
-                        android:textColor="@color/black"
-                        android:gravity="center"
-                        />
-                    <ImageView                   android:background="@color/colourHINT"
-
-                        android:layout_gravity="center"
-                        android:id="@+id/front"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"/>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Back"
-                        android:textColor="@color/black"
-                        android:gravity="center"
-                        />
-                    <ImageView                   android:background="@color/colourHINT"
-
-                        android:layout_gravity="center"
-                        android:id="@+id/back"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Feul meter"
-                        android:textColor="@color/black"
-                        android:gravity="center"
-                        />
-                    <ImageView                   android:background="@color/colourHINT"
-
-                        android:layout_gravity="center"
-                        android:id="@+id/feul_meter"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_margin="7dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Other charges"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            />
-
-        <LinearLayout
-            android:elevation="5dp"
-            android:padding="7dp"
-            android:orientation="vertical"
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Vehicle conditions checked?"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="5dp"
-                    />
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:minHeight="40dp"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"
-                    >
-                    <TextView
+                        android:layout_margin="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Yes"
+                        android:text="Fuel charges"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        />
+
+                    <LinearLayout
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:elevation="5dp"
+                        android:padding="7dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Fuel meter reading"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:id="@+id/fuel_at_pickup"
+                                android:textAllCaps="false"
+                                android:inputType="number"
+                                android:background="@drawable/btn_grey"
+                                android:layout_gravity="center"
+                                android:hint="Fuel meter at pickup"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Fuel charge"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:inputType="none"
+                                android:gravity="center"
+                                android:id="@+id/fuel_charge"
+                                android:textAllCaps="false"
+                                android:background="@drawable/btn_grey_faded"
+                                android:layout_gravity="center"
+                                android:hint="Fuel charge"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <Button
+                                android:id="@+id/calculate_fuel_cost"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Calculate"
+                                android:textAllCaps="false"
+                                android:textStyle="bold"
+                                android:backgroundTint="#2C2C2C"
+                                android:textColor="@color/white"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:inputType="none"
+                                android:gravity="center"
+                                android:id="@+id/fuel_cost"
+                                android:textAllCaps="false"
+                                android:background="@drawable/btn_grey_faded"
+                                android:layout_gravity="center"
+                                android:hint="Fuel cost"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Apply fuel charges"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:minHeight="40dp"
+                                android:layout_width="0dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/fuel_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/fuel_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_margin="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KM charges"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        />
+                    <LinearLayout
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="7dp"
+                        android:elevation="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="KM reading"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:id="@+id/km_reading_pickup"
+                                android:textAllCaps="false"
+                                android:inputType="number"
+                                android:background="@drawable/btn_grey"
+                                android:layout_gravity="center"
+                                android:hint="Km reading on pickup"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Extra charge per KM"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:inputType="none"
+                                android:gravity="center"
+                                android:id="@+id/extra_km_charge"
+                                android:textAllCaps="false"
+                                android:background="@drawable/btn_grey_faded"
+                                android:layout_gravity="center"
+                                android:hint="Extra charge per KM"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <Button
+                                android:id="@+id/calculate_km_cost"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Calculate"
+                                android:textAllCaps="false"
+                                android:textStyle="bold"
+                                android:backgroundTint="#2C2C2C"
+                                android:textColor="@color/white"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:inputType="none"
+                                android:gravity="center"
+                                android:id="@+id/km_cost"
+                                android:textAllCaps="false"
+                                android:background="@drawable/btn_grey_faded"
+                                android:layout_gravity="center"
+                                android:hint="KM Charges"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Apply KM charges"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:minHeight="40dp"
+                                android:layout_width="0dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/km_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/km_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_margin="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Maintenance charges"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:elevation="5dp"
+                        android:padding="7dp"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Approx maintenance cost"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:id="@+id/maintainace_cost"
+                                android:textAllCaps="false"
+                                android:inputType="number"
+                                android:background="@drawable/btn_grey"
+                                android:layout_gravity="center"
+                                android:hint="cost"
+                                android:layout_width="0dp"
+                                android:layout_height="40dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Apply maintenance charges"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:minHeight="40dp"
+                                android:layout_width="0dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/main_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/main_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Maintenance details"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:layout_weight="1"
+                                android:padding="5dp"
+                                android:gravity="center"
+                                android:id="@+id/maintainace_details"
+                                android:textAllCaps="false"
+                                android:background="@drawable/btn_grey"
+                                android:layout_gravity="center"
+                                android:hint="Details"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:minHeight="40dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_margin="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vehicle images"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        />
+
+                    <LinearLayout
+                        android:padding="7dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:elevation="5dp"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Left"
+                                    android:textColor="@color/black"
+                                    android:gravity="center"
+                                    />
+                                <ImageView
+                                    android:background="@color/colourHINT"
+                                    android:layout_gravity="center"
+                                    android:id="@+id/left"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Right"
+                                    android:textColor="@color/black"
+                                    android:gravity="center"
+                                    />
+                                <ImageView                   android:background="@color/colourHINT"
+
+                                    android:layout_gravity="center"
+                                    android:id="@+id/right"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Front"
+                                    android:textColor="@color/black"
+                                    android:gravity="center"
+                                    />
+                                <ImageView                   android:background="@color/colourHINT"
+
+                                    android:layout_gravity="center"
+                                    android:id="@+id/front"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Back"
+                                    android:textColor="@color/black"
+                                    android:gravity="center"
+                                    />
+                                <ImageView                   android:background="@color/colourHINT"
+
+                                    android:layout_gravity="center"
+                                    android:id="@+id/back"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="Feul meter"
+                                    android:textColor="@color/black"
+                                    android:gravity="center"
+                                    />
+                                <ImageView                   android:background="@color/colourHINT"
+
+                                    android:layout_gravity="center"
+                                    android:id="@+id/feul_meter"
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_margin="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other charges"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        />
+
+                    <LinearLayout
+                        android:elevation="5dp"
+                        android:padding="7dp"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Vehicle conditions checked?"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:minHeight="40dp"
+                                android:layout_width="0dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/cond_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/cond_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Origional ID returned to customer?"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:minHeight="40dp"
+                                android:layout_width="0dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                >
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/id_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    />
+                                <CheckBox
+                                    android:id="@+id/id_no"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Vehicle collected by"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:id="@+id/collected_by"
+                                android:textAllCaps="false"
+                                android:background="@drawable/btn_grey"
+                                android:layout_gravity="center"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:minHeight="40dp"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Comment"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginRight="5dp"
+                                />
+                            <EditText android:textSize="15sp"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:id="@+id/comment"
+                                android:textAllCaps="false"
+                                android:background="@drawable/btn_grey"
+                                android:layout_gravity="center"
+                                android:hint="comment"
+                                android:layout_width="0dp"
+                                android:minHeight="40dp"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/submit"
+                        android:layout_margin="20dp"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Submit"
+                        android:textAllCaps="false"
                         android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
+                        android:backgroundTint="#2C2C2C"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="5dp"
                         />
-                    <CheckBox
-                        android:id="@+id/cond_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
-                        android:id="@+id/cond_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
+
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/pickup_not_done"
+                    android:visibility="gone"
+                    android:layout_margin="20dp"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Origional ID returned to customer?"
-                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
-                    android:layout_marginRight="5dp"
-                    />
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:minHeight="40dp"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Yes"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
-                        android:id="@+id/id_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
-                        android:id="@+id/id_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Vehicle collected by"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="5dp"
-                    />
-                <EditText
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/collected_by"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:minHeight="40dp"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Comment"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:layout_marginRight="5dp"
-                    />
-                <EditText android:textSize="15sp"
-                    android:padding="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/comment"
-                    android:textAllCaps="false"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:hint="comment"
-                    android:layout_width="0dp"
-                    android:minHeight="40dp"
+                    android:text="Complete Pickup first"
                     android:layout_height="wrap_content"/>
+
             </LinearLayout>
-        </LinearLayout>
+        </ScrollView>
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_margin="20dp"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:backgroundTint="#2C2C2C"
-            android:textColor="@color/white"
-            android:layout_marginRight="5dp"
-            />
-
-    </LinearLayout>
-        <TextView
-            android:id="@+id/pickup_not_done"
-            android:visibility="gone"
-            android:layout_margin="20dp"
-            android:layout_gravity="center"
+        <ProgressBar
+            android:id="@+id/pb"
             android:layout_width="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:text="Complete Pickup first"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
 
 
-</ScrollView>
+</LinearLayout>
