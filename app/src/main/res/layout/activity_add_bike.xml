@@ -54,6 +54,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
+
                         android:text="Select Brand" />
 
                     <Spinner
@@ -75,6 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
+
                         android:paddingBottom="5dp"
                         android:text="Select Bike"
                         android:textColor="#666666">
@@ -102,6 +104,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
+
                         android:text="Select Plate Type"
                         android:textColor="#666666"></TextView>
 
@@ -127,6 +130,7 @@
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
                         android:text="Select Model Year"
+
                         android:textColor="#666666">
 
                     </TextView>
@@ -151,6 +155,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
+
                         android:paddingBottom="5dp"
                         android:text="Bike Plate Number"
                         android:textColor="#666666">
@@ -187,6 +192,7 @@
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
                         android:text="Rent/Week day"
+
                         android:textColor="#666666">
 
                     </TextView>
@@ -218,14 +224,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
+                        android:text="Rent/ Weekend day
+"
                         android:paddingBottom="5dp"
-                        android:text="Rent/Weekend day"
+
                         android:textColor="#666666">
 
                     </TextView>
 
                     <EditText
                         android:id="@+id/weekend"
+
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
@@ -258,6 +267,7 @@
 
                     <EditText
                         android:id="@+id/hour"
+
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
@@ -284,6 +294,7 @@
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
                         android:text="Speed Limit"
+
                         android:textColor="#666666">
 
                     </TextView>
@@ -318,6 +329,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
+
                         android:text="KM Limit/Day"
                         android:textColor="#666666">
 
@@ -349,6 +361,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
+
                         android:paddingBottom="5dp"
                         android:text="KM Limit/Month"
                         android:textColor="#666666">
@@ -383,6 +396,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="5dp"
                         android:paddingBottom="5dp"
+
                         android:text="Additonal per KM charge"
                         android:textColor="#666666">
 

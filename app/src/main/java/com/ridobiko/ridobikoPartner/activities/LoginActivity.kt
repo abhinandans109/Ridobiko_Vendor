@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         if(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).contains(Constants.EMAIL)){
             startActivity(Intent(applicationContext,MainActivity::class.java))
+            finish()
         }
         binding.login.setOnClickListener{
             val email =binding.email.text.toString()

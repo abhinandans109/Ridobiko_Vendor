@@ -18,5 +18,8 @@ class MainActivity : AppCompatActivity() {
         binding.addBike.setOnClickListener {
             startActivity(Intent(applicationContext,AddBikeActivity::class.java))
         }
+        binding.bookings.setOnClickListener {
+            startActivity(Intent(applicationContext,MainBooking::class.java))
+        }
     }
 }
