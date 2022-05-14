@@ -62,6 +62,24 @@ class Pickup : Fragment() {
         Picasso.get().load(selectedBooking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
 
 
+        //not editable
+        selectedBooking.pickup="Done"
+
+        if (selectedBooking.pickup=="Done"){
+            binding.amountCollected.setFocusable(false)
+            binding.modeOfCollectionDeposit.setFocusable(false)
+            binding.changeBike.setFocusable(false)
+            binding.kmReading.setFocusable(false)
+            binding.fuelMeterReading.setFocusable(false)
+            binding.kmReading.setFocusable(false)
+            binding.noOfHelmets.setFocusable(false)
+            binding.idCollected.setFocusable(false)
+            binding.purpose.setFocusable(false)
+            binding.destination.setFocusable(false)
+        }
+
+
+
         API.get().getAvailableBikes(selectedBooking.vendor_email_id).enqueue(object:Callback<ApiResponseModel<ArrayList<BikesResponseModel>>> {
             override fun onResponse(
                 call: Call<ApiResponseModel<ArrayList<BikesResponseModel>>>,

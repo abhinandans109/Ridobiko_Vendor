@@ -47,6 +47,30 @@ class Drop : Fragment() {
         //drop status
         binding.dropStatus.setText(selectedBooking.drop)
 
+//not editable
+        selectedBooking.drop="Done"
+         if (selectedBooking.drop=="Done"){
+             binding.helmetsAtPickup.setFocusable(false)
+             binding.fuelCharge.setFocusable(false)
+             binding.fuelCost.setFocusable(false)
+             binding.fuelYes.setFocusable(false)
+             binding.fuelNo.setFocusable(false)
+             binding.kmReadingPickup.setFocusable(false)
+             binding.extraKmCharge.setFocusable(false)
+             binding.kmYes.setFocusable(false)
+             binding.kmNo.setFocusable(false)
+             binding.maintainaceCost.setFocusable(false)
+             binding.mainYes.setFocusable(false)
+             binding.mainNo.setFocusable(false)
+             binding.maintainaceDetails.setFocusable(false)
+             binding.condYes.setFocusable(false)
+             binding.condNo.setFocusable(false)
+             binding.idYes.setFocusable(false)
+             binding.idNo.setFocusable(false)
+             binding.collectedBy.setFocusable(false)
+             binding.comment.setFocusable(false)
+         }
+
 
         // Inflate the layout for this fragment
         if (selectedBooking.pickup != "Not Done") {
