@@ -24,5 +24,14 @@ class MainActivity : AppCompatActivity() {
         binding.myBikes.setOnClickListener {
             startActivity(Intent(applicationContext,MyBikeActivity::class.java))
         }
+        binding.todaysDropsCard.setOnClickListener {
+            startActivity(Intent(applicationContext,TodaysDrops::class.java))
+        }
+        binding.upcommingBookings.setOnClickListener {
+            startActivity(Intent(applicationContext,UpcommingBookings::class.java))
+        }
+        binding.allBookings.setOnClickListener {
+            startActivity(Intent(applicationContext,AllBookings::class.java))
+        }
     }
 }

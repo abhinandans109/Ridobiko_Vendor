@@ -620,7 +620,7 @@
                                 <ImageView                   android:background="@color/colourHINT"
 
                                     android:layout_gravity="center"
-                                    android:id="@+id/feul_meter"
+                                    android:id="@+id/fuel_meter"
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"/>
                             </LinearLayout>

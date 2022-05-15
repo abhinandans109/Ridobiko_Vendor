@@ -16,12 +16,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
+import com.ridobiko.ridobikoPartner.R
+import com.ridobiko.ridobikoPartner.activities.ImageViewerActivity
 import com.ridobiko.ridobikoPartner.activities.TodaysPickups
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentDropBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,11 +36,12 @@ class Drop : Fragment() {
     lateinit var binding: FragmentDropBinding;
     lateinit var selectedBooking: BookingResponseModel
 
-    lateinit var bikeLeft: Uri
-    lateinit var bikeRight: Uri
-    lateinit var bikeFront: Uri
-    lateinit var bikeBack: Uri
-    lateinit var bikeFuel: Uri
+     var bikeLeft: Uri?=null
+     var bikeRight: Uri?=null
+     var bikeFront: Uri?=null
+     var bikeBack: Uri?=null
+     var bikeFuel: Uri?=null
+    var BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,8 +74,7 @@ class Drop : Fragment() {
              binding.collectedBy.setFocusable(false)
              binding.comment.setFocusable(false)
          }
-
-
+        BASE_IMAGE+=selectedBooking.trans_id+"/"
         // Inflate the layout for this fragment
         if (selectedBooking.pickup != "Not Done") {
             binding.pickupNotDone.visibility = View.VISIBLE
@@ -134,25 +137,54 @@ class Drop : Fragment() {
             }
         }
 
-
-
+        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_left_drop).placeholder(R.drawable.bike_placeholder).into(binding.left)
+        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_back_drop).placeholder(R.drawable.bike_placeholder).into(binding.back)
+        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_right_drop).placeholder(R.drawable.bike_placeholder).into(binding.right)
+        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_front_drop).placeholder(R.drawable.bike_placeholder).into(binding.front)
+        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_fuel_meter_drop).placeholder(R.drawable.bike_placeholder).into(binding.fuelMeter)
 
 
 
         binding.left.setOnClickListener {
-            ImagePicker.with(this).start(5)
+            if(selectedBooking.drop=="Not Done")
+                ImagePicker.with(this).start(5)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.bike_left_drop))
+
         }
         binding.right.setOnClickListener {
-            ImagePicker.with(this).start(6)
+            if(selectedBooking.drop=="Not Done")
+                ImagePicker.with(this).start(6)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.bike_right_drop))
         }
         binding.front.setOnClickListener {
-            ImagePicker.with(this).start(7)
+            if(selectedBooking.drop=="Not Done")
+                ImagePicker.with(this).start(7)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.bike_front_drop))
         }
         binding.back.setOnClickListener {
-            ImagePicker.with(this).start(8)
+            if(selectedBooking.drop=="Not Done")
+                ImagePicker.with(this).start(8)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.bike_back_drop))
         }
-        binding.feulMeter.setOnClickListener {
-            ImagePicker.with(this).start(9)
+        binding.fuelMeter.setOnClickListener {
+            if(selectedBooking.drop=="Not Done")
+                ImagePicker.with(this).start(9)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.bike_fuel_meter_drop))
         }
 
 
@@ -336,7 +368,7 @@ class Drop : Fragment() {
                             Pickup.doAsync {
                                 uploadImages()
                             }.execute()
-                            requireActivity().startActivity(Intent(requireContext(), TodaysPickups::class.java))
+                            requireActivity().startActivity(Intent(requireContext(),TodaysPickups::class.java))
                             requireActivity().finish()
                         }
                     }
@@ -378,7 +410,7 @@ class Drop : Fragment() {
 
                 }
                 9 -> {
-                    binding.feulMeter.setImageURI(data!!.data)
+                    binding.fuelMeter.setImageURI(data!!.data)
                     bikeFuel=data.data!!
                 }
             }

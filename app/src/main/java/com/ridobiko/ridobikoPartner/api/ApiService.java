@@ -33,13 +33,28 @@ public interface ApiService {
             @Field("email") String email
     );
     @FormUrlEncoded
+    @POST("getTodaysDrops.php")
+    Call<ApiResponseModel<ArrayList<BookingResponseModel>>> getTodaysDrops(
+            @Field("email") String email
+    );
+    @FormUrlEncoded
+    @POST("getUpcommingsBookings.php")
+    Call<ApiResponseModel<ArrayList<BookingResponseModel>>> getUpcommingBookings(
+            @Field("email") String email
+    );
+    @FormUrlEncoded
+    @POST("getBookingsHistory.php")
+    Call<ApiResponseModel<ArrayList<BookingResponseModel>>> getAllBookings(
+            @Field("email") String email
+    );
+    @FormUrlEncoded
     @POST("BikeidFetchOnPickup.php")
     Call<ApiResponseModel<ArrayList<BikesResponseModel>>> getAvailableBikes(
             @Field("email") String email
     );
     @FormUrlEncoded
     @POST("imageUpload.php")
-    Call<ApiResponseModel<String>> uploadPickupImages(
+    Call<ResponseBody> uploadPickupImages(
             @Field("orderId") String orderId,
             @Field("bikeId") String bikeId,
             @Field("customerAdhaarFront") String customerAdhaarFront,

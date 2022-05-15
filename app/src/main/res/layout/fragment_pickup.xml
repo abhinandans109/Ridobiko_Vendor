@@ -724,13 +724,14 @@
                             <EditText
                                 android:id="@+id/amount_collected"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="40dp"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
                                 android:layout_weight="3"
                                 android:background="@drawable/btn_grey"
                                 android:gravity="center"
                                 android:inputType="number"
+                                android:textSize="14sp"
                                 android:hint="Amount collected"
                                 android:textAllCaps="false" />
 
