@@ -19,7 +19,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.activities.ImageViewerActivity
-import com.ridobiko.ridobikoPartner.activities.TodaysPickups
+import com.ridobiko.ridobikoPartner.activities.MainActivity
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentPickupBinding
@@ -39,20 +39,20 @@ import java.io.InputStream
 class Pickup : Fragment() {
     lateinit var binding: FragmentPickupBinding
     lateinit var selectedBooking:BookingResponseModel
-     var customerAdhaarFront:Uri?=null
-     var customerAdhaarBack:Uri?=null
-     var customerDriving:Uri?=null
-     var customerOfficeId:Uri?=null
-     var bikeLeft:Uri?=null
-     var bikeRight:Uri?=null
-     var bikeFront:Uri?=null
-     var bikeBack:Uri?=null
-     var bikeCustomer:Uri?=null
-     var bikeFuel:Uri?=null
-     var helmet_front_1:Uri?=null
-     var helmet_back_1:Uri?=null
-     var helmet_front_2:Uri?=null
-     var helmet_back_2:Uri?=null
+     var customerAdhaarFront:String?=null
+     var customerAdhaarBack:String?=null
+     var customerDriving:String?=null
+     var customerOfficeId:String?=null
+     var bikeLeft:String?=null
+     var bikeRight:String?=null
+     var bikeFront:String?=null
+     var bikeBack:String?=null
+     var bikeCustomer:String?=null
+     var bikeFuel:String?=null
+     var helmet_front_1:String?=null
+     var helmet_back_1:String?=null
+     var helmet_front_2:String?=null
+     var helmet_back_2:String?=null
      var BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,45 +67,50 @@ class Pickup : Fragment() {
         binding.securityDeposit.text = "Rs "+selectedBooking.security_deposit
         selectedBooking=AppVendor.selectedBooking
         binding.cusAddress.text=selectedBooking.customer_address
-        BASE_IMAGE+=selectedBooking.trans_id+"/"
+        BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+selectedBooking.trans_id+"/"
         binding.pickupStatus.setText(selectedBooking.pickup)
         if(selectedBooking.pictures==null) selectedBooking.pictures= Pictures()
         Picasso.get().load(selectedBooking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_back).placeholder(R.drawable.bike_placeholder).into(binding.back)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_front).placeholder(R.drawable.bike_placeholder).into(binding.front)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_right).placeholder(R.drawable.bike_placeholder).into(binding.right)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_left).placeholder(R.drawable.bike_placeholder).into(binding.left)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.customer_driving).placeholder(R.drawable.bike_placeholder).into(binding.dlImage)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.customer_aadhar_front).placeholder(R.drawable.bike_placeholder).into(binding.afImage)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.customer_aadhar_back).placeholder(R.drawable.bike_placeholder).into(binding.abImage)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.customer_office_id).placeholder(R.drawable.bike_placeholder).into(binding.panImage)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_fuel_meter).placeholder(R.drawable.bike_placeholder).into(binding.feulMeter)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.bike_with_customer).placeholder(R.drawable.bike_placeholder).into(binding.withCustomer)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.helmet_front_1).placeholder(R.drawable.bike_placeholder).into(binding.h1Top)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.helmet_front_2).placeholder(R.drawable.bike_placeholder).into(binding.h2Top)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.helmet_back_1).placeholder(R.drawable.bike_placeholder).into(binding.h1Bottom)
-        Picasso.get().load(BASE_IMAGE+selectedBooking.pictures.helmet_back_2).placeholder(R.drawable.bike_placeholder).into(binding.h2Bottom)
 
-
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_back).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.back)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_front).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.front)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_right).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.right)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_left).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.left)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_driving).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.dlImage)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_aadhar_front).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.afImage)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_aadhar_back).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.abImage)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_office_id).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.panImage)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_fuel_meter).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.feulMeter)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_with_customer).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.withCustomer)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_front_1).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h1Top)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_front_2).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h2Top)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_back_1).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h1Bottom)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_back_2).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h2Bottom)
 
         //not editable
 //        selectedBooking.pickup="Done"
-
-        if (selectedBooking.pickup=="Done"){
-            binding.amountCollected.isEnabled = false
-            binding.modeOfCollectionDeposit.isEnabled = false
-            binding.modeOfRemainingAmount.isEnabled = false
-            binding.changeBike.isEnabled = false
-            binding.fuelMeterReading.isEnabled = false
-            binding.kmReading.isEnabled = false
-            binding.noOfHelmets.isEnabled = false
-            binding.idCollected.isEnabled = false
-            binding.purpose.isEnabled = false
-            binding.destination.isEnabled = false
-            binding.yes.isEnabled = false
-            binding.no.isEnabled = false
-            binding.submit.isEnabled = false
+        binding.yes.setOnClickListener {
+            if(binding.no.isChecked)binding.no.toggle()
         }
+        binding.no.setOnClickListener {
+            if(binding.yes.isChecked)binding.yes.toggle()
+        }
+
+
 
 
 
@@ -148,16 +153,39 @@ class Pickup : Fragment() {
 //            uploadImages()
             submitData()
         }
-        binding.modeOfRemainingAmount.adapter=ArrayAdapter<String>(requireContext(),R.layout.support_simple_spinner_dropdown_item,
+        binding.modeOfRemainingAmount.adapter = ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
             mutableListOf("Mode Of Payment","Cash","UPI","Card","Direct Bank Transfer"))
-        binding.idCollected.adapter=ArrayAdapter<String>(requireContext(),R.layout.support_simple_spinner_dropdown_item,
+        binding.idCollected.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
             mutableListOf("Aadhaar card","PAN Card","Voter ID"))
-        binding.modeOfCollectionDeposit.adapter=ArrayAdapter<String>(requireContext(),R.layout.support_simple_spinner_dropdown_item,
+        binding.modeOfCollectionDeposit.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
             mutableListOf("Mode Of Payment","Cash","UPI","Card","Direct Bank Transfer"))
-        binding.fuelMeterReading.adapter=ArrayAdapter<String>(requireContext(),R.layout.support_simple_spinner_dropdown_item,
+        binding.fuelMeterReading.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
             mutableListOf("1","2","3","4","5","6","7","8","9","10"))
-        binding.noOfHelmets.adapter=ArrayAdapter<String>(requireContext(),R.layout.support_simple_spinner_dropdown_item,
+        binding.noOfHelmets.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
             mutableListOf("1","2"))
+
+        if (selectedBooking.pickup=="Done"){
+            binding.amountCollected.setText(selectedBooking.amount_paid)
+//            binding.fuelMeterReading.setSelection(selectedBooking.fuel_tank.toInt()-1)
+//            binding.noOfHelmets.setSelection(selectedBooking.no_of_helmets.toInt()-1)
+            binding.kmReading.setText(selectedBooking.KM_meter_pickup)
+
+
+            binding.amountCollected.isEnabled = false
+            binding.modeOfCollectionDeposit.isEnabled = false
+            binding.modeOfRemainingAmount.isEnabled = false
+            binding.changeBike.isEnabled = false
+            binding.fuelMeterReading.isEnabled = false
+            binding.kmReading.isEnabled = false
+            binding.noOfHelmets.isEnabled = false
+            binding.idCollected.isEnabled = false
+            binding.purpose.isEnabled = false
+            binding.destination.isEnabled = false
+            binding.yes.isEnabled = false
+            binding.no.isEnabled = false
+            binding.submit.isEnabled = false
+
+        }
 
         binding.abImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
@@ -311,11 +339,26 @@ class Pickup : Fragment() {
                         if (response.body()?.success.equals(Constants.SUCCESS))
                             Toast.makeText(requireContext(), "Pickup done", Toast.LENGTH_SHORT)
                                 .show()
-                        doAsync {
+//                        doAsync {
+                            Thread{
                             uploadImages()
-                        }.execute()
-                        requireActivity().startActivity(Intent(requireContext(),TodaysPickups::class.java))
-                        requireActivity().finish()
+                            }.start()
+//                        }.execute()
+                        requireActivity().runOnUiThread {
+                            requireActivity().startActivity(
+                                Intent(
+                                    requireContext(),
+                                    MainActivity::class.java
+                                )
+                            )
+                            Toast.makeText(context, "Pickup Done", Toast.LENGTH_SHORT).show()
+                            requireActivity().finish()
+
+
+                        }
+
+
+
                     }
                 }
 
@@ -330,10 +373,17 @@ class Pickup : Fragment() {
     }
 
     private fun uploadImages() {
-        API.get().uploadPickupImages(selectedBooking.trans_id,selectedBooking.bikes_id,photoConvert(customerAdhaarFront),photoConvert(customerAdhaarBack),
-            photoConvert(customerDriving),photoConvert(customerOfficeId),photoConvert(bikeLeft),photoConvert(bikeRight),photoConvert(bikeFront),photoConvert(bikeBack),
-            photoConvert(bikeCustomer),photoConvert(bikeFuel),photoConvert(helmet_front_1),photoConvert(helmet_back_1),photoConvert(helmet_front_2),photoConvert(helmet_back_2)).
+        API.get().uploadPickupImages(selectedBooking.trans_id,selectedBooking.bikes_id,customerAdhaarFront,
+            customerAdhaarBack,
+            customerDriving,customerOfficeId,
+                bikeLeft,bikeRight,bikeFront,
+                bikeBack,
+            bikeCustomer, bikeFuel,
+                helmet_front_1,
+                helmet_back_1, helmet_front_2,
+                helmet_back_2).
         enqueue(object:Callback<ResponseBody>{
+
             override fun onResponse(
                 call: Call<ResponseBody>,
                 response: Response<ResponseBody>
@@ -353,67 +403,67 @@ class Pickup : Fragment() {
             when (requestCode) {
                 1 -> {
                     binding.dlImage.setImageURI(data!!.data)
-                    customerDriving=data.data!!
+                    customerDriving=photoConvert(data.data)
                 }
                 2 -> {
                     binding.afImage.setImageURI(data!!.data)
-                    customerAdhaarFront=data.data!!
+                    customerAdhaarFront=photoConvert(data.data)
                 }
                 3 -> {
                     binding.abImage.setImageURI(data!!.data)
-                    customerAdhaarBack=data.data!!
+                    customerAdhaarBack=photoConvert(data.data)
                 }
                 4 -> {
                     binding.panImage.setImageURI(data!!.data)
-                    customerOfficeId=data.data!!
+                    customerOfficeId=photoConvert(data.data)
 
                 }
                 5 -> {
                     binding.left.setImageURI(data!!.data)
-                    bikeLeft=data.data!!
+                    bikeLeft=photoConvert(data.data)
 
                 }
                 6 -> {
                     binding.right.setImageURI(data!!.data)
-                    bikeRight=data.data!!
+                    bikeRight=photoConvert(data.data)
 
                 }
                 7 -> {
                     binding.front.setImageURI(data!!.data)
-                    bikeFront=data.data!!
+                    bikeFront=photoConvert(data.data)
                 }
                 8 -> {
                     binding.back.setImageURI(data!!.data)
-                    bikeBack=data.data!!
+                    bikeBack=photoConvert(data.data)
 
                 }
                 9 -> {
                     binding.feulMeter.setImageURI(data!!.data)
-                    bikeFuel=data.data!!
+                    bikeFuel=photoConvert(data.data)
                 }
                 10 -> {
                     binding.withCustomer.setImageURI(data!!.data)
-                    bikeCustomer=data.data!!
+                    bikeCustomer=photoConvert(data.data)
 
                 }
                 11 -> {
                     binding.h1Top.setImageURI(data!!.data)
-                    helmet_front_1=data.data!!
+                    helmet_front_1=photoConvert(data.data)
 
                 }
                 12 -> {
                     binding.h1Bottom.setImageURI(data!!.data)
-                    helmet_back_1=data.data!!
+                    helmet_back_1=photoConvert(data.data)
 
                 }
                 13 -> {
                     binding.h2Top.setImageURI(data!!.data)
-                    helmet_front_2=data.data!!
+                    helmet_front_2=photoConvert(data.data)
 
                 }
                 14 -> {
                     binding.h2Bottom.setImageURI(data!!.data)
-                    helmet_back_2=data.data!!
+                    helmet_back_2=photoConvert(data.data)
 
                 }
             }
@@ -431,8 +481,10 @@ class Pickup : Fragment() {
                 val bytes = outputStream.toByteArray()
                 val encode = Base64.encodeToString(bytes, Base64.DEFAULT)
                 Log.e("ENCODE", encode)
+
                 encode
             } else {
+
                 null
             }
         } catch (e: FileNotFoundException) {
@@ -441,10 +493,15 @@ class Pickup : Fragment() {
         return null
     }
     class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
+        override fun onPostExecute(result: Void?) {
+            super.onPostExecute(result)
+        }
         override fun doInBackground(vararg params: Void?): Void? {
             handler()
             return null
         }
     }
+
+
 
 }

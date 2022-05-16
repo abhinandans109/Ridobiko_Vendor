@@ -1,6 +1,7 @@
 package com.ridobiko.ridobikoPartner.activities
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +26,6 @@ class BookingActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
         tabs.setupWithViewPager(viewPager)
-
 
     }
 

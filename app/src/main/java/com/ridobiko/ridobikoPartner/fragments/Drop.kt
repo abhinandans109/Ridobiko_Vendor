@@ -18,7 +18,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.activities.ImageViewerActivity
-import com.ridobiko.ridobikoPartner.activities.TodaysPickups
+import com.ridobiko.ridobikoPartner.activities.MainActivity
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentDropBinding
@@ -36,11 +36,11 @@ class Drop : Fragment() {
     lateinit var binding: FragmentDropBinding;
     lateinit var selectedBooking: BookingResponseModel
 
-     var bikeLeft: Uri?=null
-     var bikeRight: Uri?=null
-     var bikeFront: Uri?=null
-     var bikeBack: Uri?=null
-     var bikeFuel: Uri?=null
+     var bikeLeft: String?=null
+     var bikeRight: String?=null
+     var bikeFront: String?=null
+     var bikeBack: String?=null
+     var bikeFuel: String?=null
     var BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +52,7 @@ class Drop : Fragment() {
         binding.dropStatus.setText(selectedBooking.drop)
 
 //not editable
-        selectedBooking.drop="Done"
+//        selectedBooking.drop="Done"
          if (selectedBooking.drop=="Done"){
              binding.helmetsAtPickup.setFocusable(false)
              binding.fuelCharge.setFocusable(false)
@@ -74,13 +74,13 @@ class Drop : Fragment() {
              binding.collectedBy.setFocusable(false)
              binding.comment.setFocusable(false)
          }
-        BASE_IMAGE+=selectedBooking.trans_id+"/"
+        BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+selectedBooking.trans_id+"/"
         // Inflate the layout for this fragment
-        if (selectedBooking.pickup != "Not Done") {
-            binding.pickupNotDone.visibility = View.VISIBLE
-        } else {
-            binding.pickupDone.visibility = View.VISIBLE
-        }
+//        if (selectedBooking.pickup != "Not Done") {
+//            binding.pickupNotDone.visibility = View.VISIBLE
+//        } else {
+//            binding.pickupDone.visibility = View.VISIBLE
+//        }
         binding.helmetsAtPickup.hint = "On Pickup "+selectedBooking.no_of_helmets
         binding.fuelAtPickup.hint =  "On Pickup "+selectedBooking.fuel_pickup
         binding.kmReadingPickup.hint =  "On Pickup "+selectedBooking.KM_meter_pickup
@@ -363,13 +363,27 @@ class Drop : Fragment() {
                         binding.pb.visibility=View.GONE
                         if(response.isSuccessful) {
                             if (response.body()?.success.equals(Constants.SUCCESS))
-                                Toast.makeText(requireContext(), "Pickup done", Toast.LENGTH_SHORT)
-                                    .show()
-                            Pickup.doAsync {
-                                uploadImages()
-                            }.execute()
-                            requireActivity().startActivity(Intent(requireContext(),TodaysPickups::class.java))
-                            requireActivity().finish()
+
+//                            doAsync {
+                                Thread {
+                                    uploadImages()
+                                }.start()
+//                            }.execute()
+
+
+                            requireActivity().runOnUiThread {
+                                requireActivity().startActivity(
+                                    Intent(
+                                        requireContext(),
+                                        MainActivity::class.java
+                                    )
+                                )
+                                Toast.makeText(context, "Drop Done", Toast.LENGTH_SHORT).show()
+                                requireActivity().finish()
+
+
+                            }
+
                         }
                     }
 
@@ -392,26 +406,26 @@ class Drop : Fragment() {
             when (requestCode) {
                 5 -> {
                     binding.left.setImageURI(data!!.data)
-                    bikeLeft=data.data!!
+                    bikeLeft=photoConvert(data.data!!)
 
                 }
                 6 -> {
                     binding.right.setImageURI(data!!.data)
-                    bikeRight=data.data!!
+                    bikeRight=photoConvert(data.data!!)
 
                 }
                 7 -> {
                     binding.front.setImageURI(data!!.data)
-                    bikeFront=data.data!!
+                    bikeFront=photoConvert(data.data!!)
                 }
                 8 -> {
                     binding.back.setImageURI(data!!.data)
-                    bikeBack=data.data!!
+                    bikeBack=photoConvert(data.data!!)
 
                 }
                 9 -> {
                     binding.fuelMeter.setImageURI(data!!.data)
-                    bikeFuel=data.data!!
+                    bikeFuel=photoConvert(data.data!!)
                 }
             }
         }
@@ -430,16 +444,19 @@ class Drop : Fragment() {
                 Log.e("ENCODE", encode)
                 encode
             } else {
+
                 null
             }
         } catch (e: FileNotFoundException) {
+
             e.printStackTrace()
         }
         return null
     }
     private fun uploadImages() {
         API.get().uploadDropImages(selectedBooking.trans_id,selectedBooking.bikes_id,
-            photoConvert(bikeLeft),photoConvert(bikeRight),photoConvert(bikeFront),photoConvert(bikeBack),photoConvert(bikeFuel)).enqueue(object:Callback<ApiResponseModel<String>>{
+            bikeLeft,bikeRight,
+                bikeFront,bikeBack, bikeFuel).enqueue(object:Callback<ApiResponseModel<String>>{
             override fun onResponse(
                 call: Call<ApiResponseModel<String>>,
                 response: Response<ApiResponseModel<String>>

@@ -16,6 +16,10 @@ import com.ridobiko.ridobikoPartner.models.BookingResponseModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import androidx.activity.OnBackPressedCallback
+
+
+
 
 class TodaysPickups : AppCompatActivity() {
     private lateinit var binding : ActivityTodaysPickupsBinding
@@ -24,6 +28,10 @@ class TodaysPickups : AppCompatActivity() {
         binding= ActivityTodaysPickupsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.title="Today's Pickups"
+        // This callback will only be called when MyFragment is at least Started.
+
+        // This callback will only be called when MyFragment is at least Started.
+
 
 
         API.get()

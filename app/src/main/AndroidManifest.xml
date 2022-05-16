@@ -36,7 +36,7 @@
             android:name=".activities.BookingActivity"
             android:exported="false"
             android:label="@string/title_activity_booking"
-            android:parentActivityName=".activities.TodaysPickups"
+            android:parentActivityName=".activities.MainActivity"
             />
         <activity
             android:name=".activities.LoginActivity"
