@@ -731,8 +731,7 @@
                                 android:background="@drawable/btn_grey"
                                 android:gravity="center"
                                 android:inputType="number"
-                                android:textSize="14sp"
-                                android:hint="Amount collected"
+                                android:hint="Amount"
                                 android:textAllCaps="false" />
 
                             <Spinner

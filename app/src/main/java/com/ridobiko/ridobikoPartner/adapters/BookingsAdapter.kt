@@ -52,13 +52,18 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
         return MyViewHolder(LayoutInflater.from(context).inflate(R.layout.booking_item,parent,false))
     }
 
+    override fun getItemViewType(position: Int): Int {
+
+        return position
+    }
+
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val model = list[position]
         holder.orderId.text = "#" + model.trans_id
         holder.dateRange.text =
             model.pickup_date.split(" ")[0] + " - " + model.drop_date.split(" ")[0]
-        holder.name.text = model.customer_name
+        holder.name.text = model.customer_name.split(" ")[0]
         if (model.admin_status=="pending")
             holder.status.setTextColor(Color.parseColor("#FFCC0000"))
         holder.status.text = model.admin_status

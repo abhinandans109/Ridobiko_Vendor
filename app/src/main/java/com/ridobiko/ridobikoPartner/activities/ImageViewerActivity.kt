@@ -25,6 +25,8 @@ import androidx.core.content.ContextCompat
 
 import com.github.dhaval2404.imagepicker.ImagePicker.Companion.with
 import com.ridobiko.ridobikoPartner.R
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileOutputStream
