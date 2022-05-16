@@ -3,6 +3,9 @@
     package="com.ridobiko.ridobikoPartner">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".AppVendor"
@@ -15,7 +18,10 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".activities.ImageViewerActivity"
-            android:exported="false" />
+            android:exported="true"
+          >
+
+        </activity>
         <activity
             android:name=".activities.SingleBikeActivity"
             android:exported="false" />
@@ -42,6 +48,7 @@
             android:name=".activities.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.RidobikoVendorNoActionbar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

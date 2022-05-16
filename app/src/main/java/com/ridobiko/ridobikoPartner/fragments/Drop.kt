@@ -54,25 +54,25 @@ class Drop : Fragment() {
 //not editable
         selectedBooking.drop="Done"
          if (selectedBooking.drop=="Done"){
-             binding.helmetsAtPickup.setFocusable(false)
-             binding.fuelCharge.setFocusable(false)
-             binding.fuelCost.setFocusable(false)
-             binding.fuelYes.setFocusable(false)
-             binding.fuelNo.setFocusable(false)
-             binding.kmReadingPickup.setFocusable(false)
-             binding.extraKmCharge.setFocusable(false)
-             binding.kmYes.setFocusable(false)
-             binding.kmNo.setFocusable(false)
-             binding.maintainaceCost.setFocusable(false)
-             binding.mainYes.setFocusable(false)
-             binding.mainNo.setFocusable(false)
-             binding.maintainaceDetails.setFocusable(false)
-             binding.condYes.setFocusable(false)
-             binding.condNo.setFocusable(false)
-             binding.idYes.setFocusable(false)
-             binding.idNo.setFocusable(false)
-             binding.collectedBy.setFocusable(false)
-             binding.comment.setFocusable(false)
+             binding.helmetsAtPickup.isEnabled = false
+             binding.fuelCharge.isEnabled = false
+             binding.fuelCost.isEnabled = false
+             binding.fuelYes.isEnabled = false
+             binding.fuelNo.isEnabled = false
+             binding.kmReadingPickup.isEnabled = false
+             binding.extraKmCharge.isEnabled = false
+             binding.kmYes.isEnabled = false
+             binding.kmNo.isEnabled = false
+             binding.maintainaceCost.isEnabled = false
+             binding.mainYes.isEnabled = false
+             binding.mainNo.isEnabled = false
+             binding.maintainaceDetails.isEnabled = false
+             binding.condYes.isEnabled = false
+             binding.condNo.isEnabled = false
+             binding.idYes.isEnabled = false
+             binding.idNo.isEnabled = false
+             binding.collectedBy.isEnabled = false
+             binding.comment.isEnabled = false
          }
         BASE_IMAGE+=selectedBooking.trans_id+"/"
         // Inflate the layout for this fragment

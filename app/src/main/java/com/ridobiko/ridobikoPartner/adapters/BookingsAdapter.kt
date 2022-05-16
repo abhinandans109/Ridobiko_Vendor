@@ -1,15 +1,22 @@
 package com.ridobiko.ridobikoPartner.adapters
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
@@ -33,6 +40,8 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
             val documentVerificationStatus: TextView =itemView.findViewById<TextView>(R.id.document_verification_status)
 
             val showDropDownButton: ImageView =itemView.findViewById<ImageView>(R.id.showdrop_down)
+            val callButton: ImageView =itemView.findViewById<ImageView>(R.id.call_Button)
+        val number: TextView =itemView.findViewById<TextView>(R.id.number)
             val dropdown: LinearLayout =itemView.findViewById<LinearLayout>(R.id.more_drop_down)
 
 
@@ -98,7 +107,18 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
                 ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             )
         }
+holder.callButton.setOnClickListener {
+    val intent = Intent(Intent.ACTION_DIAL);
+    val number=model.customer_mobile
+    intent.data = Uri.parse("tel:$number")
+    context.startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+
+}
     }
+
+
+
+
 
     override fun getItemCount(): Int {
         return list.size
