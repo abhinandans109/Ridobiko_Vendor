@@ -137,7 +137,7 @@
                         android:text="Abhinandan" />
 
                     <TextView
-                        android:id="@+id/cus_mobile"
+                        android:id="@+id/number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="7007018102"
@@ -146,6 +146,7 @@
 
                 </LinearLayout>
                 <ImageView
+                    android:id="@+id/call_Button"
                     android:layout_gravity="center"
                     android:layout_marginLeft="15dp"
                     android:layout_width="30dp"

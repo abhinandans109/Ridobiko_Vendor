@@ -16,7 +16,7 @@ class SingleBikeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivitySingleBikeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.title="My Bike"
+        supportActionBar?.title="Bike Details"
 
         binding.tabs.addTab(binding.tabs!!.newTab().setText("Dashboard"))
         binding.tabs.addTab(binding.tabs!!.newTab().setText("Documents"))

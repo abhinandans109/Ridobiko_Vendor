@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
@@ -50,6 +51,10 @@ class Drop : Fragment() {
         selectedBooking = AppVendor.selectedBooking
         //drop status
         binding.dropStatus.setText(selectedBooking.drop)
+        if (selectedBooking.drop=="Not Done"){
+            binding.dropStatus.setTextColor(Color.parseColor("#F44336"))
+        }
+
 
 //not editable
 //        selectedBooking.drop="Done"
@@ -107,6 +112,9 @@ class Drop : Fragment() {
 //        } else {
 //            binding.pickupDone.visibility = View.VISIBLE
 //        }
+
+
+        //status
 
 
         //checkbox

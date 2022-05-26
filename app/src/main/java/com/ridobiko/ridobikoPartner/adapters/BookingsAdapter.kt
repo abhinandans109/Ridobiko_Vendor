@@ -41,7 +41,7 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
 
             val showDropDownButton: ImageView =itemView.findViewById<ImageView>(R.id.showdrop_down)
             val callButton: ImageView =itemView.findViewById<ImageView>(R.id.call_button)
-        val number: TextView =itemView.findViewById<TextView>(R.id.number)
+            val number: TextView =itemView.findViewById<TextView>(R.id.number)
             val dropdown: LinearLayout =itemView.findViewById<LinearLayout>(R.id.more_drop_down)
 
 
@@ -76,7 +76,7 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
 
         holder.pickup.text = model.pickup
         holder.number.text=model.customer_mobile
-
+        holder.number.text=model.customer_mobile
         holder.drop.text = model.drop
         holder.rentPaid.text = "Rs " + model.amount_paid
         holder.rentRemaining.text = "Rs " + model.amount_left
@@ -114,8 +114,10 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
             )
         }
 holder.callButton.setOnClickListener {
+
     val intent = Intent(Intent.ACTION_DIAL);
     val number=model.customer_mobile
+
     intent.data = Uri.parse("tel:$number")
     context.startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
 

@@ -1,12 +1,15 @@
 package com.ridobiko.ridobikoPartner.activities
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+import com.ridobiko.ridobikoPartner.constants.Constants
 import android.view.View
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.api.API
-import com.ridobiko.ridobikoPartner.constants.Constants
+
 import com.ridobiko.ridobikoPartner.databinding.ActivityMainBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers
@@ -83,5 +86,33 @@ class MainActivity : AppCompatActivity() {
         binding.allBookings.setOnClickListener {
             startActivity(Intent(applicationContext,AllBookings::class.java))
         }
+        binding.support.setOnClickListener {
+            startActivity(Intent(applicationContext,SupportActivity::class.java))
+        }
+        //logout
+        binding.logout.setOnClickListener {
+            val dialogBuilder = AlertDialog.Builder(this)
+            dialogBuilder.setMessage("Are you sure you want to Logout?")
+
+                .setCancelable(false)
+
+                .setPositiveButton("YES", DialogInterface.OnClickListener {
+
+                        dialog, id -> getSharedPreferences(Constants.PREFS_LOGIN_DETAILS,
+                    MODE_PRIVATE).edit().clear().commit()
+                    startActivity(Intent(applicationContext,LoginActivity::class.java))
+                })
+
+                .setNegativeButton("NO", DialogInterface.OnClickListener {
+                        dialog, id -> dialog.cancel()
+                })
+            val alert = dialogBuilder.create()
+
+            alert.setTitle("Logout")
+
+            alert.show()
+
+        }
+
     }
 }

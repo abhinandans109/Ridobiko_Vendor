@@ -1,6 +1,8 @@
 package com.ridobiko.ridobikoPartner.fragments
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,12 +26,21 @@ class BookingCustomer : Fragment() {
     ): View? {
         binding= FragmentBookingCustomerBinding.inflate(inflater, container, false)
         booking=AppVendor.selectedBooking
+
         Picasso.get().load(booking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
         binding.bookingStart.text= booking.pickup_date.split(" ")[0]
         binding.bookingEnd.text= booking.drop_date.split(" ")[0]
         binding.bookedOn.text= booking.bookedon
         binding.cusName.text= booking.customer_name
-        binding.cusMobile.text= booking.customer_mobile
+        binding.number.text= booking.customer_mobile
+
+        //call button
+        binding.callButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL);
+            val number= booking.customer_mobile
+            intent.data = Uri.parse("tel:$number")
+            startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        }
 
         binding.documentUploadStatus.text = if(!booking.image_aadhar_front.isNullOrEmpty()) {
             "Done"

@@ -68,6 +68,7 @@
                     android:text="Abhinandan" />
 
                 <ImageView
+
                     android:id="@+id/call_button"
                     android:layout_marginLeft="5dp"
                     android:layout_width="30dp"
@@ -243,7 +244,7 @@
         <LinearLayout
             android:id="@+id/more_drop_down"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
+           android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"

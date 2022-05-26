@@ -5,10 +5,382 @@
     android:layout_height="match_parent"
     tools:context=".fragments.Documents">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="5dp"
+      android:elevation="7dp"
+      android:background="@color/white"
+      android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+
+        >
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RC"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+          <ImageView
+              android:id="@+id/Rc_image"
+              android:layout_width="120dp"
+              android:src="@drawable/bike_placeholder"
+              android:layout_height="120dp" />
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginLeft="15dp"
+              android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dl_download"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/dl_upload"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/upload" />
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insurance"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+          <ImageView
+              android:id="@+id/Insurance_image"
+              android:layout_width="120dp"
+              android:layout_height="120dp"
+              android:src="@drawable/bike_placeholder"
+              />
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginLeft="15dp"
+              android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/af_download"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/af_upload"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/upload" />
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PUC"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+          <ImageView
+              android:id="@+id/Puc_image"
+              android:layout_width="120dp"
+              android:layout_height="120dp"
+              android:src="@drawable/bike_placeholder"/>
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginLeft="15dp"
+              android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/puc_download"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/puc_upload"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/upload" />
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Permit A"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+          <ImageView
+              android:id="@+id/permitA_image"
+              android:layout_width="120dp"
+              android:src="@drawable/bike_placeholder"
+              android:layout_height="120dp" />
+
+          <LinearLayout
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:layout_marginLeft="15dp"
+              android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/pan_download"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/pan_upload"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/upload" />
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+
+    </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="7dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Permit B"
+          android:textColor="@color/black" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/permitB_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/bike_placeholder"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+          <ImageView
+              android:id="@+id/ab_download"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:layout_weight="1"
+              android:src="@drawable/download" />
+
+          <ImageView
+              android:id="@+id/ab_upload"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:layout_weight="1"
+              android:src="@drawable/upload" />
+        </LinearLayout>
+      </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Purchase Bill"
+          android:textColor="@color/black" />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/purchase_image"
+            android:layout_width="120dp"
+            android:src="@drawable/bike_placeholder"
+            android:layout_height="120dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+          <ImageView
+              android:id="@+id/purchase_download"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:layout_weight="1"
+              android:src="@drawable/download" />
+
+          <ImageView
+              android:id="@+id/purchase_upload"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:layout_weight="1"
+              android:src="@drawable/upload" />
+        </LinearLayout>
+      </LinearLayout>
+    </LinearLayout>
+  </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:background="@color/white">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Engine number" />
+
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              android:layout_gravity="left"
+              android:layout_marginTop="5dp"
+              android:hint="344"
+              android:inputType="number"
+              android:layout_marginBottom="5dp"
+              android:layout_weight="6"
+              android:background="@drawable/btn_grey"
+              android:gravity="center"
+              android:textAllCaps="false"
+              android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Chassis number" />
+
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="40dp"
+              android:layout_gravity="left"
+              android:layout_marginTop="5dp"
+              android:inputType="number"
+              android:hint="4536"
+              android:layout_marginBottom="5dp"
+              android:layout_weight="6"
+              android:background="@drawable/btn_grey"
+              android:gravity="center"
+              android:textAllCaps="false"
+              android:textSize="15sp" />
+
+        </LinearLayout>
+      </LinearLayout>
+
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Update"
+          android:textAllCaps="false"
+          android:textStyle="bold"
+          android:textColor="@color/white"
+          android:layout_gravity="center"
+          android:backgroundTint="#2C2C2C"/>
+    </LinearLayout>
+
+  </LinearLayout>
 
 </FrameLayout>

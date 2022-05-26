@@ -64,7 +64,7 @@
        <TextView
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:text="Sogn in to continue"
+           android:text="Sign in to continue"
            android:textColor="@color/black"
            android:gravity="center"
            android:textSize="15sp"
@@ -96,6 +96,7 @@
                         android:padding="15dp"
                         android:background="@drawable/edt_back"
                         android:id="@+id/email"
+                        android:inputType="textEmailAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Email"

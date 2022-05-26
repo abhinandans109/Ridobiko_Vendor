@@ -38,4 +38,6 @@
     <style name="Theme.RidobikoVendor.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.RidobikoVendor.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
 </resources>
