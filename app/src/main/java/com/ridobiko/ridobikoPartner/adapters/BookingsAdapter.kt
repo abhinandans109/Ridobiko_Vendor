@@ -40,7 +40,7 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
             val documentVerificationStatus: TextView =itemView.findViewById<TextView>(R.id.document_verification_status)
 
             val showDropDownButton: ImageView =itemView.findViewById<ImageView>(R.id.showdrop_down)
-            val callButton: ImageView =itemView.findViewById<ImageView>(R.id.call_Button)
+            val callButton: ImageView =itemView.findViewById<ImageView>(R.id.call_button)
         val number: TextView =itemView.findViewById<TextView>(R.id.number)
             val dropdown: LinearLayout =itemView.findViewById<LinearLayout>(R.id.more_drop_down)
 
@@ -75,6 +75,7 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
         holder.drop.setTextColor(Color.parseColor("#4CAF50"))
 
         holder.pickup.text = model.pickup
+        holder.number.text=model.customer_mobile
 
         holder.drop.text = model.drop
         holder.rentPaid.text = "Rs " + model.amount_paid

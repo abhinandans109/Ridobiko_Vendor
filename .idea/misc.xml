@@ -15,12 +15,17 @@
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/activity_todays_pickups.xml" value="0.264" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/booking_item.xml" value="0.264" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_all_.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_booking.xml" value="0.2" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_booking_customer.xml" value="0.264" />
-        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_drop.xml" value="0.2" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_drop.xml" value="0.2718006795016987" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_other.xml" value="0.2" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_pickup.xml" value="0.264" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_todays_drop.xml" value="0.1717948717948718" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_todays_pickup_.xml" value="0.1" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_upcoming_bookings.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/spinner_item.xml" value="0.10427350427350428" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/spinner_item_fade.xml" value="0.11296296296296296" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/btn_addbike.xml" value="0.2535" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/new_border_edt.xml" value="0.256" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_add_bike.xml" value="0.264" />

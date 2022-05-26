@@ -728,6 +728,8 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
                                 android:layout_weight="3"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/colourHINT"
                                 android:background="@drawable/btn_grey"
                                 android:gravity="center"
                                 android:inputType="number"
@@ -824,8 +826,9 @@
                             android:layout_gravity="center"
                             android:background="@drawable/btn_grey"
                             android:gravity="center"
-                            android:inputType="number
-"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/colourHINT"
                             android:textAllCaps="false" />
 
 
@@ -930,6 +933,8 @@
                             android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/colourHINT"
                             android:background="@drawable/btn_grey"
                             android:gravity="center"
                             android:textAllCaps="false" />
@@ -961,6 +966,8 @@
                             android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/colourHINT"
                             android:background="@drawable/btn_grey"
                             android:gravity="center"
                             android:textAllCaps="false" />

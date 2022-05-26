@@ -5,56 +5,59 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ridobiko.ridobikoPartner.R
+import com.ridobiko.ridobikoPartner.adapters.BookingsAdapter
+import com.ridobiko.ridobikoPartner.api.API
+import com.ridobiko.ridobikoPartner.constants.Constants
+import com.ridobiko.ridobikoPartner.databinding.ActivityTodaysPickupsBinding
+import com.ridobiko.ridobikoPartner.databinding.FragmentTodaysDropBinding
+import com.ridobiko.ridobikoPartner.databinding.FragmentTodaysPickupBinding
+import com.ridobiko.ridobikoPartner.models.ApiResponseModel
+import com.ridobiko.ridobikoPartner.models.BookingResponseModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TodaysDrop.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TodaysDrop : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    lateinit var binding: FragmentTodaysDropBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_todays_drop, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TodaysDrop.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TodaysDrop().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+    ): View? {
+        binding = FragmentTodaysDropBinding.inflate(inflater, container, false)
+        // Inflate the layout for this fragment
+
+
+        API.get()
+            .getTodaysDrops(requireActivity().getSharedPreferences(Constants.PREFS_LOGIN_DETAILS,
+                AppCompatActivity.MODE_PRIVATE
+            ).getString(Constants.EMAIL,"")).enqueue(object:Callback<ApiResponseModel<ArrayList<BookingResponseModel>>>{
+                override fun onResponse(
+                    call: Call<ApiResponseModel<ArrayList<BookingResponseModel>>>,
+                    response: Response<ApiResponseModel<ArrayList<BookingResponseModel>>>
+                ) {
+                    binding.rvTodaysPickups.layoutManager=LinearLayoutManager(requireActivity().applicationContext)
+                    binding.rvTodaysPickups.adapter=BookingsAdapter(requireActivity().applicationContext,response.body()!!.data)
+                    binding.pb.visibility= View.GONE
                 }
-            }
+
+                override fun onFailure(
+                    call: Call<ApiResponseModel<ArrayList<BookingResponseModel>>>,
+                    t: Throwable
+                ) {
+                    Toast.makeText(requireActivity().applicationContext,Constants.WENT_WRONG,Toast.LENGTH_SHORT).show()
+                    binding.pb.visibility= View.GONE
+                }
+
+            })
+
+        return binding.root
+
     }
 }

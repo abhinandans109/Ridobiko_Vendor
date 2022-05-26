@@ -37,7 +37,8 @@ class TodaysPickup_Fragment : Fragment() {
         API.get()
             .getTodaysPickups(requireContext().getSharedPreferences(Constants.PREFS_LOGIN_DETAILS,
                 AppCompatActivity.MODE_PRIVATE
-            ).getString(Constants.EMAIL,"")).enqueue(object:Callback<ApiResponseModel<ArrayList<BookingResponseModel>>> {
+            ).getString(Constants.EMAIL,""))
+            .enqueue(object:Callback<ApiResponseModel<ArrayList<BookingResponseModel>>> {
                 override fun onResponse(
                     call: Call<ApiResponseModel<ArrayList<BookingResponseModel>>>,
                     response: Response<ApiResponseModel<ArrayList<BookingResponseModel>>>
@@ -59,7 +60,7 @@ class TodaysPickup_Fragment : Fragment() {
 
             })
 
-        return inflater.inflate(R.layout.fragment_todays_pickup_, container, false)
+        return binding.root
 
     }
 }

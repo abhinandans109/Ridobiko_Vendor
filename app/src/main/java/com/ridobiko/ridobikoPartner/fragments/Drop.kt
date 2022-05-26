@@ -53,6 +53,8 @@ class Drop : Fragment() {
 
 //not editable
 //        selectedBooking.drop="Done"
+        binding.extraKmCharge.setText(selectedBooking.trip_details.extra_km_charge)
+        binding.fuelCharge.setText(AppVendor.fuel_price)
          if (selectedBooking.drop=="Done"){
              binding.helmetsAtPickup.isEnabled = false
              binding.fuelCharge.isEnabled = false
@@ -73,6 +75,30 @@ class Drop : Fragment() {
              binding.idNo.isEnabled = false
              binding.collectedBy.isEnabled = false
              binding.comment.isEnabled = false
+
+
+
+             binding.collectedBy.setHint(selectedBooking.trip_details.collected_by)
+             if(selectedBooking.trip_details.fuel_charge_apply=="1")binding.fuelYes.toggle()
+             else binding.fuelNo.toggle()
+             if(selectedBooking.trip_details.maintenance_charge_apply=="1")binding.mainYes.toggle()
+             else binding.mainNo.toggle()
+             if(selectedBooking.trip_details.vehicle_check=="1")binding.condYes.toggle()
+             else binding.condNo.toggle()
+             if(selectedBooking.trip_details.km_charge_apply=="1")binding.kmYes.toggle()
+             else binding.kmNo.toggle()
+             if(selectedBooking.trip_details.id_returned=="1")binding.idYes.toggle()
+             else binding.idNo.toggle()
+
+             binding.helmetsAtPickup.setHint(selectedBooking.trip_details.no_of_helmets_drop)
+             binding.fuelAtPickup.setHint(selectedBooking.trip_details.fuel_drop)
+             binding.kmReadingPickup.setHint(selectedBooking.trip_details.KM_meter_drop)
+             binding.maintainaceDetails.setHint(selectedBooking.trip_details.other_charge_reason)
+             binding.comment.setHint(selectedBooking.trip_details.comment)
+         }else{
+             binding.helmetsAtPickup.hint = "On Pickup "+selectedBooking.no_of_helmets
+             binding.fuelAtPickup.hint =  "On Pickup "+selectedBooking.fuel_pickup
+             binding.kmReadingPickup.hint =  "On Pickup "+selectedBooking.KM_meter_pickup
          }
         BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+selectedBooking.trans_id+"/"
         // Inflate the layout for this fragment
@@ -81,9 +107,7 @@ class Drop : Fragment() {
 //        } else {
 //            binding.pickupDone.visibility = View.VISIBLE
 //        }
-        binding.helmetsAtPickup.hint = "On Pickup "+selectedBooking.no_of_helmets
-        binding.fuelAtPickup.hint =  "On Pickup "+selectedBooking.fuel_pickup
-        binding.kmReadingPickup.hint =  "On Pickup "+selectedBooking.KM_meter_pickup
+
 
         //checkbox
         binding.fuelYes.setOnClickListener{
@@ -208,7 +232,7 @@ class Drop : Fragment() {
                     var fuelTankVolume = if(selectedBooking.fuel_tank.toString().toDouble()==0.0) 10.0 else selectedBooking.fuel_tank.toString().toDouble()
                     var fuelPickup = if(selectedBooking.fuel_pickup.toDouble()==0.0) 10.0 else selectedBooking.fuel_pickup.toDouble()
                     var fuelCost = 0.0;
-                    var fuelPrice = 100
+                    var fuelPrice = AppVendor.fuel_price.toInt()
 
                     if (fuelPickup == maxFuelTankBar) {
                         fuelCost = (fuelPickup - fuel);//4
@@ -395,7 +419,10 @@ class Drop : Fragment() {
 
                 })
             }
+            binding.pb.visibility=View.GONE
+
         }
+
 
         return binding.root
     }

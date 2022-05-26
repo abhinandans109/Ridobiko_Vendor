@@ -45,10 +45,12 @@
                   android:layout_weight="6"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content">
+
                   <EditText android:textSize="15sp"
                       android:layout_weight="1"
                       android:gravity="center"
                       android:id="@+id/p_date"
+                      android:enabled="false"
                       android:textAllCaps="false"
                       android:background="@drawable/btn_grey"
                       android:layout_gravity="center"
@@ -61,6 +63,7 @@
                       android:layout_weight="1"
                       android:gravity="center"
                       android:id="@+id/p_time"
+                      android:enabled="false"
                       android:textAllCaps="false"
                       android:inputType="number"
                       android:background="@drawable/btn_grey"
@@ -91,6 +94,7 @@
                   android:layout_weight="6"
                   android:layout_width="0dp"
                   android:layout_height="wrap_content">
+
                   <EditText android:textSize="15sp"
                       android:layout_weight="1"
                       android:gravity="center"
@@ -125,6 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
+                    android:id="@+id/cal_rent"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -167,7 +172,7 @@
                 <EditText android:textSize="15sp"
                     android:layout_weight="6"
                     android:gravity="center"
-                    android:id="@+id/fuel_at_pickup"
+                    android:id="@+id/total_rent"
                     android:textAllCaps="false"
                     android:background="@drawable/btn_grey"
                     android:layout_gravity="center"

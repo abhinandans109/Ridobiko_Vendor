@@ -18,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AppVendor extends Application {
     private static ApiService service;
     public static BookingResponseModel selectedBooking;
+    public static String fuel_price;
 
     public static ApiService buildApiService() {
 

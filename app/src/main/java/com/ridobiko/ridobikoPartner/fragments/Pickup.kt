@@ -69,6 +69,13 @@ class Pickup : Fragment() {
         binding.cusAddress.text=selectedBooking.customer_address
         BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+selectedBooking.trans_id+"/"
         binding.pickupStatus.setText(selectedBooking.pickup)
+        binding.cusName.setText(selectedBooking.customer_name)
+        binding.cusAddress.setText(selectedBooking.customer_address)
+        binding.bikeName.setText(selectedBooking.bike_name)
+        binding.bikeId.setText(selectedBooking.bikes_id)
+        binding.cusMobile.setText(selectedBooking.customer_mobile)
+        binding.emergencyMobile.setText(selectedBooking.emergency_no)
+        binding.cusPermanentAddress.text = selectedBooking.permanent_address_house+" "+selectedBooking.permanent_address_area+" "+selectedBooking.permanent_address_landmark+" "+selectedBooking.permanent_address_city
         if(selectedBooking.pictures==null) selectedBooking.pictures= Pictures()
         Picasso.get().load(selectedBooking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
 
@@ -114,26 +121,7 @@ class Pickup : Fragment() {
 
 
 
-        API.get().getAvailableBikes(selectedBooking.vendor_email_id).enqueue(object:Callback<ApiResponseModel<ArrayList<BikesResponseModel>>> {
-            override fun onResponse(
-                call: Call<ApiResponseModel<ArrayList<BikesResponseModel>>>,
-                response: Response<ApiResponseModel<ArrayList<BikesResponseModel>>>
-            ) {
-                var list= mutableListOf<String>(selectedBooking.bike_name+" | "+selectedBooking.bikes_id)
-               for (i in  response.body()?.data!!) {
-                    list.add(i.bike_name+" | "+i.bike_id)
-               }
-                binding.changeBike.adapter=ArrayAdapter<String>(requireContext(),R.layout.support_simple_spinner_dropdown_item,list)
-            }
 
-            override fun onFailure(
-                call: Call<ApiResponseModel<ArrayList<BikesResponseModel>>>,
-                t: Throwable
-            ) {
-            }
-
-        }
-        )
 
         binding.showDropDown.setOnClickListener {
 
@@ -153,22 +141,13 @@ class Pickup : Fragment() {
 //            uploadImages()
             submitData()
         }
-        binding.modeOfRemainingAmount.adapter = ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-            mutableListOf("Mode Of Payment","Cash","UPI","Card","Direct Bank Transfer"))
-        binding.idCollected.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-            mutableListOf("Aadhaar card","PAN Card","Voter ID"))
-        binding.modeOfCollectionDeposit.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-            mutableListOf("Mode Of Payment","Cash","UPI","Card","Direct Bank Transfer"))
-        binding.fuelMeterReading.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-            mutableListOf("1","2","3","4","5","6","7","8","9","10"))
-        binding.noOfHelmets.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-            mutableListOf("1","2"))
+
 
         if (selectedBooking.pickup=="Done"){
-            binding.amountCollected.setText(selectedBooking.amount_paid)
+            binding.amountCollected.setHint(selectedBooking.amount_paid)
 //            binding.fuelMeterReading.setSelection(selectedBooking.fuel_tank.toInt()-1)
 //            binding.noOfHelmets.setSelection(selectedBooking.no_of_helmets.toInt()-1)
-            binding.kmReading.setText(selectedBooking.KM_meter_pickup)
+            binding.kmReading.setHint(selectedBooking.KM_meter_pickup)
 
 
             binding.amountCollected.isEnabled = false
@@ -184,6 +163,58 @@ class Pickup : Fragment() {
             binding.yes.isEnabled = false
             binding.no.isEnabled = false
             binding.submit.isEnabled = false
+
+            binding.changeBike.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item_fade,
+                mutableListOf(selectedBooking.bike_name+" | "+selectedBooking.bikes_id))
+            binding.modeOfRemainingAmount.adapter = ArrayAdapter<String>(requireContext(),R.layout.spinner_item_fade,
+                mutableListOf(selectedBooking.trip_details.rent_payment_mode))
+            binding.idCollected.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item_fade,
+                mutableListOf(selectedBooking.trip_details.id_collected))
+            binding.modeOfCollectionDeposit.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item_fade,
+                mutableListOf(selectedBooking.trip_details.deposit_payment_mode))
+            binding.fuelMeterReading.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item_fade,
+                mutableListOf(selectedBooking.trip_details.fuel_pickup))
+            binding.noOfHelmets.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item_fade
+                ,
+                mutableListOf(selectedBooking.trip_details.no_of_helmets))
+            if(selectedBooking.trip_details.deposit_collected_by_vendor=="1")binding.yes.toggle()
+            else binding.no.toggle()
+
+            binding.purpose.setHint(selectedBooking.trip_details.purpose)
+            binding.destination.setHint(selectedBooking.trip_details.destination)
+
+        }else{
+            binding.modeOfRemainingAmount.adapter = ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
+                mutableListOf("Mode Of Payment","Cash","UPI","Card","Direct Bank Transfer"))
+            binding.idCollected.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
+                mutableListOf("Aadhaar card","PAN Card","Voter ID"))
+            binding.modeOfCollectionDeposit.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
+                mutableListOf("Mode Of Payment","Cash","UPI","Card","Direct Bank Transfer"))
+            binding.fuelMeterReading.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
+                mutableListOf("1","2","3","4","5","6","7","8","9","10"))
+            binding.noOfHelmets.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
+                mutableListOf("1","2"))
+            API.get().getAvailableBikes(selectedBooking.vendor_email_id)
+                .enqueue(object:Callback<ApiResponseModel<ArrayList<BikesResponseModel>>> {
+                override fun onResponse(
+                    call: Call<ApiResponseModel<ArrayList<BikesResponseModel>>>,
+                    response: Response<ApiResponseModel<ArrayList<BikesResponseModel>>>
+                ) {
+                    var list= mutableListOf<String>(selectedBooking.bike_name+" | "+selectedBooking.bikes_id)
+                    for (i in  response.body()?.data!!) {
+                        list.add(i.bike_name+" | "+i.bike_id)
+                    }
+                    binding.changeBike.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,list)
+                }
+
+                override fun onFailure(
+                    call: Call<ApiResponseModel<ArrayList<BikesResponseModel>>>,
+                    t: Throwable
+                ) {
+                }
+
+            }
+            )
 
         }
 
@@ -326,9 +357,16 @@ class Pickup : Fragment() {
 
     private fun submitData() {
 //        uploadImages()
-        API.get().submitPickup(selectedBooking.trans_id,selectedBooking.drop_date,selectedBooking.bikes_id,selectedBooking.bookedon,selectedBooking.status,binding.remainingAmount.text.toString()
-            ,binding.modeOfRemainingAmount.selectedItem.toString(),binding.amountCollected.text.toString(),binding.modeOfCollectionDeposit.selectedItem.toString(),
-            binding.noOfHelmets.selectedItem.toString(),binding.kmReading.text.toString(),binding.fuelMeterReading.selectedItem.toString(),binding.destination.text.toString(),binding.purpose.text.toString(),binding.idCollected.selectedItem.toString(),if(binding.changeBike.selectedItemPosition==0) "0" else "1",binding.changeBike.selectedItem.toString().split(" | ")[1],if(selectedBooking.current_address_city.isNullOrEmpty())"city" else selectedBooking.current_address_city)
+        API.get().submitPickup(selectedBooking.trans_id,selectedBooking.drop_date,selectedBooking
+            .bikes_id,selectedBooking.bookedon,selectedBooking.status,binding.remainingAmount.text.toString()
+            ,binding.modeOfRemainingAmount.selectedItem.toString(),binding.amountCollected.text.toString(),binding.
+            modeOfCollectionDeposit.selectedItem.toString(),
+            binding.noOfHelmets.selectedItem.toString(),binding.kmReading.text.toString(),binding.fuelMeterReading
+                .selectedItem.toString(),binding.destination.text.toString(),binding.purpose.text.toString(),binding.idCollected.
+            selectedItem.toString(),if(binding.changeBike.selectedItemPosition==0) "0" else "1",binding.
+            changeBike.selectedItem.toString().split(" | ")[1],if(selectedBooking.current_address_city.
+                isNullOrEmpty())"city" else selectedBooking.current_address_city,if(binding.yes.isChecked)"1" else "0")
+
             .enqueue(object : Callback<ApiResponseModel<String>>{
                 override fun onResponse(
                     call: Call<ApiResponseModel<String>>,

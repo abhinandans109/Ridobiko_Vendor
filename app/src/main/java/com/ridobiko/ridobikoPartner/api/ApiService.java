@@ -3,6 +3,7 @@ package com.ridobiko.ridobikoPartner.api;
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel;
 import com.ridobiko.ridobikoPartner.models.BikesResponseModel;
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel;
+import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers;
 import com.ridobiko.ridobikoPartner.models.LoginUserResponse;
 
 import java.util.ArrayList;
@@ -51,6 +52,21 @@ public interface ApiService {
     @POST("BikeidFetchOnPickup.php")
     Call<ApiResponseModel<ArrayList<BikesResponseModel>>> getAvailableBikes(
             @Field("email") String email
+    );
+    @FormUrlEncoded
+    @POST("getNumberAndFuel.php")
+    Call<ApiResponseModel<FuelPriceAndNumbers>> getNumberAndFuel(
+            @Field("email") String email
+    );
+    @FormUrlEncoded
+    @POST("rent.php")
+    Call<ApiResponseModel<Integer>> getrent(
+            @Field("email") String email,
+            @Field("bikeid") String bikeid,
+            @Field("pdate") String pdate,
+            @Field("ddate") String ddate,
+            @Field("ptime") String ptime,
+            @Field("dtime") String dtime
     );
     @FormUrlEncoded
     @POST("imageUpload.php")
@@ -104,7 +120,8 @@ public interface ApiService {
             @Field("idCollected") String idCollected,
             @Field("change_vid") String change_vid,
             @Field("change_vehicle_id") String change_vehicle_id,
-            @Field("city") String city
+            @Field("city") String city,
+            @Field("deposit_collected_by_vendor") String deposit_collected_by_vendor
     );
 
     @FormUrlEncoded

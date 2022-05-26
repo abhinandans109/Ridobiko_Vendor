@@ -20,7 +20,7 @@ class BookingActivity : AppCompatActivity() {
         binding = ActivityBookingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         booking=AppVendor.selectedBooking
-       supportActionBar?.title=booking.trans_id
+        supportActionBar?.title=booking.trans_id
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = binding.viewPager
         viewPager.adapter = sectionsPagerAdapter
