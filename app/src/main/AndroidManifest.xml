@@ -17,12 +17,39 @@
         android:theme="@style/Theme.RidobikoVendor"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.BikeDatabase_Activity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity" />
+
+        <activity
+            android:name=".activities.PaymentTracker_Activity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity" />
+
+
+        <activity
+            android:name=".activities.CustomerDetails"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
+            android:name=".activities.SingleCustDetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.CustomerDetails" />
+        <activity
+            android:name=".activities.AddEmployeeActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.SupportActivity" />
+        <activity
+            android:name=".activities.SettingActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
             android:name=".activities.SupportActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.ImageViewerActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.SingleBikeActivity"
             android:exported="false"
@@ -38,7 +65,7 @@
         <activity
             android:name=".activities.AddBikeActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"></activity>
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.BookingActivity"
             android:exported="false"
@@ -47,13 +74,7 @@
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.RidobikoVendorNoActionbar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.RidobikoVendorNoActionbar" />
         <activity
             android:name=".activities.TodaysPickups"
             android:exported="true"
@@ -73,9 +94,11 @@
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

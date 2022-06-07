@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
    private lateinit var binding :ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -42,12 +43,17 @@ class MainActivity : AppCompatActivity() {
                        binding.todaysDrops.visibility= View.VISIBLE
                        binding.upcommingBookingNumber.visibility= View.VISIBLE
                        binding.allNo.visibility= View.VISIBLE
+                       binding.bikeDatabase.visibility= View.VISIBLE
+                       binding.paymentTracker.visibility= View.VISIBLE
+
                    }
                }
                 binding.pb1.visibility= View.GONE
                 binding.pb2.visibility= View.GONE
                 binding.pb3.visibility= View.GONE
                 binding.pb4.visibility= View.GONE
+                binding.pb5.visibility= View.GONE
+                binding.pb6.visibility= View.GONE
             }
 
             override fun onFailure(
@@ -58,6 +64,8 @@ class MainActivity : AppCompatActivity() {
                 binding.pb2.visibility= View.GONE
                 binding.pb3.visibility= View.GONE
                 binding.pb4.visibility= View.GONE
+                binding.pb5.visibility= View.GONE
+                binding.pb6.visibility= View.GONE
 
             }
 
@@ -89,6 +97,21 @@ class MainActivity : AppCompatActivity() {
         binding.support.setOnClickListener {
             startActivity(Intent(applicationContext,SupportActivity::class.java))
         }
+        binding.settings.setOnClickListener{
+            startActivity(Intent(applicationContext, SettingActivity::class.java))
+        }
+        binding.customerDetails.setOnClickListener{
+            startActivity(Intent(applicationContext, CustomerDetails::class.java))
+        }
+        binding.bikeDatabaseCard.setOnClickListener{
+            startActivity(Intent(applicationContext, BikeDatabase_Activity::class.java))
+        }
+        binding.paymentTrackerCard.setOnClickListener{
+            startActivity(Intent(applicationContext, PaymentTracker_Activity::class.java))
+        }
+
+
+
         //logout
         binding.logout.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(this)

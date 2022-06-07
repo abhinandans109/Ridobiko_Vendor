@@ -734,7 +734,7 @@ android:padding="7dp"
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
+    android:padding="7dp"
     android:elevation="7dp"
     android:orientation="vertical">
 

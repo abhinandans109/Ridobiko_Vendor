@@ -95,7 +95,6 @@
     android:layout_height="wrap_content"
     android:padding="5dp"
     android:background="@color/white"
-    android:elevation="7dp"
     android:orientation="vertical"
     tools:listitem="@layout/support_items">
 

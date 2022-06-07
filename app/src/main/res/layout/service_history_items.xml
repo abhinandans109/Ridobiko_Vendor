@@ -115,9 +115,9 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -127,59 +127,63 @@
                     android:text="Yamaha"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vehicle name"/>
+                    android:text="Vehicle name" />
 
                 <TextView
                     android:id="@+id/created_by"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yash gupta"
                     android:layout_marginTop="5dp"
+                    android:text="Yash gupta"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Created by"/>
+                    android:text="Created by" />
 
                 <TextView
                     android:id="@+id/mechanic_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
                     android:layout_marginTop="5dp"
                     android:text="Gagan chauhan"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mechanic name"/>
+                    android:text="Mechanic name" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <LinearLayout
-                    android:layout_weight="0.8"
-                    android:gravity="center"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:gravity="center">
+
                     <TextView
-                        android:layout_gravity="center"
-                        android:gravity="right"
-                        android:textColor="@color/black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="right"
                         android:text="Maintenance : "
-                        />
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/main_done"
@@ -187,60 +191,63 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="left"
-                        android:textColor="#79B305"
                         android:text="Done"
-                        />
+                        android:textColor="#79B305" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/job_card_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="7483u4"
                     android:layout_marginTop="5dp"
+                    android:text="7483u4"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Job card Id"/>
+                    android:text="Job card Id" />
 
                 <TextView
                     android:id="@+id/meter_reading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="02590"
                     android:layout_marginTop="5dp"
+                    android:text="02590"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Meter reading"/>
+                    android:text="Meter reading" />
 
                 <TextView
                     android:id="@+id/complaints"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NA"
                     android:layout_marginTop="5dp"
+                    android:text="NA"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Complaints"/>
-
+                    android:text="Complaints" />
 
 
             </LinearLayout>
 
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:gravity="right"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/total_cost"
                     android:layout_width="wrap_content"
@@ -248,17 +255,18 @@
                     android:text="10,000 Rs."
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total cost"/>
+                    android:text="Total cost" />
 
                 <TextView
                     android:id="@+id/spare_part_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5000 Rs."
                     android:layout_marginTop="5dp"
+                    android:text="5000 Rs."
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -268,17 +276,18 @@
                     android:text="Spare part cost" />
 
                 <TextView
+                    android:id="@+id/labour_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5000 Rs."
-                    android:id="@+id/labour_cost"
                     android:layout_marginTop="5dp"
+                    android:text="5000 Rs."
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Labour cost"/>
+                    android:text="Labour cost" />
             </LinearLayout>
 
 
