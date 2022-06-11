@@ -4,8 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Bike_Database_Model(val bike_id:String,val order_id:String,val cust_name:String,val cust_number:String,val block_range:String,val puc_date:String,
-                               val pick_date:String,val drop:String,val insurance_date:String,val tax_date:String,val drop_down:Int):Parcelable {
+                               val pick_date:String,val drop:String,val insurance_date:String,val tax_date:String,val permit :String,val drop_down:Int):Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
@@ -31,6 +32,7 @@ data class Bike_Database_Model(val bike_id:String,val order_id:String,val cust_n
         parcel.writeString(drop)
         parcel.writeString(insurance_date)
         parcel.writeString(tax_date)
+        parcel.writeString(permit)
         parcel.writeInt(drop_down)
     }
 

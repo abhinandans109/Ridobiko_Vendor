@@ -7,7 +7,9 @@
     android:orientation="vertical"
     tools:context=".activities.PaymentTracker_Activity">
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_payment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:listitem="@layout/payment_tracker_items"
         android:padding="5dp"/>
 </LinearLayout>
