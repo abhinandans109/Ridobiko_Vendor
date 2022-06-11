@@ -33,7 +33,7 @@ class Setting : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         selectedMyBike=AppVendor.selectedMyBike
-        binding.bikePlateNo.setText(selectedMyBike.bike_id)
+//        binding.bikePlateNo.setText(selectedMyBike.bike_id)
         return inflater.inflate(R.layout.fragment_setting, container, false)
 
 
