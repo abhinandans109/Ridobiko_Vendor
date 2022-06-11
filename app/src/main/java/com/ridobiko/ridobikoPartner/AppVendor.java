@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import com.ridobiko.ridobikoPartner.api.ApiService;
 import com.ridobiko.ridobikoPartner.constants.Constants;
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel;
+import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -18,8 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AppVendor extends Application {
     private static ApiService service;
     public static BookingResponseModel selectedBooking;
+    public static MyBikesResponseModel selectedMyBike;
     public static String fuel_price;
-
+    public static Boolean uploaded=true;
     public static ApiService buildApiService() {
 
         if (service == null) {

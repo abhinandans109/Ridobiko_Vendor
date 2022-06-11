@@ -5,6 +5,7 @@ import com.ridobiko.ridobikoPartner.models.BikesResponseModel;
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel;
 import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers;
 import com.ridobiko.ridobikoPartner.models.LoginUserResponse;
+import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,11 @@ public interface ApiService {
             @Field("email") String email
     );
     @FormUrlEncoded
+    @POST("getMyBikes.php")
+    Call<ApiResponseModel<ArrayList<MyBikesResponseModel>>> getMyBikes(
+            @Field("email") String email
+    );
+    @FormUrlEncoded
     @POST("getUpcommingsBookings.php")
     Call<ApiResponseModel<ArrayList<BookingResponseModel>>> getUpcommingBookings(
             @Field("email") String email
@@ -60,7 +66,7 @@ public interface ApiService {
     );
     @FormUrlEncoded
     @POST("rent.php")
-    Call<ApiResponseModel<Integer>> getrent(
+    Call<ApiResponseModel<Double>> getrent(
             @Field("email") String email,
             @Field("bikeid") String bikeid,
             @Field("pdate") String pdate,
@@ -97,6 +103,27 @@ public interface ApiService {
             @Field("bikeRight") String bikeRight,
             @Field("bikeFront") String bikeFront,
             @Field("bikeBack") String bikeBack,
+            @Field("bikeFuel") String bikeFuel
+    );
+    @FormUrlEncoded
+    @POST("kmLimit.php")
+    Call<ApiResponseModel<String>> calculateKmCharges(
+            @Field("email") String email,
+            @Field("bid") String bid,
+            @Field("pickup_date") String pickup_date,
+            @Field("drop_date") String drop_date
+    );
+    @FormUrlEncoded
+    @POST("exchangeBike.php")
+    Call<ApiResponseModel<String>> submitExchange(
+            @Field("orderId") String orderId,
+            @Field("bikeId") String bikeId,
+            @Field("drop_date") String drop_date,
+            @Field("bikeLeft") String bikeLeft,
+            @Field("bikeRight") String bikeRight,
+            @Field("bikeFront") String bikeFront,
+            @Field("bikeBack") String bikeBack,
+            @Field("bikeCustomer") String bikeCustomer,
             @Field("bikeFuel") String bikeFuel
     );
 
@@ -144,6 +171,27 @@ public interface ApiService {
             @Field("km_charges_apply") String km_charges_apply,
             @Field("maintenance_charge_apply") String maintenance_charge_apply,
             @Field("charges_confirmed") String charges_confirmed
+    );
+
+    @FormUrlEncoded
+    @POST("ExtendBooking.php")
+    Call<ApiResponseModel<String>> extendBooking(
+            @Field("bid") String bid,
+            @Field("order_id") String order_id,
+            @Field("Rent") String Rent,
+            @Field("pick_date") String pick_date,
+            @Field("drop_date") String drop_date,
+            @Field("pick_time") String pick_time,
+            @Field("drop_time") String drop_time,
+            @Field("deposit_collected") String deposit_collected,
+            @Field("deposit_payment_mode") String deposit_payment_mode,
+            @Field("no_of_helmets") String no_of_helmets,
+            @Field("KM_meter_pickup") String KM_meter_pickup,
+            @Field("fuel_pickup") String fuel_pickup,
+            @Field("destination") String destination,
+            @Field("purpose") String purpose,
+            @Field("id_collected") String id_collected,
+            @Field("city") String city
     );
 
 }

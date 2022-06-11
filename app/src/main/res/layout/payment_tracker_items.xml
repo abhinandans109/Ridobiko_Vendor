@@ -188,7 +188,7 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/showdrop_down"
+                    android:id="@+id/show_drop_down"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"

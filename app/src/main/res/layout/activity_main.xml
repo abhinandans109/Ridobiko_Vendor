@@ -81,10 +81,11 @@
             <!--card 1-->
 
             <LinearLayout
+                android:layout_weight="1"
                 android:id="@+id/bookings"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -116,11 +117,9 @@
 
             <LinearLayout
                 android:id="@+id/my_bikes"
-
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -155,10 +154,10 @@
 
             <LinearLayout
                 android:id="@+id/add_bike"
-
+                android:layout_weight="1"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -200,11 +199,10 @@
 
             <LinearLayout
                 android:id="@+id/payments"
-
+                android:gravity="center"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -237,11 +235,9 @@
 
             <LinearLayout
                 android:id="@+id/customer_details"
-
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -266,7 +262,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Customer Details"
+                    android:text="Customer\nDetails"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -276,11 +273,10 @@
 
             <LinearLayout
                 android:id="@+id/settings"
-
+                android:layout_weight="1"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -323,9 +319,10 @@
 
             <LinearLayout
                 android:id="@+id/account"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
                 android:orientation="vertical"
                 android:padding="5dp">
 
@@ -357,11 +354,9 @@
 
             <LinearLayout
                 android:id="@+id/support"
-
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="5dp">
@@ -396,10 +391,10 @@
 
             <LinearLayout
                 android:id="@+id/logout"
-
+                android:layout_weight="1"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
                 android:orientation="vertical"
                 android:padding="5dp">
 

@@ -142,6 +142,7 @@
                     android:layout_marginRight="5dp"
                     />
                 <Button
+                    android:id="@+id/create_booking"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -213,10 +214,11 @@
                     android:textColor="@color/black"
                     android:layout_marginRight="5dp"
                     />
-                <Spinner android:textSize="15sp"
+                <Spinner
+                    android:textSize="15sp"
                     android:layout_weight="6"
                     android:gravity="center"
-                    android:id="@+id/select_vehicle"
+                    android:id="@+id/change_bike"
                     android:textAllCaps="false"
                     android:background="@drawable/btn_grey"
                     android:layout_gravity="center"
@@ -374,6 +376,7 @@
     </LinearLayout>
 
             <Button
+                android:id="@+id/exchange"
                 android:layout_margin="10dp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"

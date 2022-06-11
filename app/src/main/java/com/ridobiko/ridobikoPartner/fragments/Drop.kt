@@ -25,6 +25,7 @@ import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentDropBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel
+import com.ridobiko.ridobikoPartner.models.TripDetails
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -58,6 +59,7 @@ class Drop : Fragment() {
 
 //not editable
 //        selectedBooking.drop="Done"
+        if(selectedBooking.trip_details==null)selectedBooking.trip_details= TripDetails()
         binding.extraKmCharge.setText(selectedBooking.trip_details.extra_km_charge)
         binding.fuelCharge.setText(AppVendor.fuel_price)
          if (selectedBooking.drop=="Done"){
@@ -285,50 +287,28 @@ class Drop : Fragment() {
             }
         }
         binding.calculateKmCost.setOnClickListener{
-            val km_drop = binding.kmReadingPickup.text.toString()
-            if (km_drop == "") {
-                Toast.makeText(requireContext(),"Please fill KM Reading",Toast.LENGTH_SHORT).show()
-            } else {
-                var km = km_drop.toDouble()
-                var pickupDate = selectedBooking.pickup_date
-                var dropDate = selectedBooking.drop_date
-                var datePickup = pickupDate.split(" ")[0].split("-")[2].toDouble()
-                var monthPickup = pickupDate.split(" ")[0].split("-")[1].toDouble()
-                var dateDrop = dropDate.split(" ")[0].split("-")[2].toDouble()
-                var monthDrop = dropDate.split(" ")[0].split("-")[1].toDouble()
-                var hourPickUp = pickupDate.split(" ")[1].split(":")[0].toDouble()
-                var hourDrop = dropDate.split(" ")[1].split(":")[0].toDouble()
-                var noOfDays = 0
-                var kilometreLimit = selectedBooking.km_limit.toDouble()
-                var extraKilometreCharge = selectedBooking.additional_km_cost.toDouble()
-//                var bikePerDayRent = selectedBooking.rent_per_day
-                var kmPickup = selectedBooking.KM_meter_pickup.toDouble()
+           API.get().calculateKmCharges(selectedBooking.vendor_email_id,selectedBooking.bikes_id,selectedBooking.pickup_date
+               .split(" ")[0],selectedBooking.drop_date.split(" ")[0]).enqueue(object:Callback<ApiResponseModel<String>>{
+               override fun onResponse(
+                   call: Call<ApiResponseModel<String>>,
+                   response: Response<ApiResponseModel<String>>
+               ) {
+                   if(response.isSuccessful){
+                       if(response.body()?.success==Constants.SUCCESS){
+                           var limit= response.body()?.data?.toInt()
+                           if(selectedBooking.trip_details.KM_meter_drop.toInt()-selectedBooking.trip_details.KM_meter_pickup.toInt()>limit!!){
+                               binding.kmCost.setText(selectedBooking.trip_details.KM_meter_drop.toInt()-selectedBooking.trip_details.KM_meter_pickup.toInt()-limit!!).toString()
+                           }else binding.kmCost.setText(0)
 
-                // alert(fuelPrice)
-                var distanceCost = 0
+                       }
+                   }
+               }
 
-                // alert(fuelCost);
-                if (monthDrop - monthPickup > 0) {
-                    noOfDays = ((monthDrop - monthPickup) * 30).toInt()
-                    // alert(1)
-                }
-                noOfDays = (noOfDays + (dateDrop - datePickup)).toInt()
-                if (-hourPickUp + hourDrop > 0) {
-                    noOfDays++
-                    // alert(2)
-                }
-                if (noOfDays == 0) {
-                    noOfDays = 1
-                    // alert(3)
-                }
-                var distanceDiff = km - kmPickup
-                // alert(distanceDiff)
-                if (distanceDiff > kilometreLimit * noOfDays) {
-                    distanceCost = ((distanceDiff - kilometreLimit) * extraKilometreCharge).toInt()
-                }
-                var totalDistanceInt =Math.round(distanceCost.toDouble())
-                binding.kmCost.setText(totalDistanceInt.toString())
-            }
+               override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
+                   TODO("Not yet implemented")
+               }
+
+           })
         }
         binding.submit.setOnClickListener{
             binding.pb.visibility=View.VISIBLE
@@ -365,6 +345,7 @@ class Drop : Fragment() {
                     .toInt()
                 if (binding.mainYes.isChecked) chargesConfirmed += binding.maintainaceCost.text.toString()
                     .toInt()
+                AppVendor.uploaded=false;
 
                 API.get().submitDrop(
                     selectedBooking.trans_id,
@@ -496,9 +477,11 @@ class Drop : Fragment() {
                 call: Call<ApiResponseModel<String>>,
                 response: Response<ApiResponseModel<String>>
             ) {
+                AppVendor.uploaded=true;
             }
 
             override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
+                AppVendor.uploaded=true
             }
 
         })

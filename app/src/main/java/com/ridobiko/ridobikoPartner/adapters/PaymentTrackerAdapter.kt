@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ridobiko.ridobikoPartner.R
@@ -27,18 +28,18 @@ class PaymentTrackerAdapter(private val  paymentList: ArrayList<Payment_Tracker_
         val processed: TextView =itemView.findViewById(R.id.processed_on)
         val bike_name: TextView =itemView.findViewById(R.id.bike_name)
         val total: TextView =itemView.findViewById(R.id.total_rent)
-        val moreLayout: TextView =itemView.findViewById(R.id.more_drop_down)
+        val moreLayout: LinearLayout =itemView.findViewById(R.id.more_drop_down)
         val dropdown: ImageView =itemView.findViewById(R.id.show_drop_down)
-        val btn_call: ImageView =itemView.findViewById(R.id.call_Button)
+        val btn_call: ImageView =itemView.findViewById(R.id.call_button)
 
 
 
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentTrackerAdapter.PaymentViewHolder {
-        val view= LayoutInflater.from(parent.context).inflate(R.layout.bike_database_items,parent,false)
-        return PaymentTrackerAdapter.PaymentViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaymentViewHolder {
+        val view= LayoutInflater.from(parent.context).inflate(R.layout.payment_tracker_items,parent,false)
+        return PaymentViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: PaymentViewHolder, position: Int) {

@@ -315,12 +315,13 @@ android:padding="7dp"
                     android:text="Bike Plate Number"></TextView>
 
                 <EditText
+                    android:id="@+id/bike_plate_no"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@drawable/btn_grey"
                     android:inputType="text"
-                    android:padding="5dp"
-                    android:background="@drawable/btn_grey" />
+                    android:padding="5dp" />
             </LinearLayout>
 
 <!--            bike brand name-->

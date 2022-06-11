@@ -13,62 +13,44 @@
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/activity_booking.xml" value="0.2" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/activity_my_bike.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/activity_todays_pickups.xml" value="0.264" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/bike_database_items.xml" value="0.16" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/booking_item.xml" value="0.264" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_booking.xml" value="0.2" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_booking_customer.xml" value="0.264" />
-        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_drop.xml" value="0.2" />
-        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_other.xml" value="0.2" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_drop.xml" value="0.536" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_other.xml" value="0.4" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_pickup.xml" value="0.264" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/fragment_setting.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/mybike_item.xml" value="0.264" />
+        <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/payment_tracker_items.xml" value="0.4" />
         <entry key="..\:/Users/Abhinandan/AndroidStudioProjects/RidobikoVendor/app/src/main/res/layout/spinner_item.xml" value="0.10427350427350428" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.2" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/btn_addbike.xml" value="0.2535" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/btn_grey.xml" value="0.198" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/btn_search.xml" value="0.198" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/main_design.xml" value="0.243" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/new_border_edt.xml" value="0.256" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/drawable/tab_indicator.xml" value="0.2595" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_add_bike.xml" value="0.264" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_add_employee.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_bike_database.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_booking.xml" value="0.22146739130434784" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_customer_details.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_customer_details2.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_customer_details3.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_dummy.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_image_viewer.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_login.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_main.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_main2.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_main_booking.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_my_bike.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_payment_tracker.xml" value="0.23550724637681159" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_setting.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_single_bike.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_single_customer_details.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_support.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/activity_todays_pickups.xml" value="0.22146739130434784" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/add_employee_items.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/bike_database_items.xml" value="0.264" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/booking_history_items.xml" value="0.2" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/booking_item.xml" value="0.22146739130434784" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/content_customer_details.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/customer_items.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/dummy.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/dummy_screeen.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_all_.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_booking.xml" value="0.22146739130434784" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_booking2.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_booking_cust.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_booking_customer.xml" value="0.264" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_custom_profile.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_dash_board.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_documents.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_drop.xml" value="0.2" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_first.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_other.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_pickup.xml" value="0.264" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_second.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_service_history.xml" value="0.2" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_setting.xml" value="0.176" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_todays_drop.xml" value="0.22146739130434784" />
@@ -76,9 +58,7 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_trip_history.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/fragment_upcoming_bookings.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/mybike_item.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/payment_tracker_items.xml" value="0.23550724637681159" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/service_history_items.xml" value="0.264" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/show_employee_items.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/service_history_items.xml" value="0.4" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/spinner_item.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/support_bottom_sheet.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/Ridobiko_Vendor/app/src/main/res/layout/support_items.xml" value="0.22871376811594202" />

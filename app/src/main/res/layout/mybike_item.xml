@@ -19,17 +19,12 @@
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
             android:layout_margin="5dp"
             android:layout_weight="3"
             android:elevation="7dp"
             app:cardCornerRadius="5dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
                 <ImageView
                     android:id="@+id/bike_Image"
                     android:layout_width="match_parent"
@@ -37,7 +32,6 @@
                     android:src="@drawable/my_bikes">
 
                 </ImageView>
-            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -49,6 +43,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/bike_Id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -58,7 +53,6 @@
                 android:text="DJR7F" />
 
             <TextView
-                android:id="@+id/bike_Id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -72,6 +66,7 @@
             android:layout_weight="3"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/bike_Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -81,7 +76,6 @@
                 android:text="Yamaha"/>
 
             <TextView
-                android:id="@+id/bike_Name"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,6 +121,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/insurance_expiry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left"
@@ -148,6 +143,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/pollution_expiry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left"
@@ -178,6 +174,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/permit_expiry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|right"
@@ -199,6 +196,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/fitness_expiry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|right"

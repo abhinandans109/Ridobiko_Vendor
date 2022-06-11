@@ -35,6 +35,13 @@ import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.io.InputStream
+//import android.R
+import android.app.Notification
+import android.app.PendingIntent
+import android.content.SharedPreferences
+import android.widget.AdapterView
+import androidx.core.app.NotificationCompat
+
 
 class Pickup : Fragment() {
     lateinit var binding: FragmentPickupBinding
@@ -53,6 +60,10 @@ class Pickup : Fragment() {
      var helmet_back_1:String?=null
      var helmet_front_2:String?=null
      var helmet_back_2:String?=null
+     var helmet_front_3:String?=null
+     var helmet_back_3:String?=null
+     var helmet_front_4:String?=null
+     var helmet_back_4:String?=null
      var BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +71,7 @@ class Pickup : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding=FragmentPickupBinding.inflate(inflater,container,false)
-        binding.showDropDown.tag = R.drawable.drop_down
+        binding.showDropDown.tag = com.ridobiko.ridobikoPartner.R.drawable.drop_down
         selectedBooking=AppVendor.selectedBooking
         binding.remainingAmount.text = "Rs "+selectedBooking.amount_left
         binding.amountInWallet.text = "Rs 0"
@@ -103,10 +114,18 @@ class Pickup : Fragment() {
             .placeholder(R.drawable.bike_placeholder).into(binding.h1Top)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_front_2).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.h2Top)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_front_3).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h3Top)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_front_4).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h4Top)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_back_1).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.h1Bottom)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_back_2).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.h2Bottom)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_back_3).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h3Bottom)
+        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.helmet_back_4).resize(180,200)
+            .placeholder(R.drawable.bike_placeholder).into(binding.h4Bottom)
 
         //not editable
 //        selectedBooking.pickup="Done"
@@ -193,7 +212,7 @@ class Pickup : Fragment() {
             binding.fuelMeterReading.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
                 mutableListOf("1","2","3","4","5","6","7","8","9","10"))
             binding.noOfHelmets.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-                mutableListOf("1","2"))
+                mutableListOf("0","1","2","3","4"))
             API.get().getAvailableBikes(selectedBooking.vendor_email_id)
                 .enqueue(object:Callback<ApiResponseModel<ArrayList<BikesResponseModel>>> {
                 override fun onResponse(
@@ -215,6 +234,62 @@ class Pickup : Fragment() {
 
             }
             )
+
+        }
+        binding.noOfHelmets.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    1 -> {
+                        binding.h1.visibility=View.VISIBLE
+                        binding.h2.visibility=View.GONE
+                        binding.h3.visibility=View.GONE
+                        binding.h4.visibility=View.GONE
+                        binding.h11.visibility=View.VISIBLE
+                        binding.h22.visibility=View.GONE
+                        binding.h33.visibility=View.GONE
+                        binding.h44.visibility=View.GONE
+                    }
+                    2 -> {
+                        binding.h1.visibility=View.VISIBLE
+                        binding.h2.visibility=View.VISIBLE
+                        binding.h3.visibility=View.GONE
+                        binding.h4.visibility=View.GONE
+                        binding.h11.visibility=View.VISIBLE
+                        binding.h22.visibility=View.VISIBLE
+                        binding.h33.visibility=View.GONE
+                        binding.h44.visibility=View.GONE
+                    }
+                    3 -> {
+                        binding.h1.visibility=View.VISIBLE
+                        binding.h2.visibility=View.VISIBLE
+                        binding.h3.visibility=View.VISIBLE
+                        binding.h4.visibility=View.GONE
+                        binding.h11.visibility=View.VISIBLE
+                        binding.h22.visibility=View.VISIBLE
+                        binding.h33.visibility=View.VISIBLE
+                        binding.h44.visibility=View.GONE
+                    }
+                    4 -> {
+                        binding.h1.visibility=View.VISIBLE
+                        binding.h2.visibility=View.VISIBLE
+                        binding.h3.visibility=View.VISIBLE
+                        binding.h4.visibility=View.VISIBLE
+                        binding.h11.visibility=View.VISIBLE
+                        binding.h22.visibility=View.VISIBLE
+                        binding.h33.visibility=View.VISIBLE
+                        binding.h44.visibility=View.VISIBLE
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
 
         }
 
@@ -352,10 +427,45 @@ class Pickup : Fragment() {
                     BASE_IMAGE+selectedBooking.pictures.helmet_back_2))
         }
 
+        binding.h3Top.setOnClickListener {
+            if(selectedBooking.pickup=="Not Done")
+                ImagePicker.with(this).start(15)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.helmet_front_3))
+        }
+        binding.h3Bottom.setOnClickListener {
+            if(selectedBooking.pickup=="Not Done")
+                ImagePicker.with(this).start(16)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.helmet_back_3))
+        }
+
+        binding.h4Top.setOnClickListener {
+            if(selectedBooking.pickup=="Not Done")
+                ImagePicker.with(this).start(17)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.helmet_front_4))
+        }
+        binding.h4Bottom.setOnClickListener {
+            if(selectedBooking.pickup=="Not Done")
+                ImagePicker.with(this).start(18)
+            else
+                requireActivity().startActivity(Intent(requireContext(),
+                    ImageViewerActivity::class.java).putExtra("image",
+                    BASE_IMAGE+selectedBooking.pictures.helmet_back_4))
+        }
+
         return binding.root
     }
 
     private fun submitData() {
+
 //        uploadImages()
         API.get().submitPickup(selectedBooking.trans_id,selectedBooking.drop_date,selectedBooking
             .bikes_id,selectedBooking.bookedon,selectedBooking.status,binding.remainingAmount.text.toString()
@@ -367,27 +477,29 @@ class Pickup : Fragment() {
             changeBike.selectedItem.toString().split(" | ")[1],if(selectedBooking.current_address_city.
                 isNullOrEmpty())"city" else selectedBooking.current_address_city,if(binding.yes.isChecked)"1" else "0")
 
-            .enqueue(object : Callback<ApiResponseModel<String>>{
+            .enqueue(object : Callback<ApiResponseModel<String>> {
                 override fun onResponse(
                     call: Call<ApiResponseModel<String>>,
                     response: Response<ApiResponseModel<String>>
                 ) {
-                    binding.pb.visibility=View.GONE
-                    if(response.isSuccessful) {
+                    binding.pb.visibility = View.GONE
+                    if (response.isSuccessful) {
                         if (response.body()?.success.equals(Constants.SUCCESS))
                             Toast.makeText(requireContext(), "Pickup done", Toast.LENGTH_SHORT)
                                 .show()
 //                        doAsync {
-                            Thread{
+                        Thread {
+//                        doAsync {
                             uploadImages()
-                            }.start()
+//                        }.execute()
+                        }.start()
 //                        }.execute()
                         requireActivity().runOnUiThread {
                             requireActivity().startActivity(
                                 Intent(
                                     requireContext(),
                                     MainActivity::class.java
-                                )
+                                ).putExtra("image_upload",true)
                             )
                             Toast.makeText(context, "Pickup Done", Toast.LENGTH_SHORT).show()
                             requireActivity().finish()
@@ -396,21 +508,25 @@ class Pickup : Fragment() {
                         }
 
 
+                    }
+
+                }
+                    override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
+                        binding.pb.visibility = View.GONE
+
+                        Toast.makeText(requireContext(), Constants.WENT_WRONG, Toast.LENGTH_SHORT)
+                            .show()
 
                     }
-                }
 
-                override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
-                    binding.pb.visibility=View.GONE
 
-                    Toast.makeText(requireContext(), Constants.WENT_WRONG, Toast.LENGTH_SHORT).show()
+            }  )
 
-                }
 
-            })
     }
 
     private fun uploadImages() {
+        AppVendor.uploaded=false
         API.get().uploadPickupImages(selectedBooking.trans_id,selectedBooking.bikes_id,customerAdhaarFront,
             customerAdhaarBack,
             customerDriving,customerOfficeId,
@@ -426,10 +542,11 @@ class Pickup : Fragment() {
                 call: Call<ResponseBody>,
                 response: Response<ResponseBody>
             ) {
-
+                AppVendor.uploaded=true
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                AppVendor.uploaded=true
             }
 
         })
@@ -504,6 +621,26 @@ class Pickup : Fragment() {
                     helmet_back_2=photoConvert(data.data)
 
                 }
+                15 -> {
+                    binding.h3Top.setImageURI(data!!.data)
+                    helmet_front_3=photoConvert(data.data)
+
+                }
+                16 -> {
+                    binding.h3Bottom.setImageURI(data!!.data)
+                    helmet_back_3=photoConvert(data.data)
+
+                }
+                17 -> {
+                    binding.h4Top.setImageURI(data!!.data)
+                    helmet_front_4=photoConvert(data.data)
+
+                }
+                18 -> {
+                    binding.h4Bottom.setImageURI(data!!.data)
+                    helmet_back_4=photoConvert(data.data)
+
+                }
             }
         }
     }
@@ -532,6 +669,7 @@ class Pickup : Fragment() {
     }
     class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
         override fun onPostExecute(result: Void?) {
+
             super.onPostExecute(result)
         }
         override fun doInBackground(vararg params: Void?): Void? {
