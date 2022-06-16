@@ -3,6 +3,7 @@ package com.ridobiko.ridobikoPartner.api;
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel;
 import com.ridobiko.ridobikoPartner.models.BikesResponseModel;
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel;
+import com.ridobiko.ridobikoPartner.models.ChangeStatusResponseModel;
 import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers;
 import com.ridobiko.ridobikoPartner.models.LoginUserResponse;
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel;
@@ -33,6 +34,12 @@ public interface ApiService {
     @POST("getTodaysPickups.php")
     Call<ApiResponseModel<ArrayList<BookingResponseModel>>> getTodaysPickups(
             @Field("email") String email
+    );
+    @FormUrlEncoded
+    @POST("changeAdminStatus.php")
+    Call<ChangeStatusResponseModel> changeAdminStatus(
+            @Field("order_id") String order_id,
+            @Field("status") String status
     );
     @FormUrlEncoded
     @POST("getTodaysDrops.php")
@@ -79,6 +86,7 @@ public interface ApiService {
     Call<ResponseBody> uploadPickupImages(
             @Field("orderId") String orderId,
             @Field("bikeId") String bikeId,
+            @Field("mob") String mob,
             @Field("customerAdhaarFront") String customerAdhaarFront,
             @Field("customerAdhaarBack") String customerAdhaarBack,
             @Field("customerDriving") String customerDriving,

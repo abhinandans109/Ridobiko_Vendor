@@ -23,10 +23,6 @@ import com.ridobiko.ridobikoPartner.activities.MainActivity
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentPickupBinding
-import com.ridobiko.ridobikoPartner.models.ApiResponseModel
-import com.ridobiko.ridobikoPartner.models.BikesResponseModel
-import com.ridobiko.ridobikoPartner.models.BookingResponseModel
-import com.ridobiko.ridobikoPartner.models.Pictures
 import com.squareup.picasso.Picasso
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -41,9 +37,11 @@ import android.app.PendingIntent
 import android.content.SharedPreferences
 import android.widget.AdapterView
 import androidx.core.app.NotificationCompat
+import com.ridobiko.ridobikoPartner.models.*
 
 
 class Pickup : Fragment() {
+    var CUSTOMER_IMGE: String=""
     lateinit var binding: FragmentPickupBinding
     lateinit var selectedBooking:BookingResponseModel
      var customerAdhaarFront:String?=null
@@ -79,6 +77,7 @@ class Pickup : Fragment() {
         selectedBooking=AppVendor.selectedBooking
         binding.cusAddress.text=selectedBooking.customer_address
         BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+selectedBooking.trans_id+"/"
+        CUSTOMER_IMGE="https://www.ridobiko.com/android_app_customer/"
         binding.pickupStatus.setText(selectedBooking.pickup)
         binding.cusName.setText(selectedBooking.customer_name)
         binding.cusAddress.setText(selectedBooking.customer_address)
@@ -88,6 +87,7 @@ class Pickup : Fragment() {
         binding.emergencyMobile.setText(selectedBooking.emergency_no)
         binding.cusPermanentAddress.text = selectedBooking.permanent_address_house+" "+selectedBooking.permanent_address_area+" "+selectedBooking.permanent_address_landmark+" "+selectedBooking.permanent_address_city
         if(selectedBooking.pictures==null) selectedBooking.pictures= Pictures()
+        if(selectedBooking.customerPictures==null) selectedBooking.customerPictures= CustomerPictures()
         Picasso.get().load(selectedBooking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
 
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_back).resize(180,200)
@@ -98,14 +98,16 @@ class Pickup : Fragment() {
             .placeholder(R.drawable.bike_placeholder).into(binding.right)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_left).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.left)
-        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_driving).resize(180,200)
+
+        Picasso.get().load(CUSTOMER_IMGE + selectedBooking.customerPictures.image_driving).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.dlImage)
-        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_aadhar_front).resize(180,200)
+        Picasso.get().load(CUSTOMER_IMGE + selectedBooking.customerPictures.image_aadhar_front).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.afImage)
-        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_aadhar_back).resize(180,200)
+        Picasso.get().load(CUSTOMER_IMGE + selectedBooking.customerPictures.image_aadhar_back).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.abImage)
-        Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.customer_office_id).resize(180,200)
+        Picasso.get().load(CUSTOMER_IMGE + selectedBooking.customerPictures.image_pan).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.panImage)
+
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_fuel_meter).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.feulMeter)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_with_customer).resize(180,200)
@@ -135,12 +137,6 @@ class Pickup : Fragment() {
         binding.no.setOnClickListener {
             if(binding.yes.isChecked)binding.yes.toggle()
         }
-
-
-
-
-
-
 
         binding.showDropDown.setOnClickListener {
 
@@ -201,6 +197,49 @@ class Pickup : Fragment() {
 
             binding.purpose.setHint(selectedBooking.trip_details.purpose)
             binding.destination.setHint(selectedBooking.trip_details.destination)
+
+            when (selectedBooking.trip_details.no_of_helmets.toInt()) {
+                1 -> {
+                    binding.h1.visibility=View.VISIBLE
+                    binding.h2.visibility=View.GONE
+                    binding.h3.visibility=View.GONE
+                    binding.h4.visibility=View.GONE
+                    binding.h11.visibility=View.VISIBLE
+                    binding.h22.visibility=View.GONE
+                    binding.h33.visibility=View.GONE
+                    binding.h44.visibility=View.GONE
+                }
+                2 -> {
+                    binding.h1.visibility=View.VISIBLE
+                    binding.h2.visibility=View.VISIBLE
+                    binding.h3.visibility=View.GONE
+                    binding.h4.visibility=View.GONE
+                    binding.h11.visibility=View.VISIBLE
+                    binding.h22.visibility=View.VISIBLE
+                    binding.h33.visibility=View.GONE
+                    binding.h44.visibility=View.GONE
+                }
+                3 -> {
+                    binding.h1.visibility=View.VISIBLE
+                    binding.h2.visibility=View.VISIBLE
+                    binding.h3.visibility=View.VISIBLE
+                    binding.h4.visibility=View.GONE
+                    binding.h11.visibility=View.VISIBLE
+                    binding.h22.visibility=View.VISIBLE
+                    binding.h33.visibility=View.VISIBLE
+                    binding.h44.visibility=View.GONE
+                }
+                4 -> {
+                    binding.h1.visibility=View.VISIBLE
+                    binding.h2.visibility=View.VISIBLE
+                    binding.h3.visibility=View.VISIBLE
+                    binding.h4.visibility=View.VISIBLE
+                    binding.h11.visibility=View.VISIBLE
+                    binding.h22.visibility=View.VISIBLE
+                    binding.h33.visibility=View.VISIBLE
+                    binding.h44.visibility=View.VISIBLE
+                }
+            }
 
         }else{
             binding.modeOfRemainingAmount.adapter = ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
@@ -296,22 +335,22 @@ class Pickup : Fragment() {
         binding.abImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
                 ImageViewerActivity::class.java).putExtra("image",
-                BASE_IMAGE+selectedBooking.pictures.customer_aadhar_back))
+                CUSTOMER_IMGE + selectedBooking.customerPictures.image_aadhar_back))
         }
         binding.afImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
                 ImageViewerActivity::class.java).putExtra("image",
-                BASE_IMAGE+selectedBooking.pictures.customer_aadhar_front))
+                CUSTOMER_IMGE + selectedBooking.customerPictures.image_aadhar_front))
         }
         binding.dlImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
                 ImageViewerActivity::class.java).putExtra("image",
-                BASE_IMAGE+selectedBooking.pictures.customer_driving))
+                CUSTOMER_IMGE + selectedBooking.customerPictures.image_driving))
         }
         binding.panImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
                 ImageViewerActivity::class.java).putExtra("image",
-                BASE_IMAGE+selectedBooking.pictures.customer_office_id))
+                CUSTOMER_IMGE + selectedBooking.customerPictures.image_pan))
         }
 
         binding.dlUpload.setOnClickListener {
@@ -527,7 +566,7 @@ class Pickup : Fragment() {
 
     private fun uploadImages() {
         AppVendor.uploaded=false
-        API.get().uploadPickupImages(selectedBooking.trans_id,selectedBooking.bikes_id,customerAdhaarFront,
+        API.get().uploadPickupImages(selectedBooking.trans_id,selectedBooking.bikes_id,selectedBooking.customer_mobile,customerAdhaarFront,
             customerAdhaarBack,
             customerDriving,customerOfficeId,
                 bikeLeft,bikeRight,bikeFront,

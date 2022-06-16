@@ -11,20 +11,22 @@
     tools:context=".activities.ui.main.PlaceholderFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
-        android:gravity="right"
+        android:layout_margin="5dp"
+        android:gravity="left"
         android:layout_height="wrap_content">
         <TextView
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
-            android:text="Booking status : "
+            android:text="Booking status :  "
             android:textColor="@color/black"
             android:layout_height="wrap_content"/>
-        <TextView
+        <Spinner
             android:id="@+id/booking_status"
-            android:layout_width="wrap_content"
-            android:text="Confirmed"
-            android:textColor="#4CAF50"
-            android:layout_height="wrap_content"/>
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAllCaps="false" />
 
     </LinearLayout>
     <LinearLayout
