@@ -33,6 +33,7 @@ import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.io.InputStream
+import kotlin.math.roundToInt
 
 class Drop : Fragment() {
     lateinit var binding: FragmentDropBinding;
@@ -60,7 +61,7 @@ class Drop : Fragment() {
 //not editable
 //        selectedBooking.drop="Done"
         if(selectedBooking.trip_details==null)selectedBooking.trip_details= TripDetails()
-        binding.extraKmCharge.setText(selectedBooking.trip_details.extra_km_charge)
+        binding.extraKmCharge.setText(if(selectedBooking.trip_details.extra_km_charge.isNullOrEmpty())"0" else selectedBooking.trip_details.extra_km_charge)
         binding.fuelCharge.setText(AppVendor.fuel_price)
          if (selectedBooking.drop=="Done"){
              binding.helmetsAtPickup.isEnabled = false
@@ -280,7 +281,7 @@ class Drop : Fragment() {
                             }
                         }
                     }
-                    binding.fuelCost.setText(Math.round(fuelCost).toString())
+                    binding.fuelCost.setText(fuelCost.roundToInt().toString())
 
                 }
 
@@ -295,17 +296,17 @@ class Drop : Fragment() {
                ) {
                    if(response.isSuccessful){
                        if(response.body()?.success==Constants.SUCCESS){
-                           var limit= response.body()?.data?.toInt()
-                           if(selectedBooking.trip_details.KM_meter_drop.toInt()-selectedBooking.trip_details.KM_meter_pickup.toInt()>limit!!){
-                               binding.kmCost.setText(selectedBooking.trip_details.KM_meter_drop.toInt()-selectedBooking.trip_details.KM_meter_pickup.toInt()-limit!!).toString()
-                           }else binding.kmCost.setText(0)
+                           var l= response.body()?.data!!.isNullOrEmpty() || response.body()?.data!! == "N/A"
+                          var limit= if(!l) response.body()?.data!!.toInt() else 0
+                           if(binding.kmReadingPickup.text.toString().toInt()-selectedBooking.trip_details.KM_meter_pickup.toInt()>limit){
+                               binding.kmCost.setText(((binding.kmReadingPickup.text.toString().toInt()-selectedBooking.trip_details.KM_meter_pickup.toInt()-limit!!)*binding.extraKmCharge.text.toString().toInt()).toString())
+                           }else binding.kmCost.setText("0")
 
                        }
                    }
                }
 
                override fun onFailure(call: Call<ApiResponseModel<String>>, t: Throwable) {
-                   TODO("Not yet implemented")
                }
 
            })

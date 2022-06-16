@@ -45,6 +45,7 @@ public class BookingResponseModel implements Serializable {
     public String delivery_location	;
     public String invoice;
     public Pictures pictures;
+    public CustomerPictures customerPictures;
     public TripDetails trip_details;
 
 

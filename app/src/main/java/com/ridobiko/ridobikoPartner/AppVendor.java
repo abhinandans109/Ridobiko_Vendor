@@ -20,7 +20,7 @@ public class AppVendor extends Application {
     private static ApiService service;
     public static BookingResponseModel selectedBooking;
     public static MyBikesResponseModel selectedMyBike;
-    public static String fuel_price;
+    public static String fuel_price="91";
     public static Boolean uploaded=true;
     public static ApiService buildApiService() {
 
