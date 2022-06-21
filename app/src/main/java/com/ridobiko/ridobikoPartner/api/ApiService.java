@@ -139,6 +139,7 @@ public interface ApiService {
     @POST("insertPickup.php")
     Call<ApiResponseModel<String>> submitPickup(
             @Field("order_id") String order_id,
+            @Field("bikeid") String bikeid,
             @Field("drop_date") String drop_date,
             @Field("bike_id") String bike_id,
             @Field("bookedon") String bookedon,
@@ -200,6 +201,24 @@ public interface ApiService {
             @Field("purpose") String purpose,
             @Field("id_collected") String id_collected,
             @Field("city") String city
+    );
+    @FormUrlEncoded
+    @POST("set_addBikes.php")
+    Call<ChangeStatusResponseModel> addBike(
+            @Field("brand") String brand,
+            @Field("bikename") String bikename,
+            @Field("plate") String plate,
+            @Field("modal_year") String modal_year,
+            @Field("plate_number") String plate_number,
+            @Field("weekday") String weekday,
+            @Field("Weekend") String Weekend,
+            @Field("renthour") String renthour,
+            @Field("speed") String speed,
+            @Field("km_day") String km_day,
+            @Field("km_month") String km_month,
+            @Field("charge") String charge,
+            @Field("deposite") String deposite,
+            @Field("vemail") String vemail
     );
 
 }

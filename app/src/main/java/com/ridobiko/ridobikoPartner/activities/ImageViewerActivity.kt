@@ -8,46 +8,113 @@ import android.app.DownloadManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.database.Cursor
-import android.graphics.Bitmap
-import android.graphics.drawable.Icon
-import android.icu.number.NumberRangeFormatter.with
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.ScaleGestureDetector
+import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-
-import com.github.dhaval2404.imagepicker.ImagePicker.Companion.with
+import com.ravikoradiya.zoomableimageview.ZoomableImageView
+import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import java.io.File
-import java.io.FileOutputStream
-import java.net.URL
-import java.nio.channels.Channels
+import kotlin.math.abs
+
 
 class ImageViewerActivity : AppCompatActivity() {
+    private var BASE_IMAGE: String=""
     private var imageUrl=""
     var msg=""
     var lastMsg=""
+    var cindex=0;
+    private var scaleGestureDetector: ScaleGestureDetector? = null
+    private val mScaleFactor = 1.0f
+    private val imageView: ImageView? = null
+    lateinit var listImages:MutableList<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image_viewer)
+        actionBar?.setDisplayHomeAsUpEnabled(true);
 //        supportActionBar?.setIcon(R.drawable.download)
+        var customerPics=AppVendor.selectedBooking.customerPictures
+        var img=findViewById<ZoomableImageView>(R.id.image)
+        var isCustomerImages=intent.hasExtra("Customer Images")
+        var isPickupImages=intent.hasExtra("pickup")
+        if(isCustomerImages){
+            supportActionBar?.title="Customer Images"
+            BASE_IMAGE="https://www.ridobiko.com/android_app_customer/"
+            listImages= mutableListOf(BASE_IMAGE+customerPics.image_aadhar_front,BASE_IMAGE+customerPics.image_aadhar_back,BASE_IMAGE+customerPics.image_pan,BASE_IMAGE+customerPics.image_driving)
+            Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
+        }else if(isPickupImages){
+            supportActionBar?.title="Pickup Images"
+            BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+AppVendor.selectedBooking.trans_id+"/"
+            var images=AppVendor.selectedBooking.pictures
+            listImages= mutableListOf(
+                BASE_IMAGE+images.bike_front,
+                BASE_IMAGE+images.bike_back,
+                BASE_IMAGE+images.bike_left,
+                BASE_IMAGE+images.bike_right,
+                BASE_IMAGE+images.bike_fuel_meter,
+                BASE_IMAGE+images.bike_with_customer,
+                BASE_IMAGE+images.helmet_front_1,
+                BASE_IMAGE+images.helmet_back_1,
+                BASE_IMAGE+images.helmet_front_2,
+                BASE_IMAGE+images.helmet_back_2,
+                BASE_IMAGE+images.helmet_front_3,
+                BASE_IMAGE+images.helmet_back_3,
+                BASE_IMAGE+images.helmet_front_4,
+                BASE_IMAGE+images.helmet_back_4,
+            )
+            Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
+        }else{
+            supportActionBar?.title="Drop Images"
+            BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+AppVendor.selectedBooking.trans_id+"/"
+            var images=AppVendor.selectedBooking.pictures
+            listImages= mutableListOf(
+                BASE_IMAGE+images.bike_front_drop,
+                BASE_IMAGE+images.bike_back_drop,
+                BASE_IMAGE+images.bike_left_drop,
+                BASE_IMAGE+images.bike_right_drop,
+                BASE_IMAGE+images.bike_fuel_meter_drop,
+            )
+            Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
+        }
 
-          imageUrl= intent.getStringExtra("image")!!
-        var img=findViewById<ImageView>(R.id.image)
+        imageUrl=listImages[0]
+        findViewById<LinearLayout>(R.id.slider).setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
+        object:OnSwipeTouchListener(applicationContext) {
+            @Override
+            override fun onSwipeLeft() {
+                super.onSwipeLeft()
+                imageUrl=listImages[abs((--cindex) %listImages.size)]
+                Picasso.get().load( listImages[abs((cindex) %listImages.size)]).placeholder(R.drawable.bike_placeholder).into(img)
 
-        Picasso.get().load(intent.getStringExtra("image")).placeholder(R.drawable.bike_placeholder).into(img)
 
-         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            }
+
+            @Override
+            override fun onSwipeRight() {
+                super.onSwipeRight()
+                imageUrl=listImages[abs((++cindex) %listImages.size)]
+                Picasso.get().load( listImages[abs((cindex) %listImages.size)]).placeholder(R.drawable.bike_placeholder).into(img)
+
+
+            }
+        })
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
     }
@@ -64,7 +131,10 @@ class ImageViewerActivity : AppCompatActivity() {
             } else {
                 downloadImage(imageUrl)
             }
+        }else if(item.itemId==android.R.id.home){
+            finish()
         }
+
         return true
 
     }
@@ -158,6 +228,7 @@ class ImageViewerActivity : AppCompatActivity() {
             downloadImage(imageUrl)
         }
     }
+
 
 
     companion object {

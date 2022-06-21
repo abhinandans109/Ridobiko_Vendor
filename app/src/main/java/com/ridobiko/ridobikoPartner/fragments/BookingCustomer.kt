@@ -52,7 +52,7 @@ class BookingCustomer : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                if(position==1)
+                if(position==1||position==2)
                 API.get().changeAdminStatus(selectedBooking.trans_id, binding.bookingStatus.selectedItem.toString()).enqueue(
                     object :Callback<ChangeStatusResponseModel>{
                         override fun onResponse(
@@ -79,7 +79,7 @@ class BookingCustomer : Fragment() {
 
         }
         binding.bookingStatus.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-            mutableListOf(selectedBooking.admin_status,if(selectedBooking.admin_status=="pending")"confirmed" else "pending"))
+            mutableListOf(selectedBooking.admin_status,if(selectedBooking.admin_status=="pending")"confirmed" else "pending","Cancelled"))
 
         //call button
         binding.callButton.setOnClickListener {

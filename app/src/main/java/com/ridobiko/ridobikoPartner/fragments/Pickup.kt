@@ -38,6 +38,8 @@ import android.content.SharedPreferences
 import android.widget.AdapterView
 import androidx.core.app.NotificationCompat
 import com.ridobiko.ridobikoPartner.models.*
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
 
 
 class Pickup : Fragment() {
@@ -76,7 +78,13 @@ class Pickup : Fragment() {
         binding.securityDeposit.text = "Rs "+selectedBooking.security_deposit
         selectedBooking=AppVendor.selectedBooking
         binding.cusAddress.text=selectedBooking.customer_address
-        BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+selectedBooking.trans_id+"/"
+        var orderId=selectedBooking.trans_id
+       if(orderId.contains("e")){
+            orderId=orderId.split("e")[0]
+        }else if(orderId.contains("M")){
+            orderId=orderId.split("M")[0]+"M1"
+        }
+        BASE_IMAGE= "https://ridobiko.com/android_app_ridobiko_owned_store/images/$orderId/"
         CUSTOMER_IMGE="https://www.ridobiko.com/android_app_customer/"
         binding.pickupStatus.setText(selectedBooking.pickup)
         binding.cusName.setText(selectedBooking.customer_name)
@@ -91,13 +99,14 @@ class Pickup : Fragment() {
         Picasso.get().load(selectedBooking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
 
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_back).resize(180,200)
-            .placeholder(R.drawable.bike_placeholder).into(binding.back)
+            .placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(
+                MemoryPolicy.NO_CACHE).into(binding.back)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_front).resize(180,200)
-            .placeholder(R.drawable.bike_placeholder).into(binding.front)
+            .placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.front)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_right).resize(180,200)
-            .placeholder(R.drawable.bike_placeholder).into(binding.right)
+            .placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.right)
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_left).resize(180,200)
-            .placeholder(R.drawable.bike_placeholder).into(binding.left)
+            .placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.left)
 
         Picasso.get().load(CUSTOMER_IMGE + selectedBooking.customerPictures.image_driving).resize(180,200)
             .placeholder(R.drawable.bike_placeholder).into(binding.dlImage)
@@ -334,63 +343,48 @@ class Pickup : Fragment() {
 
         binding.abImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("image",
+                ImageViewerActivity::class.java).putExtra("Customer Images",
                 CUSTOMER_IMGE + selectedBooking.customerPictures.image_aadhar_back))
         }
         binding.afImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("image",
+                ImageViewerActivity::class.java).putExtra("Customer Images",
                 CUSTOMER_IMGE + selectedBooking.customerPictures.image_aadhar_front))
         }
         binding.dlImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("image",
+                ImageViewerActivity::class.java).putExtra("Customer Images",
                 CUSTOMER_IMGE + selectedBooking.customerPictures.image_driving))
         }
         binding.panImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("image",
+                ImageViewerActivity::class.java).putExtra("Customer Images",
                 CUSTOMER_IMGE + selectedBooking.customerPictures.image_pan))
         }
 
         binding.dlUpload.setOnClickListener {
-            if(selectedBooking.pickup=="Not Done")
+
                 ImagePicker.with(this).start(1)
-            else
-                requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
-                    BASE_IMAGE+selectedBooking.pictures.customer_driving))
+
         }
         binding.afUpload.setOnClickListener {
-            if(selectedBooking.pickup=="Not Done")
                 ImagePicker.with(this).start(2)
-            else
-                requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
-                    BASE_IMAGE+selectedBooking.pictures.customer_aadhar_front))
+
         }
         binding.abUpload.setOnClickListener {
-            if(selectedBooking.pickup=="Not Done")
                 ImagePicker.with(this).start(3)
-            else
-                requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
-                    BASE_IMAGE+selectedBooking.pictures.customer_aadhar_back))
+
         }
         binding.panUpload.setOnClickListener {
-            if(selectedBooking.pickup=="Not Done")
                 ImagePicker.with(this).start(4)
-            else
-                requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
-                    BASE_IMAGE+selectedBooking.pictures.customer_office_id))
+
         }
         binding.left.setOnClickListener {
             if(selectedBooking.pickup=="Not Done")
                 ImagePicker.with(this).start(5)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.bike_left))
         }
         binding.right.setOnClickListener {
@@ -398,7 +392,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(6)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.bike_right))
         }
         binding.front.setOnClickListener {
@@ -406,7 +400,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(7)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.bike_front))
         }
         binding.back.setOnClickListener {
@@ -414,7 +408,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(8)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.bike_back))
         }
         binding.feulMeter.setOnClickListener {
@@ -422,7 +416,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(9)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.bike_fuel_meter))
         }
         binding.withCustomer.setOnClickListener {
@@ -430,7 +424,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(10)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.bike_with_customer))
         }
         binding.h1Top.setOnClickListener {
@@ -438,7 +432,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(11)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_front_1))
         }
         binding.h1Bottom.setOnClickListener {
@@ -446,7 +440,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(12)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_back_1))
         }
         binding.h2Top.setOnClickListener {
@@ -454,7 +448,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(13)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_front_2))
         }
         binding.h2Bottom.setOnClickListener {
@@ -462,7 +456,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(14)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_back_2))
         }
 
@@ -471,7 +465,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(15)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_front_3))
         }
         binding.h3Bottom.setOnClickListener {
@@ -479,7 +473,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(16)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_back_3))
         }
 
@@ -488,7 +482,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(17)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_front_4))
         }
         binding.h4Bottom.setOnClickListener {
@@ -496,7 +490,7 @@ class Pickup : Fragment() {
                 ImagePicker.with(this).start(18)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("pickup",
                     BASE_IMAGE+selectedBooking.pictures.helmet_back_4))
         }
 
@@ -506,7 +500,7 @@ class Pickup : Fragment() {
     private fun submitData() {
 
 //        uploadImages()
-        API.get().submitPickup(selectedBooking.trans_id,selectedBooking.drop_date,selectedBooking
+        API.get().submitPickup(selectedBooking.trans_id,selectedBooking.bikes_id,selectedBooking.drop_date,selectedBooking
             .bikes_id,selectedBooking.bookedon,selectedBooking.status,binding.remainingAmount.text.toString()
             ,binding.modeOfRemainingAmount.selectedItem.toString(),binding.amountCollected.text.toString(),binding.
             modeOfCollectionDeposit.selectedItem.toString(),

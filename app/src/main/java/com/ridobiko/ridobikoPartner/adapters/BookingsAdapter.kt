@@ -64,8 +64,11 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
         holder.dateRange.text =
             model.pickup_date.split(" ")[0] + " - " + model.drop_date.split(" ")[0]
         holder.name.text = model.customer_name.split(" ")[0]
-        if (model.admin_status=="pending")
+        if (model.admin_status.lowercase()=="cancelled")
             holder.status.setTextColor(Color.parseColor("#FFCC0000"))
+        else if(model.admin_status.lowercase()=="pending")
+            holder.status.setTextColor(Color.parseColor("#FAD02C"))
+
         holder.status.text = model.admin_status
         holder.totalRent.text = "Rs " + model.rent
         holder.bikeName.text = model.bike_name
