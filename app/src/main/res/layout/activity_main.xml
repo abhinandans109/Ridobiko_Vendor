@@ -467,7 +467,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="7dp">
+                        android:padding="4dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -493,10 +493,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginTop="5dp"
                                 android:text="Today's pickups"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                 />
 
                             <TextView
                                 android:id="@+id/todays_pickups"
@@ -504,10 +503,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
                                 android:text="00"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:visibility="gone" />
 
@@ -565,10 +562,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginTop="5dp"
                                 android:text="Today's drops"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                               />
 
                             <TextView
                                 android:id="@+id/todays_drops"
@@ -577,10 +573,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
                                 android:text="00"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:visibility="gone" />
 
@@ -641,10 +635,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginTop="5dp"
                                 android:text="Upcoming     "
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/upcomming_booking_number"
@@ -653,10 +646,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
                                 android:text="00"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"
+
                                 android:textStyle="bold"
                                 android:visibility="gone" />
 
@@ -717,10 +709,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginTop="5dp"
                                 android:text="All bookings"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/all_no"
@@ -729,10 +720,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
                                 android:text="00"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:visibility="gone" />
 
@@ -795,10 +784,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginTop="5dp"
                                 android:text="Bike Database"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/bike_database"
@@ -807,10 +795,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
                                 android:text="00"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"
+
                                 android:textStyle="bold"
                                 android:visibility="gone" />
 
@@ -871,10 +858,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginTop="5dp"
                                 android:text="Payment Tracker"
                                 android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                 />
 
                             <TextView
                                 android:id="@+id/payment_tracker"
@@ -883,10 +869,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
                                 android:text="00"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:visibility="gone" />
 

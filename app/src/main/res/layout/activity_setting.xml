@@ -148,7 +148,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
 
-                <EditText android:textSize="15sp"
+                <EditText
+                    android:id="@+id/less3km"
+                    android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:enabled="false"
@@ -194,7 +196,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
 
-                <EditText android:textSize="15sp"
+                <EditText
+                    android:id="@+id/threeto5km"
+                    android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:enabled="false"
@@ -241,7 +245,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
 
-                <EditText android:textSize="15sp"
+                <EditText
+                    android:id="@+id/fiveto8km"
+                    android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:enabled="false"
@@ -287,7 +293,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
 
-                <EditText android:textSize="15sp"
+                <EditText
+                    android:id="@+id/eightto10km"
+                    android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:enabled="false"
@@ -333,7 +341,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
 
-                <EditText android:textSize="15sp"
+                <EditText
+                    android:id="@+id/morethan10km"
+                    android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:enabled="false"
@@ -359,6 +369,7 @@
             </LinearLayout>
         </LinearLayout>
         <Button
+            android:id="@+id/btnHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update"
@@ -403,7 +414,7 @@
                 android:textStyle="bold" />
 
             <EditText
-
+                android:id="@+id/landmark"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -431,7 +442,7 @@
                 android:textStyle="bold" />
 
             <EditText
-
+                android:id="@+id/area"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -459,7 +470,7 @@
                 android:textStyle="bold" />
 
             <EditText
-
+                android:id="@+id/city"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -486,7 +497,7 @@
                 android:textStyle="bold" />
 
             <EditText
-
+                android:id="@+id/pincode"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -499,6 +510,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update"
@@ -706,7 +718,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/accc_no"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -734,7 +746,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/ifsc_code"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -762,7 +774,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/acc_holder"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -774,6 +786,7 @@
                     android:textSize="15sp" />
             </LinearLayout>
             <Button
+                android:id="@+id/btnBank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Update"
@@ -821,6 +834,7 @@
             </TextView>
 
             <EditText
+                android:id="@+id/oname"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -850,6 +864,7 @@
                 </TextView>
 
                 <EditText
+                    android:id="@+id/onum"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -879,6 +894,7 @@
                 </TextView>
 
                 <EditText
+                    android:id="@+id/ename"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -909,6 +925,7 @@
                 </TextView>
 
                 <EditText
+                    android:id="@+id/emp_num"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -939,6 +956,7 @@
                 </TextView>
 
                 <EditText
+                    android:id="@+id/shop_name"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -971,6 +989,7 @@
                 </TextView>
 
                 <EditText
+                    android:id="@+id/location"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -982,6 +1001,16 @@
                     android:textAllCaps="false"
                     android:textSize="16sp" />
             </LinearLayout>
+            <Button
+                android:id="@+id/btnstore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:backgroundTint="#2C2C2C"/>
 
 <!--discount checkbox-->
             <LinearLayout
@@ -1275,7 +1304,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/license"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -1303,7 +1332,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/aadhar_card"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -1331,7 +1360,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/pan_num"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -1478,6 +1507,7 @@
                 </LinearLayout>
 
             <Button
+                android:id="@+id/btnDocument"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Update"

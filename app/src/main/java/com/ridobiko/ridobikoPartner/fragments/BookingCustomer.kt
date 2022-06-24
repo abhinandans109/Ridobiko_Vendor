@@ -16,7 +16,6 @@ import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentBookingCustomerBinding
-import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel
 import com.ridobiko.ridobikoPartner.models.ChangeStatusResponseModel
 import com.squareup.picasso.Picasso

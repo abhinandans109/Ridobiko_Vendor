@@ -1,12 +1,10 @@
 package com.ridobiko.ridobikoPartner.activities
 
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.adapters.BookingsAdapter
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants

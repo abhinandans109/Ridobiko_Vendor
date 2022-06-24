@@ -5,23 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
+import com.ridobiko.ridobikoPartner.api.API
+import com.ridobiko.ridobikoPartner.constants.Constants
+import com.ridobiko.ridobikoPartner.databinding.FragmentSettingBinding
+import com.ridobiko.ridobikoPartner.databinding.FragmentTodaysDropBinding
+import com.ridobiko.ridobikoPartner.models.ChangeStatusResponseModel
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Setting.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Setting : Fragment() {
     lateinit var selectedMyBike:MyBikesResponseModel;
-
+    lateinit var binding: FragmentSettingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,28 +34,27 @@ class Setting : Fragment() {
         // Inflate the layout for this fragment
         selectedMyBike=AppVendor.selectedMyBike
 //        binding.bikePlateNo.setText(selectedMyBike.bike_id)
-        return inflater.inflate(R.layout.fragment_setting, container, false)
+     binding= FragmentSettingBinding.inflate(inflater, container, false)
+
+        binding.btnBlockVehicle.setOnClickListener {
+            API.get().setPickupDropdate(binding.bookedFrom.text.toString(),binding.bookedTill.text.toString(),selectedMyBike.bike_id).enqueue(
+                object : Callback<ChangeStatusResponseModel> {
+                    override fun onResponse(
+                        call: Call<ChangeStatusResponseModel>,
+                        response: Response<ChangeStatusResponseModel>
+                    ) {
+                        TODO("Not yet implemented")
+                    }
+
+                    override fun onFailure(call: Call<ChangeStatusResponseModel>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
 
 
-    }
+                })
+        }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Setting.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Setting().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+        return binding.root
     }
 }

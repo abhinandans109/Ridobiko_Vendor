@@ -5,7 +5,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.ridobiko.ridobikoPartner.R
@@ -89,10 +88,12 @@ class AddBikeActivity : AppCompatActivity() {
             if(hasfocus) binding.tvselectBike.setTextColor(Color.parseColor("#F44336"))
             else binding.tvselectBike.setTextColor(Color.parseColor("#666666"))
         }
+
         binding.plateType.isFocusableInTouchMode = true;
         binding.plateType.onFocusChangeListener=View.OnFocusChangeListener{ v, hasfocus ->
             if(hasfocus) binding.tvPlatetype.setTextColor(Color.parseColor("#F44336"))
             else binding.tvPlatetype.setTextColor(Color.parseColor("#666666"))
+
         }
         binding.modelYear.isFocusableInTouchMode = true;
         binding.modelYear.onFocusChangeListener=View.OnFocusChangeListener{ v, hasfocus ->
@@ -122,6 +123,7 @@ class AddBikeActivity : AppCompatActivity() {
 
             })
         }
+
 
 
 

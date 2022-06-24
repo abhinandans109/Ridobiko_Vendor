@@ -1,6 +1,5 @@
 package com.ridobiko.ridobikoPartner.fragments
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -14,11 +13,9 @@ import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.DatePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -41,7 +38,6 @@ import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.io.InputStream
 import java.util.*
-import javax.xml.datatype.DatatypeConstants.MONTHS
 
 class Other : Fragment() {
     private lateinit var BASE_IMAGE: String

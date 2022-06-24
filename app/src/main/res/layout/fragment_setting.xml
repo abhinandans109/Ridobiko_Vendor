@@ -46,6 +46,7 @@
                   android:text="Booked From" />
 
               <EditText
+                  android:id="@+id/booked_from"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
@@ -75,6 +76,7 @@
                   android:text="Booked Till" />
 
               <EditText
+                  android:id="@+id/booked_till"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
@@ -87,6 +89,7 @@
                   android:inputType="text" />
           </LinearLayout>
           <Button
+              android:id="@+id/btnBlockVehicle"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="Update"
@@ -130,6 +133,7 @@
                        android:text="Fuel Track Size" />
 
                    <Spinner
+                       android:id="@+id/fuelSize"
                        android:layout_width="match_parent"
                        android:layout_height="40dp"
                        android:layout_gravity="left"
@@ -157,6 +161,7 @@
                        android:text="Max Fuel Bars" />
 
                    <Spinner
+                       android:id="@+id/fuelBar"
                        android:layout_width="match_parent"
                        android:layout_height="40dp"
                        android:layout_gravity="left"
@@ -173,6 +178,7 @@
            </LinearLayout>
 
            <Button
+               android:id="@+id/btnFuelMeter"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Update"
@@ -194,6 +200,7 @@ android:padding="7dp"
            android:text="Rent Type"
            android:layout_gravity="center"/>
     <Spinner
+        android:id="@+id/rentType"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_gravity="left"
@@ -257,6 +264,7 @@ android:padding="7dp"
                    />
            </LinearLayout>
            <Button
+               android:id="@+id/btnhsrp"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="Update"
@@ -271,6 +279,7 @@ android:padding="7dp"
            android:layout_height="wrap_content"
            android:gravity="center">
            <Button
+               android:id="@+id/btnTC"
                android:layout_width="match_parent"
                android:layout_marginRight="30dp"
                android:layout_marginLeft="30dp"
@@ -364,6 +373,7 @@ android:padding="7dp"
                     android:text="Bike Name"></TextView>
 
                 <EditText
+                    android:id="@+id/brand_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -388,6 +398,7 @@ android:padding="7dp"
                     android:text="Bike Plate Type"></TextView>
 
                 <EditText
+                    android:id="@+id/plate_Type"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -412,6 +423,7 @@ android:padding="7dp"
                     android:text="Rent Weekdays/day"></TextView>
 
                 <EditText
+                    android:id="@+id/weekdays"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -435,6 +447,7 @@ android:padding="7dp"
                     android:text="Rent Weekends/day"></TextView>
 
                 <EditText
+                    android:id="@+id/weekends"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -458,6 +471,7 @@ android:padding="7dp"
                     android:text="Rent/Hour"></TextView>
 
                 <EditText
+                    android:id="@+id/hour"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -481,6 +495,7 @@ android:padding="7dp"
                     android:text="Deposit"></TextView>
 
                 <EditText
+                    android:id="@+id/deposit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="number"
@@ -505,6 +520,7 @@ android:padding="7dp"
                     android:text="KM Limit/Day"></TextView>
 
                 <EditText
+                    android:id="@+id/limitday"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="text"
@@ -528,6 +544,7 @@ android:padding="7dp"
                     android:text="KM Limit/Month"></TextView>
 
                 <EditText
+                    android:id="@+id/limit_month"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -552,6 +569,7 @@ android:padding="7dp"
                     android:text="Additional KM Cost"></TextView>
 
                 <EditText
+                    android:id="@+id/additional_cost"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -575,6 +593,7 @@ android:padding="7dp"
                     android:text="Speed Limit"></TextView>
 
                 <EditText
+                    android:id="@+id/speed"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -598,6 +617,7 @@ android:padding="7dp"
                     android:text="Model Year"></TextView>
 
                 <EditText
+                    android:id="@+id/model_year"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -621,6 +641,7 @@ android:padding="7dp"
                     android:text="Bike Added On"></TextView>
 
                 <EditText
+                    android:id="@+id/bike_add_on"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -646,6 +667,7 @@ android:padding="7dp"
                     android:text="Insurance Expiry"></TextView>
 
                 <EditText
+                    android:id="@+id/insurance"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -671,6 +693,7 @@ android:padding="7dp"
                     android:text="Pollution Expiry"></TextView>
 
                 <EditText
+                    android:id="@+id/pollution"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -695,6 +718,7 @@ android:padding="7dp"
                     android:text="Permit Expiry"></TextView>
 
                 <EditText
+                    android:id="@+id/permit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -719,6 +743,7 @@ android:padding="7dp"
                     android:text="Fitness Expiry"></TextView>
 
                 <EditText
+                    android:id="@+id/fitness"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -991,6 +1016,7 @@ android:padding="7dp"
 
 </LinearLayout>
        <Button
+           android:id="@+id/btnVehicleDetails"
            android:layout_width="match_parent"
            android:layout_marginRight="30dp"
            android:layout_marginLeft="30dp"
@@ -1038,6 +1064,7 @@ android:padding="7dp"
                     android:text="Discount in 0-6 days"></TextView>
 
                 <EditText
+                    android:id="@+id/d0"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1064,6 +1091,7 @@ android:padding="7dp"
                     android:text="Discount in 7-10 days"></TextView>
 
                 <EditText
+                    android:id="@+id/d7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1089,6 +1117,7 @@ android:padding="7dp"
                     android:text="Discount in 11-15 days"></TextView>
 
                 <EditText
+                    android:id="@+id/d11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1114,6 +1143,7 @@ android:padding="7dp"
                     android:text="Discount in 15-20 days"></TextView>
 
                 <EditText
+                    android:id="@+id/d15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1139,6 +1169,7 @@ android:padding="7dp"
                     android:text="Discount in 21-30 days"></TextView>
 
                 <EditText
+                    android:id="@+id/d21"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1164,6 +1195,7 @@ android:padding="7dp"
                     android:text="Discount in 30-90 days"></TextView>
 
                 <EditText
+                    android:id="@+id/d30"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1208,6 +1240,7 @@ android:padding="7dp"
                     android:text="Subscription 1 month"></TextView>
 
                 <EditText
+                    android:id="@+id/s1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1232,6 +1265,7 @@ android:padding="7dp"
                     android:text="Subscription 2 month"></TextView>
 
                 <EditText
+                    android:id="@+id/s2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1257,6 +1291,7 @@ android:padding="7dp"
                     android:text="Subscription 3 month"></TextView>
 
                 <EditText
+                    android:id="@+id/s3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1281,6 +1316,7 @@ android:padding="7dp"
                 android:text="Subscription 6 month"></TextView>
 
             <EditText
+                android:id="@+id/s6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -1305,6 +1341,7 @@ android:padding="7dp"
                     android:text="Subscription 12 month"></TextView>
 
                 <EditText
+                    android:id="@+id/s12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1315,6 +1352,7 @@ android:padding="7dp"
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnDis_Sub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Update"

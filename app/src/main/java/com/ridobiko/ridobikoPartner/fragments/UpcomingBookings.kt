@@ -8,13 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.adapters.BookingsAdapter
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
-import com.ridobiko.ridobikoPartner.databinding.ActivityTodaysPickupsBinding
-import com.ridobiko.ridobikoPartner.databinding.FragmentTodaysDropBinding
-import com.ridobiko.ridobikoPartner.databinding.FragmentTodaysPickupBinding
 import com.ridobiko.ridobikoPartner.databinding.FragmentUpcomingBookingsBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel

@@ -1,19 +1,14 @@
 package com.ridobiko.ridobikoPartner.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.ridobiko.ridobikoPartner.AppVendor
-import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.adapters.MyBikeAdapter
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.ActivityMyBikeBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
-import com.ridobiko.ridobikoPartner.models.MybikeModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,6 +51,14 @@ class MyBikeActivity : AppCompatActivity() {
             }
 
         });
+
+
+
+
+
+
+
+
 
     }
 

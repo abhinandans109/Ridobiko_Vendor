@@ -14,7 +14,9 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiService {
     //modifications
@@ -220,6 +222,169 @@ public interface ApiService {
             @Field("deposite") String deposite,
             @Field("vemail") String vemail
     );
+
+    @FormUrlEncoded
+    @POST("set_bank.php")
+    Call<ChangeStatusResponseModel> setBank(
+            @Field("email") String email,
+            @Field("accno") String accno,
+            @Field("ifsc") String ifsc,
+            @Field("accname") String accname
+            );
+
+    @FormUrlEncoded
+    @POST("set_Documents.php")
+    Call<ChangeStatusResponseModel> documents(
+            @Field("email") String email,
+            @Field("dl") String dl,
+            @Field("aadhar") String aadhar,
+            @Field("pan") String pan
+    );
+    @FormUrlEncoded
+    @POST("set_homedelivery.php")
+    Call<ChangeStatusResponseModel> homeDelivery(
+            @Field("email") String email,
+            @Field("homedel") String homedel,
+            @Field("lessthen3km") String lessthen3km,
+            @Field("fiveto8km") String fiveto8km,
+            @Field("eightto10km") String eightto10km,
+            @Field("morethan10km") String morethan10km
+    );
+
+    @FormUrlEncoded
+    @POST("set_address.php")
+    Call<ChangeStatusResponseModel> setAddress(
+            @Field("email") String email,
+            @Field("landmark") String landmark,
+            @Field("area") String area,
+            @Field("city") String city,
+            @Field("pincode") String pincode,
+            @Field("state") String state
+    );
+    @FormUrlEncoded
+    @POST("set_map.php")
+    Call<ChangeStatusResponseModel> setMap(
+            @Field("email") String email,
+            @Field("map") String map
+
+    );
+
+    @FormUrlEncoded
+    @POST("set_store.php")
+    Call<ChangeStatusResponseModel> setStore(
+            @Field("email") String email,
+            @Field("oname") String oname,
+            @Field("ono") String ono,
+            @Field("ename") String ename,
+            @Field("eno") String eno,
+            @Field("cname") String cname
+    );
+
+    @FormUrlEncoded
+    @POST("set_pillion.php")
+    Call<ChangeStatusResponseModel> setPillion(
+            @Field("email") String email,
+            @Field("partbooksel") String partbooksel,
+            @Field("rent") String rent,
+            @Field("helmentadditional") String helmentadditional,
+            @Field("helmentcharge") String helmentcharge
+
+    );
+
+
+
+    @FormUrlEncoded
+    @POST("set_PickupDropdate.php")
+    Call<ChangeStatusResponseModel> setPickupDropdate(
+            @Field("till") String till,
+            @Field("from") String from,
+            @Field("bikeid") String bikeid
+
+    );
+
+    @FormUrlEncoded
+    @POST("set_fuelMeter.php")
+    Call<ChangeStatusResponseModel> setFuelMeter(
+            @Field("fuelTrank") String fuelTrank,
+            @Field("fuelbars") String fuelbars,
+            @Field("bikeid") String bikeid
+
+    );
+
+    @FormUrlEncoded
+    @POST("set_statusHsrp.php")
+    Call<ChangeStatusResponseModel> setStatusHsrp(
+            @Field("rentType") String rentType,
+            @Field("status") String status,
+            @Field("bikeid") String bikeid
+
+    );
+    @FormUrlEncoded
+    @POST("set_discountSubscription.php")
+    Call<ChangeStatusResponseModel> setDiscountSubcription(
+            @Field("bikeid") String bikeid,
+            @Field("d0") String d0,
+            @Field("d7") String d7,
+            @Field("d11") String d11,
+            @Field("d15") String d15,
+            @Field("d21") String d21,
+            @Field("d30") String d30,
+            @Field("d30") String s1,
+            @Field("d30") String s2,
+            @Field("d30") String s3,
+            @Field("d30") String s6,
+            @Field("d30") String s12
+
+    );
+    @FormUrlEncoded
+    @POST("set_t&c.php")
+    Call<ChangeStatusResponseModel> setTandC(
+            @Field("tc") String tc,
+            @Field("bikeid") String bikeid
+
+    );
+
+    @FormUrlEncoded
+    @POST("set_MyBikesVehicleDetails.php")
+    Call<ChangeStatusResponseModel> setMyBikesVehicleDetails(
+            @Field("bikeid") String bikeid,
+            @Field("plateNo") String plateNo,
+            @Field("brand") String brand,
+            @Field("bikeName") String bikeName,
+            @Field("plateType") String plateType,
+            @Field("weekday") String weekday,
+            @Field("weekend") String weekend,
+            @Field("deposit") String deposit,
+            @Field("hour") String hour,
+            @Field("kmDay") String kmDay,
+            @Field("kmMonth") String kmMonth,
+            @Field("addCost") String addCost,
+            @Field("speedLimit") String speedLimit,
+            @Field("modelYear") String modelYear,
+            @Field("bikeAdded") String bikeAdded,
+            @Field("insurance_ex") String insurance_ex,
+            @Field("puc_expiry") String puc_expiry,
+            @Field("permit_expiry") String permit_expiry,
+            @Field("fitness_expiry") String fitness_expiry
+
+    );
+    @FormUrlEncoded
+    @POST("get_AddBikes.php")
+    Call<ChangeStatusResponseModel> getAddBikes(
+            @Field("email") String email
+            );
+
+    @FormUrlEncoded
+    @POST("get_custdetails.php")
+    Call<ChangeStatusResponseModel> getCustDetails(
+            @Field("vendor_email") String vendor_email
+    );
+    @FormUrlEncoded
+    @POST("get_bookinghistory.php")
+    Call<ChangeStatusResponseModel> getBookingHistory(
+            @Field("mobile") String mobile
+            );
+
 
 }
 

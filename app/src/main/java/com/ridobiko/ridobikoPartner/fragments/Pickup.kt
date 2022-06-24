@@ -32,11 +32,7 @@ import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
 import java.io.InputStream
 //import android.R
-import android.app.Notification
-import android.app.PendingIntent
-import android.content.SharedPreferences
 import android.widget.AdapterView
-import androidx.core.app.NotificationCompat
 import com.ridobiko.ridobikoPartner.models.*
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.NetworkPolicy
