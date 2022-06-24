@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Can customer make booking by partial payment?"
+                android:text="Do you provide home delivery? "
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -543,7 +543,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="How much do you charge for pillion rider helmet?"
+                android:text="Can customer make booking by partial payment?"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -682,6 +682,16 @@
                 android:background="@drawable/btn_grey"
                 />
         </LinearLayout>
+        <Button
+            android:id="@+id/btn_pillion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:backgroundTint="#2C2C2C"/>
     </LinearLayout>
 
 <!--        bank details-->
