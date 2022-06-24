@@ -17,6 +17,7 @@ class BookingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         binding = ActivityBookingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         booking=AppVendor.selectedBooking
