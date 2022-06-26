@@ -376,7 +376,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("get_custdetails.php")
-    Call<ChangeStatusResponseModel> getCustDetails(
+    Call<custDetailsResponseModel> getCustDetails(
             @Field("vendor_email") String vendor_email
     );
     @FormUrlEncoded
@@ -384,6 +384,9 @@ public interface ApiService {
     Call<ChangeStatusResponseModel> getBookingHistory(
             @Field("mobile") String mobile
             );
+
+
+
 
 
 }

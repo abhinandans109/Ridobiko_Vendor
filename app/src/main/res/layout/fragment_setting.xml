@@ -244,7 +244,7 @@ android:padding="7dp"
                    android:textColor="@color/black"
                    />
                <CheckBox
-                   android:id="@+id/km_yes"
+                   android:id="@+id/hsrp_yes"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_marginRight="40dp"
@@ -258,7 +258,7 @@ android:padding="7dp"
                    android:textColor="@color/black"
                    />
                <CheckBox
-                   android:id="@+id/km_no"
+                   android:id="@+id/hsrp_no"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    />
@@ -350,6 +350,7 @@ android:padding="7dp"
                     android:text="Brand Name"></TextView>
 
                 <EditText
+                    android:id="@+id/brand_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -373,7 +374,7 @@ android:padding="7dp"
                     android:text="Bike Name"></TextView>
 
                 <EditText
-                    android:id="@+id/brand_name"
+                    android:id="@+id/bike_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -1205,6 +1206,16 @@ android:padding="7dp"
                     android:padding="5dp"
                     android:background="@drawable/btn_grey" />
             </LinearLayout>
+            <Button
+                android:id="@+id/btnDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:backgroundTint="#2C2C2C"/>
         </LinearLayout>
 
 <!--subscription rental-->
