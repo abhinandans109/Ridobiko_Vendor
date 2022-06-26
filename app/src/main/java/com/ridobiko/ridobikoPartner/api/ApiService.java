@@ -7,6 +7,7 @@ import com.ridobiko.ridobikoPartner.models.ChangeStatusResponseModel;
 import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers;
 import com.ridobiko.ridobikoPartner.models.LoginUserResponse;
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel;
+import com.ridobiko.ridobikoPartner.models.custDetailsResponseModel;
 
 import java.util.ArrayList;
 
