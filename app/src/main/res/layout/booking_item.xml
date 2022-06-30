@@ -76,16 +76,16 @@
                     android:src="@drawable/call_button"
                     />
             </LinearLayout>
+
             <TextView
                 android:id="@+id/status"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textColor="#4CAF50"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Confirmed"
-                />
+                android:textColor="#4CAF50" />
             <TextView
                 android:id="@+id/total_rent"
                 android:layout_weight="1"

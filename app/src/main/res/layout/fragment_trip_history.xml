@@ -65,5 +65,11 @@
                 android:textColor="@color/black" />
         </LinearLayout>
    </LinearLayout>
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/rv_tripHistory"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           tools:listitem="@layout/trip_history_items"/>
+
    </LinearLayout>
 </FrameLayout>

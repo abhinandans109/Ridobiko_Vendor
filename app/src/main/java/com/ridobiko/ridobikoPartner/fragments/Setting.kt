@@ -38,7 +38,7 @@ class Setting : Fragment() {
 //        binding.bikePlateNo.setText(selectedMyBike.bike_id)
      binding= FragmentSettingBinding.inflate(inflater, container, false)
 
-        API.get().getMyBikes(requireContext().getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, AppCompatActivity.MODE_PRIVATE).getString(Constants.EMAIL,null))
+//        API.get().getMyBikes(requireContext().getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, AppCompatActivity.MODE_PRIVATE).getString(Constants.EMAIL,null))
 
         binding.btnBlockVehicle.setOnClickListener {
             API.get().setPickupDropdate(binding.bookedFrom.text.toString(),binding.bookedTill.text.toString(),selectedMyBike.bike_id).enqueue(
