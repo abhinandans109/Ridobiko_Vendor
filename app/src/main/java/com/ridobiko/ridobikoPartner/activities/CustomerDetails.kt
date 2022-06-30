@@ -4,16 +4,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ridobiko.ridobikoPartner.R
-import com.ridobiko.ridobikoPartner.adapters.AddEmployee_Adapter
 import com.ridobiko.ridobikoPartner.adapters.CustomerDetailsAdapter
+import com.ridobiko.ridobikoPartner.api.API
+import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.ActivityCustomerDetailsBinding
-import com.ridobiko.ridobikoPartner.models.AddEmp_Model
-import com.ridobiko.ridobikoPartner.models.CustDetailsModel
+import com.ridobiko.ridobikoPartner.models.ApiResponseModel
+import com.ridobiko.ridobikoPartner.models.CustomerDetailsResponseModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CustomerDetails : AppCompatActivity() {
     private  lateinit var binding:ActivityCustomerDetailsBinding
-    private  lateinit var CustDetailsList:ArrayList<CustDetailsModel>
+    private  lateinit var CustDetailsList:ArrayList<CustomerDetailsResponseModel>
     private  lateinit var CustomerDetailsAdapter: CustomerDetailsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         binding= ActivityCustomerDetailsBinding.inflate(layoutInflater)
@@ -23,26 +26,38 @@ class CustomerDetails : AppCompatActivity() {
 
        CustDetailsList= ArrayList()
         binding.rvCustDetails.layoutManager= LinearLayoutManager(this)
+        API.get().getCustDetails(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"null")).enqueue(object :Callback<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>>{
+            override fun onResponse(
+                call: Call<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>>,
+                response: Response<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>>
+            ) {
+                if(response.isSuccessful){
+                    if(response.body()?.success==Constants.SUCCESS){
+                        CustDetailsList= response.body()?.data!!
+                        CustomerDetailsAdapter= CustomerDetailsAdapter(applicationContext,CustDetailsList)
+                        binding.rvCustDetails.layoutManager=LinearLayoutManager(applicationContext)
+                        binding.rvCustDetails.adapter=CustomerDetailsAdapter
+                    }
+                }
+            }
 
-        CustDetailsList.add(CustDetailsModel("Shivani Paswan","01","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Yash Gupta","02","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Yash Gupta","03","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Abhinandhan","04","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Yash Gupta","05","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Yash Gupta","06","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Yash Gupta","07","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Yash Gupta","08","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
-        CustDetailsList.add(CustDetailsModel("Yash Gupta","01","xxxxxxxx0884","BIMPT3361A","B3123123123","abc@gmail.com","9718004651"))
+            override fun onFailure(
+                call: Call<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>>,
+                t: Throwable
+            ) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
 
 
-        CustomerDetailsAdapter= CustomerDetailsAdapter(CustDetailsList)
-        binding.rvCustDetails.adapter=CustomerDetailsAdapter
 
-        CustomerDetailsAdapter.onItemClick={
-            val intent= Intent(this,SingleCustDetailsActivity::class.java)
-            startActivity(intent)
-        }
+
+//        CustomerDetailsAdapter.onItemClick={
+//            val intent= Intent(this,SingleCustDetailsActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
     }

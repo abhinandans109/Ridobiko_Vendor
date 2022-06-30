@@ -18,11 +18,11 @@ class SingleBikeActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.title="Bike Details"
 
-        binding.tabs.addTab(binding.tabs!!.newTab().setText("Dashboard"))
-        binding.tabs.addTab(binding.tabs!!.newTab().setText("Documents"))
-        binding.tabs.addTab(binding.tabs!!.newTab().setText("Service History"))
-        binding.tabs.addTab(binding.tabs!!.newTab().setText("Trip History") )
-        binding.tabs.addTab(binding.tabs!!.newTab().setText("Setting") )
+        binding.tabs.addTab(binding.tabs.newTab().setText("Dashboard"))
+        binding.tabs.addTab(binding.tabs.newTab().setText("Documents"))
+        binding.tabs.addTab(binding.tabs.newTab().setText("Service History"))
+        binding.tabs.addTab(binding.tabs.newTab().setText("Trip History") )
+        binding.tabs.addTab(binding.tabs.newTab().setText("Setting") )
 
         binding.tabs.tabGravity= TabLayout.GRAVITY_FILL
         val adapter= SingleBike_FragmentAdapter(this,supportFragmentManager,binding.tabs.tabCount)

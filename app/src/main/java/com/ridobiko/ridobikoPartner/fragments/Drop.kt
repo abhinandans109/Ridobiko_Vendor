@@ -63,8 +63,10 @@ class Drop : Fragment() {
         if(selectedBooking.trip_details==null)selectedBooking.trip_details= TripDetails()
         binding.extraKmCharge.setText(if(selectedBooking.trip_details.extra_km_charge.isNullOrEmpty())"0" else selectedBooking.trip_details.extra_km_charge)
         binding.fuelCharge.setText(AppVendor.fuel_price)
+
          if (selectedBooking.drop=="Done"){
              binding.helmetsAtPickup.isEnabled = false
+             binding.fuelAtPickup.isEnabled = false
              binding.fuelCharge.isEnabled = false
              binding.fuelCost.isEnabled = false
              binding.fuelYes.isEnabled = false
@@ -318,23 +320,17 @@ class Drop : Fragment() {
             if (binding.helmetsAtPickup.text.isNullOrEmpty()){
                 binding.helmetsAtPickup.error="this field can't be empty"
             }
-            else if (binding.fuelAtPickup.text.isNullOrEmpty()){
+            else if (binding.fuelYes.isChecked && binding.fuelAtPickup.text.isNullOrEmpty()){
                 binding.fuelAtPickup.error="this field can't be empty"
             }
-           else if (binding.kmReadingPickup.text.isNullOrEmpty()){
+           else if (binding.kmYes.isChecked && binding.kmReadingPickup.text.isNullOrEmpty()){
                 binding.kmReadingPickup.error="this field can't be empty"
             }
-            else if (binding.maintainaceCost.text.isNullOrEmpty()){
+            else if (binding.mainYes.isChecked && binding.maintainaceCost.text.isNullOrEmpty()){
                 binding.maintainaceCost.error="this field can't be empty"
-            }
-            else if (binding.maintainaceDetails.text.isNullOrEmpty()){
-                binding.maintainaceDetails.error="this field can't be empty"
             }
             else if (binding.collectedBy.text.isNullOrEmpty()){
                 binding.collectedBy.error="this field can't be empty"
-            }
-            else if (binding.comment.text.isNullOrEmpty()){
-                binding.comment.error="this field can't be empty"
             }
 
           else
