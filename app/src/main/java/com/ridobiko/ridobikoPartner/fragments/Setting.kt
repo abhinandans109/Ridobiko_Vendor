@@ -1,5 +1,6 @@
 package com.ridobiko.ridobikoPartner.fragments
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
+import com.ridobiko.ridobikoPartner.activities.MyBikeActivity
+import com.ridobiko.ridobikoPartner.activities.TermsConditonsActivity
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.FragmentSettingBinding
@@ -167,7 +170,9 @@ binding.btnDiscount.setOnClickListener {
         })
 
 }
-
+binding.btnTC.setOnClickListener {
+    startActivity(Intent(requireContext(),TermsConditonsActivity::class.java))
+}
 
 
 

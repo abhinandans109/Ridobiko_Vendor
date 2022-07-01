@@ -17,16 +17,16 @@
         android:theme="@style/Theme.RidobikoVendor"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.TermsConditonsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.BikeDatabase_Activity"
             android:exported="false"
             android:parentActivityName=".activities.MainActivity" />
-
         <activity
             android:name=".activities.PaymentTracker_Activity"
             android:exported="false"
             android:parentActivityName=".activities.MainActivity" />
-
-
         <activity
             android:name=".activities.CustomerDetails"
             android:exported="false"
