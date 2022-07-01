@@ -7,7 +7,10 @@ import com.google.gson.GsonBuilder;
 import com.ridobiko.ridobikoPartner.api.ApiService;
 import com.ridobiko.ridobikoPartner.constants.Constants;
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel;
+import com.ridobiko.ridobikoPartner.models.CustomerDetailsResponseModel;
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel;
+
+import org.jetbrains.annotations.NotNull;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -22,6 +25,8 @@ public class AppVendor extends Application {
     public static MyBikesResponseModel selectedMyBike;
     public static String fuel_price="91";
     public static Boolean uploaded=true;
+    public static CustomerDetailsResponseModel selectedCustomer;
+
     public static ApiService buildApiService() {
 
         if (service == null) {

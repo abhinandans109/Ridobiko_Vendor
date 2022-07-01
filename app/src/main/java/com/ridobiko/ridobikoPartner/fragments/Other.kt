@@ -98,6 +98,21 @@ class Other : Fragment() {
             .placeholder(R.drawable.bike_placeholder).into(binding.withCustomer)
 
 
+        if(selectedBooking.drop=="Done"){
+            binding.dDate.isEnabled=false
+            binding.dTime.isEnabled=false
+            binding.calRent.isEnabled=false
+            binding.createBooking.isEnabled=false
+            binding.totalRent.isEnabled=false
+            binding.changeBike.isEnabled=false
+            binding.exchange.isEnabled=false
+            binding.left.isEnabled=false
+            binding.right.isEnabled=false
+            binding.front.isEnabled=false
+            binding.back.isEnabled=false
+            binding.feulMeter.isEnabled=false
+            binding.withCustomer.isEnabled=false
+        }
         if(!selectedBooking.pictures.exchanged_bike_front.isNullOrEmpty()){
             binding.exchange.isEnabled=false
             binding.changeBike.isEnabled=false

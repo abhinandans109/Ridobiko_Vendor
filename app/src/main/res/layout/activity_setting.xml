@@ -108,6 +108,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/hd_checked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="40dp"
@@ -121,6 +122,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/hd_unchecked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -153,7 +155,6 @@
                     android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:enabled="false"
                     android:textAllCaps="false"
                     android:inputType="number"
                     android:background="@drawable/btn_grey"
@@ -162,16 +163,7 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"/>
 
-                <EditText android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:enabled="false"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
+
 
             </LinearLayout>
     </LinearLayout>
@@ -201,7 +193,6 @@
                     android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:enabled="false"
                     android:textAllCaps="false"
                     android:inputType="number"
                     android:background="@drawable/btn_grey"
@@ -210,16 +201,6 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"/>
 
-                <EditText android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:enabled="false"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -250,7 +231,6 @@
                     android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:enabled="false"
                     android:textAllCaps="false"
                     android:inputType="number"
                     android:background="@drawable/btn_grey"
@@ -259,16 +239,7 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"/>
 
-                <EditText android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:enabled="false"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
+
 
             </LinearLayout>
         </LinearLayout>
@@ -298,7 +269,6 @@
                     android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:enabled="false"
                     android:textAllCaps="false"
                     android:inputType="number"
                     android:background="@drawable/btn_grey"
@@ -307,16 +277,7 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"/>
 
-                <EditText android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:enabled="false"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
+
 
             </LinearLayout>
         </LinearLayout>
@@ -346,7 +307,6 @@
                     android:textSize="15sp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:enabled="false"
                     android:textAllCaps="false"
                     android:inputType="number"
                     android:background="@drawable/btn_grey"
@@ -355,16 +315,6 @@
                     android:layout_width="0dp"
                     android:layout_height="40dp"/>
 
-                <EditText android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:enabled="false"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -378,6 +328,140 @@
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:backgroundTint="#2C2C2C"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/white"
+            android:elevation="7dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="4"
+                    android:text="Landmark"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/landmark"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:background="@drawable/btn_grey"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:textAllCaps="false"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="4"
+                    android:text="Area"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/area"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:background="@drawable/btn_grey"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:textAllCaps="false"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="4"
+                    android:text="City"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/city"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:background="@drawable/btn_grey"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:textAllCaps="false"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="4"
+                    android:text="Pin code"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/pincode"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:background="@drawable/btn_grey"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:textAllCaps="false"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#2C2C2C"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
     <!--        address-->
@@ -388,6 +472,7 @@
         android:layout_margin="5dp"
         android:text="Address"/>
 
+        <!--    blank-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -396,140 +481,58 @@
         android:elevation="7dp"
         android:background="@color/white"
         android:padding="5dp">
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:elevation="4dp"
+            android:background="@color/white"
+            android:orientation="vertical">
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="4"
-                android:text="Landmark"
+                android:text="you offer vehicles on weekly rental at discounted price?"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
-            <EditText
-                android:id="@+id/landmark"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="6"
-                android:background="@drawable/btn_grey"
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:minHeight="40dp"
+                android:layout_width="wrap_content"
                 android:gravity="center"
-                android:inputType="text"
-                android:textAllCaps="false"
-                android:textSize="15sp" />
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="4"
-                android:text="Area"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/area"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="6"
-                android:background="@drawable/btn_grey"
-                android:gravity="center"
-                android:inputType="text"
-                android:textAllCaps="false"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="4"
-                android:text="City"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/city"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="6"
-                android:background="@drawable/btn_grey"
-                android:gravity="center"
-                android:inputType="text"
-                android:textAllCaps="false"
-                android:textSize="15sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="5dp"
-                android:layout_weight="4"
-                android:text="Pin code"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/pincode"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="6"
-                android:background="@drawable/btn_grey"
-                android:gravity="center"
-                android:inputType="number"
-                android:textAllCaps="false"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Update"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:backgroundTint="#2C2C2C"/>
-    </LinearLayout>
-
-<!--    blank-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="5dp"
-        android:elevation="7dp"
-        android:background="@color/white"
-        android:padding="5dp">
 
 <!--checkbox-->
         <LinearLayout
@@ -1023,57 +1026,7 @@
                 android:backgroundTint="#2C2C2C"/>
 
 <!--discount checkbox-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:elevation="4dp"
-                android:background="@color/white"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="you offer vehicles on weekly rental at discounted price?"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
 
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:minHeight="40dp"
-                    android:layout_width="wrap_content"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Yes"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="No"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/black"
-                        />
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        />
-                </LinearLayout>
-            </LinearLayout>
 
         </LinearLayout>
 

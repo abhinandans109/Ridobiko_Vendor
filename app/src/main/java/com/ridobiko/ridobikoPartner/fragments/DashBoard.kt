@@ -1,60 +1,34 @@
 package com.ridobiko.ridobikoPartner.fragments
 
+import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
+import com.ridobiko.ridobikoPartner.databinding.FragmentDashBoardBinding
+import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [DashBoard.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DashBoard : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    lateinit var selectedMyBike:MyBikesResponseModel
+    lateinit var binding:FragmentDashBoardBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dash_board, container, false)
+    ): View {
+        binding=FragmentDashBoardBinding.inflate(layoutInflater)
+        selectedMyBike=AppVendor.selectedMyBike
+        binding.bookingStart.text=selectedMyBike.pickup.split(" ")[0]
+        binding.bookingEnd.text=selectedMyBike.drop.split(" ")[0]
+        binding.noOfBookings.text=selectedMyBike.Dashboard.bookings
+        binding.maintainanceAmount.text=selectedMyBike.Dashboard.Total_Maintenance_Cost
+        binding.totalBookingAmount.text=selectedMyBike.Dashboard.amount
+        binding.uniqueCustomers.text=selectedMyBike.Dashboard.customer_name_count
+        binding.daysBooked.text=selectedMyBike.Dashboard.difference
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DashBoard.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DashBoard().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }

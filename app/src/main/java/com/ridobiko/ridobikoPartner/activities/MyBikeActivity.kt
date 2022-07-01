@@ -38,7 +38,6 @@ class MyBikeActivity : AppCompatActivity() {
                         binding.rvMyBike.layoutManager=LinearLayoutManager(applicationContext)
                         myBikeAdapter= MyBikeAdapter(applicationContext,bikeList)
                         binding.rvMyBike.adapter=myBikeAdapter
-                        myBikeAdapter.notifyDataSetChanged()
                     }
                 }
             }
@@ -47,7 +46,8 @@ class MyBikeActivity : AppCompatActivity() {
                 call: Call<ApiResponseModel<ArrayList<MyBikesResponseModel>>>,
                 t: Throwable
             ) {
-                TODO("Not yet implemented")
+                print(t.message)
+//                TODO("Not yet implemented")
             }
 
         });

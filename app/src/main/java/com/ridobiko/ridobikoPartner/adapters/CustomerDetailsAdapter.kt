@@ -1,17 +1,19 @@
 package com.ridobiko.ridobikoPartner.adapters
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
-import com.ridobiko.ridobikoPartner.models.AddEmp_Model
-import com.ridobiko.ridobikoPartner.models.CustDetailsModel
-import com.ridobiko.ridobikoPartner.models.MybikeModel
+import com.ridobiko.ridobikoPartner.activities.SingleCustDetailsActivity
+import com.ridobiko.ridobikoPartner.models.CustomerDetailsResponseModel
 
-class CustomerDetailsAdapter(private  val  CustDetailsList: ArrayList<CustDetailsModel>):RecyclerView.Adapter<CustomerDetailsAdapter.CustDwtailsViewHolder>() {
-    var onItemClick:((CustDetailsModel)->Unit)?= null
+class CustomerDetailsAdapter(private val context: Context,private  val  CustDetailsList: ArrayList<CustomerDetailsResponseModel>):RecyclerView.Adapter<CustomerDetailsAdapter.CustDwtailsViewHolder>() {
 
     class CustDwtailsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val cust_name: TextView =itemView.findViewById(R.id.cust_name)
@@ -29,17 +31,30 @@ class CustomerDetailsAdapter(private  val  CustDetailsList: ArrayList<CustDetail
     }
 
     override fun onBindViewHolder(holder: CustDwtailsViewHolder, position: Int) {
-        val CustDetailsModel=CustDetailsList[position]
-        holder.cust_name.text=CustDetailsModel.cust_name
-        holder.cust_s_no.text=CustDetailsModel.cust_s_no
-        holder.cust_aadhar.text=CustDetailsModel.cust_aadhar
-        holder.cust_pan.text=CustDetailsModel.cust_pan
-        holder.cust_license.text=CustDetailsModel.cust_license
-        holder.cust_mail.text=CustDetailsModel.cust_email
-        holder.cust_number.text=CustDetailsModel.cust_number
+        val custDetailsModel=CustDetailsList[position]
+        holder.cust_name.text=custDetailsModel.name
+        holder.cust_s_no.text= (position+1).toString()
+        holder.cust_aadhar.text=custDetailsModel.aadhar_id
+        holder.cust_pan.text=custDetailsModel.pan_no
+        holder.cust_license.text=custDetailsModel.driving_id
+        holder.cust_mail.text=custDetailsModel.email
+        holder.cust_number.text=custDetailsModel.login_mobile
 
+        if(custDetailsModel.aadhar_verified=="1"){
+            holder.cust_aadhar.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.green_tick,0)
+        }
+
+        if(custDetailsModel.pan_verified=="1"){
+            holder.cust_pan.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.green_tick,0)
+        }
+
+        if(custDetailsModel.driving_license_verified=="1"){
+            holder.cust_license.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.green_tick,0)
+        }
         holder.itemView.setOnClickListener {
-            onItemClick?.invoke(CustDetailsModel)
+            AppVendor.selectedCustomer=custDetailsModel
+            val intent= Intent(context, SingleCustDetailsActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
         }
     }
 

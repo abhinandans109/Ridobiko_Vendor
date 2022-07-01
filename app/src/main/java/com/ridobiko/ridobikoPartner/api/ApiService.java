@@ -1,13 +1,15 @@
 package com.ridobiko.ridobikoPartner.api;
 
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel;
+import com.ridobiko.ridobikoPartner.models.BikeBrandNameResponseModel;
 import com.ridobiko.ridobikoPartner.models.BikesResponseModel;
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel;
 import com.ridobiko.ridobikoPartner.models.ChangeStatusResponseModel;
+import com.ridobiko.ridobikoPartner.models.CustomerDetailsResponseModel;
+import com.ridobiko.ridobikoPartner.models.CustomerHistoryResponseModel;
 import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers;
 import com.ridobiko.ridobikoPartner.models.LoginUserResponse;
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel;
-import com.ridobiko.ridobikoPartner.models.custDetailsResponseModel;
 
 import java.util.ArrayList;
 
@@ -247,13 +249,14 @@ public interface ApiService {
             @Field("email") String email,
             @Field("homedel") String homedel,
             @Field("lessthen3km") String lessthen3km,
+            @Field("threeto5km") String threeto5km,
             @Field("fiveto8km") String fiveto8km,
             @Field("eightto10km") String eightto10km,
             @Field("morethan10km") String morethan10km
     );
 
     @FormUrlEncoded
-    @POST("set_address.php")
+    @POST("set_addrress.php")
     Call<ChangeStatusResponseModel> setAddress(
             @Field("email") String email,
             @Field("landmark") String landmark,
@@ -261,13 +264,6 @@ public interface ApiService {
             @Field("city") String city,
             @Field("pincode") String pincode,
             @Field("state") String state
-    );
-    @FormUrlEncoded
-    @POST("set_map.php")
-    Call<ChangeStatusResponseModel> setMap(
-            @Field("email") String email,
-            @Field("map") String map
-
     );
 
     @FormUrlEncoded
@@ -278,7 +274,8 @@ public interface ApiService {
             @Field("ono") String ono,
             @Field("ename") String ename,
             @Field("eno") String eno,
-            @Field("cname") String cname
+            @Field("cname") String cname,
+            @Field("map") String map
     );
 
     @FormUrlEncoded
@@ -371,23 +368,20 @@ public interface ApiService {
     );
     @FormUrlEncoded
     @POST("get_AddBikes.php")
-    Call<ChangeStatusResponseModel> getAddBikes(
+    Call<ApiResponseModel<ArrayList<BikeBrandNameResponseModel>>> getAddBikes(
             @Field("email") String email
             );
 
     @FormUrlEncoded
     @POST("get_custdetails.php")
-    Call<custDetailsResponseModel> getCustDetails(
+    Call<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>> getCustDetails(
             @Field("vendor_email") String vendor_email
     );
     @FormUrlEncoded
     @POST("get_bookinghistory.php")
-    Call<ChangeStatusResponseModel> getBookingHistory(
+    Call<ApiResponseModel<ArrayList<CustomerHistoryResponseModel>>> getBookingHistory(
             @Field("mobile") String mobile
             );
-
-
-
 
 
 }

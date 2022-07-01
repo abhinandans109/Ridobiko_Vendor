@@ -22,11 +22,12 @@ class SettingActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         supportActionBar?.title="Settings"
-       binding.btShowEmp.setOnClickListener{
-           startActivity(Intent(applicationContext,AddEmployeeActivity::class.java))
+       binding.btShowEmp.setOnClickListener {
+           startActivity(Intent(applicationContext, AddEmployeeActivity::class.java))
+       }
            
-           
-           binding.btnAddress.setOnClickListener { 
+           binding.btnAddress.setOnClickListener {
+
                API.get().setAddress(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"null"),
                    binding.landmark.text.toString(),binding.area.text.toString(),binding.city.text.toString(),binding.pincode.text.toString(),null).enqueue(
                    object : Callback<ChangeStatusResponseModel>{
@@ -51,7 +52,41 @@ class SettingActivity : AppCompatActivity() {
 
                    })
            }
-       }
+            binding.hdChecked.setOnClickListener{
+                if(binding.hdUnchecked.isChecked) binding.hdUnchecked.toggle()
+            }
+
+            binding.hdUnchecked.setOnClickListener{
+                if(binding.hdChecked.isChecked) binding.hdChecked.toggle()
+            }
+
+           binding.btnHome.setOnClickListener {
+
+               API.get().homeDelivery(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"null"),
+                   if(binding.hdChecked.isChecked)"1" else "0",binding.less3km.text.toString(),binding.threeto5km.text.toString(),binding.fiveto8km.text.toString(),binding.eightto10km.text.toString(),binding.morethan10km.text.toString()).enqueue(
+                   object : Callback<ChangeStatusResponseModel>{
+                       override fun onResponse(
+                           call: Call<ChangeStatusResponseModel>,
+                           response: Response<ChangeStatusResponseModel>
+                       ) {
+                           if(response.isSuccessful){
+                               if(response.body()?.success==Constants.SUCCESS){
+                                   Toast.makeText(applicationContext,"Data Updated", Toast.LENGTH_SHORT).show()
+                               }else {
+                                   Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_SHORT)
+                                       .show()
+                               }
+                           }
+                       }
+
+                       override fun onFailure(call: Call<ChangeStatusResponseModel>, t: Throwable) {
+                           Toast.makeText(applicationContext,Constants.WENT_WRONG,Toast.LENGTH_SHORT).show()
+
+                       }
+
+                   })
+           }
+
         binding.btnBank.setOnClickListener { 
             API.get().setBank(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"null"),
                 binding.acccNo.text.toString(),binding.ifscCode.text.toString(),binding.accHolder.text.toString()).enqueue(
@@ -80,7 +115,7 @@ class SettingActivity : AppCompatActivity() {
         }
         binding.btnstore.setOnClickListener { 
             API.get().setStore(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"null"),binding.oname.text.toString(),
-            binding.onum.text.toString(),binding.ename.text.toString(),binding.empNum.text.toString(),binding.shopName.text.toString()).enqueue(
+            binding.onum.text.toString(),binding.ename.text.toString(),binding.empNum.text.toString(),binding.shopName.text.toString(),binding.location.text.toString()).enqueue(
                 object : Callback<ChangeStatusResponseModel> {
                     override fun onResponse(
                         call: Call<ChangeStatusResponseModel>,

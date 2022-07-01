@@ -92,6 +92,16 @@ class Pickup : Fragment() {
         binding.cusPermanentAddress.text = selectedBooking.permanent_address_house+" "+selectedBooking.permanent_address_area+" "+selectedBooking.permanent_address_landmark+" "+selectedBooking.permanent_address_city
         if(selectedBooking.pictures==null) selectedBooking.pictures= Pictures()
         if(selectedBooking.customerPictures==null) selectedBooking.customerPictures= CustomerPictures()
+
+        binding.dlNo.text=selectedBooking.customer_dl_number
+        binding.aadhaarNo.text=selectedBooking.aadhar_id
+
+        if(selectedBooking.aadhar_verified=="1"){
+            binding.aadhaarNo.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.green_tick,0)
+        }
+        if(selectedBooking.driving_license_verified=="1"){
+            binding.dlNo.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.green_tick,0)
+        }
         Picasso.get().load(selectedBooking.bike_image).placeholder(R.drawable.bike_placeholder).into(binding.bikeImage)
 
         Picasso.get().load(BASE_IMAGE + selectedBooking.pictures.bike_back).resize(180,200)
@@ -137,9 +147,11 @@ class Pickup : Fragment() {
         //not editable
 //        selectedBooking.pickup="Done"
         binding.yes.setOnClickListener {
+            binding.amountCollected.isEnabled=true
             if(binding.no.isChecked)binding.no.toggle()
         }
         binding.no.setOnClickListener {
+            binding.amountCollected.isEnabled=false
             if(binding.yes.isChecked)binding.yes.toggle()
         }
 
@@ -164,7 +176,7 @@ class Pickup : Fragment() {
 
 
         if (selectedBooking.pickup=="Done"){
-            binding.amountCollected.setHint(selectedBooking.amount_paid)
+            binding.amountCollected.setHint(selectedBooking.trip_details.deposit_collected_by_vendor)
 //            binding.fuelMeterReading.setSelection(selectedBooking.fuel_tank.toInt()-1)
 //            binding.noOfHelmets.setSelection(selectedBooking.no_of_helmets.toInt()-1)
             binding.kmReading.setHint(selectedBooking.KM_meter_pickup)
@@ -247,6 +259,14 @@ class Pickup : Fragment() {
             }
 
         }else{
+            if(selectedBooking.amount_left=="0") {
+                binding.modeOfRemainingAmount.adapter = ArrayAdapter<String>(
+                    requireContext(), R.layout.spinner_item,
+                    mutableListOf("N/A")
+                )
+                binding.modeOfRemainingAmount.isEnabled=false
+            }
+            else
             binding.modeOfRemainingAmount.adapter = ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
                 mutableListOf("Mode Of Payment","Cash","UPI","Card","Direct Bank Transfer"))
             binding.idCollected.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
