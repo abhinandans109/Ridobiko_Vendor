@@ -385,7 +385,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("get_settings.php")
-    Call<ApiResponseModel<ArrayList<ChangeStatusResponseModel>>> getSettings(
+    Call<ChangeStatusResponseModel> getSettings(
             @Field("email") String email
     );
 
