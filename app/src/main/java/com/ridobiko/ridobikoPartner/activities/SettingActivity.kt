@@ -25,7 +25,9 @@ class SettingActivity : AppCompatActivity() {
        binding.btShowEmp.setOnClickListener {
            startActivity(Intent(applicationContext, AddEmployeeActivity::class.java))
        }
-           
+
+        API.get().getSettings(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"null"))
+
            binding.btnAddress.setOnClickListener {
 
                API.get().setAddress(getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, MODE_PRIVATE).getString(Constants.EMAIL,"null"),

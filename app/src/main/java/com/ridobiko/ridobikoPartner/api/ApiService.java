@@ -383,6 +383,12 @@ public interface ApiService {
             @Field("mobile") String mobile
             );
 
+    @FormUrlEncoded
+    @POST("get_settings.php")
+    Call<ApiResponseModel<ArrayList<ChangeStatusResponseModel>>> getSettings(
+            @Field("email") String email
+    );
+
 
 }
 
