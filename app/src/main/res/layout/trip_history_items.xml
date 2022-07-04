@@ -22,6 +22,7 @@
         >
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/s_no"
             android:layout_width="wrap_content"
             android:textColor="@color/white"
@@ -75,6 +76,7 @@
             android:layout_weight="1"
             >
             <TextView
+                android:textStyle="bold"
                 android:id="@+id/cust_name"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
@@ -82,14 +84,14 @@
                 android:layout_height="wrap_content"
                 android:text="Ashish" />
 
-            <ImageView
+<!--            <ImageView-->
 
-                android:id="@+id/call_btn"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/call_button"
-                />
+<!--                android:id="@+id/call_btn"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/call_button"-->
+<!--                />-->
         </LinearLayout>
         <TextView
              android:id="@+id/cust_num"
@@ -104,6 +106,7 @@
             android:id="@+id/pickup_time"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:textStyle="bold"
             android:layout_gravity="center_vertical"
             android:textColor="@color/black"
             android:layout_width="match_parent"
@@ -120,6 +123,7 @@
             />
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/drop_time"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"

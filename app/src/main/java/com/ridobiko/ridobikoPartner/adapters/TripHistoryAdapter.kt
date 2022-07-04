@@ -1,5 +1,6 @@
 package com.ridobiko.ridobikoPartner.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +34,10 @@ class TripHistoryAdapter(private  val TripList:ArrayList<TripHistoryModel>):Recy
         val tripHistoryModel = TripList[position]
         holder.s_no.text = tripHistoryModel.s_no
         holder.trip_status.text = tripHistoryModel.trip_status
+        if (tripHistoryModel.trip_status.lowercase()=="cancelled")
+            holder.trip_status.setTextColor(Color.parseColor("#FFCC0000"))
+        else if(tripHistoryModel.trip_status.lowercase()=="pending")
+            holder.trip_status.setTextColor(Color.parseColor("#FAD02C"))
         holder.cust_name.text = tripHistoryModel.cust_name
         holder.cust_num.text = tripHistoryModel.cust_num
         holder.pickup_time.text = tripHistoryModel.pickup_time

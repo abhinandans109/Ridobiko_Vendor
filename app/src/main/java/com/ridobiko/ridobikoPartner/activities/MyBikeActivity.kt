@@ -2,9 +2,9 @@
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.view.contains
@@ -44,6 +44,7 @@ import kotlin.collections.ArrayList
                 call: Call<ApiResponseModel<ArrayList<MyBikesResponseModel>>>,
                 response: Response<ApiResponseModel<ArrayList<MyBikesResponseModel>>>
             ) {
+                binding.pb.visibility= View.GONE
                 if(response.isSuccessful){
                     if(response.body()?.success==Constants.SUCCESS){
                         bikeList=response.body()?.data!!
@@ -58,6 +59,7 @@ import kotlin.collections.ArrayList
                 call: Call<ApiResponseModel<ArrayList<MyBikesResponseModel>>>,
                 t: Throwable
             ) {
+                binding.pb.visibility= View.GONE
                 print(t.message)
 //                TODO("Not yet implemented")
             }

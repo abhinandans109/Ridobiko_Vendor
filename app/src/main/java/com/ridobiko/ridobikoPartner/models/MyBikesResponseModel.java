@@ -94,5 +94,6 @@ public class MyBikesResponseModel implements Serializable {
              public String amount_paid;
              public String amount_left;
              public String admin_status;
+             public String rent;
          }
 }

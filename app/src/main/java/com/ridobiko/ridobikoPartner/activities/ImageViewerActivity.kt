@@ -48,14 +48,19 @@ class ImageViewerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_image_viewer)
         actionBar?.setDisplayHomeAsUpEnabled(true);
 //        supportActionBar?.setIcon(R.drawable.download)
-        var customerPics=AppVendor.selectedBooking.customerPictures
+
         var img=findViewById<ZoomableImageView>(R.id.image)
         var isCustomerImages=intent.hasExtra("Customer Images")
         var isPickupImages=intent.hasExtra("pickup")
+        var isDropImages=intent.hasExtra("Drop images")
+        imageUrl= intent.getStringExtra("image").toString()
+        Picasso.get().load(intent.getStringExtra("image")).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
         if(isCustomerImages){
+            var customerPics=AppVendor.selectedBooking.customerPictures
             supportActionBar?.title="Customer Images"
             BASE_IMAGE="https://www.ridobiko.com/android_app_customer/"
             listImages= mutableListOf(BASE_IMAGE+customerPics.image_aadhar_front,BASE_IMAGE+customerPics.image_aadhar_back,BASE_IMAGE+customerPics.image_pan,BASE_IMAGE+customerPics.image_driving)
+            imageUrl=listImages[0]
             Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
         }else if(isPickupImages){
             supportActionBar?.title="Pickup Images"
@@ -77,8 +82,9 @@ class ImageViewerActivity : AppCompatActivity() {
                 BASE_IMAGE+images.helmet_front_4,
                 BASE_IMAGE+images.helmet_back_4,
             )
+            imageUrl=listImages[0]
             Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
-        }else{
+        }else if(isDropImages){
             supportActionBar?.title="Drop Images"
             BASE_IMAGE="https://ridobiko.com/android_app_ridobiko_owned_store/images/"+AppVendor.selectedBooking.trans_id+"/"
             var images=AppVendor.selectedBooking.pictures
@@ -89,10 +95,11 @@ class ImageViewerActivity : AppCompatActivity() {
                 BASE_IMAGE+images.bike_right_drop,
                 BASE_IMAGE+images.bike_fuel_meter_drop,
             )
+            imageUrl=listImages[0]
             Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
         }
 
-        imageUrl=listImages[0]
+
         findViewById<LinearLayout>(R.id.slider).setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
         object:OnSwipeTouchListener(applicationContext) {
             @Override
