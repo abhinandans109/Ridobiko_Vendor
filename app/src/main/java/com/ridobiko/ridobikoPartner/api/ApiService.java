@@ -10,6 +10,7 @@ import com.ridobiko.ridobikoPartner.models.CustomerHistoryResponseModel;
 import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers;
 import com.ridobiko.ridobikoPartner.models.LoginUserResponse;
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel;
+import com.ridobiko.ridobikoPartner.models.SettingsResponseModel;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,11 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("getMyBikes.php")
     Call<ApiResponseModel<ArrayList<MyBikesResponseModel>>> getMyBikes(
+            @Field("email") String email
+    );
+    @FormUrlEncoded
+    @POST("get_settings.php")
+    Call<ApiResponseModel<SettingsResponseModel>> getSettings(
             @Field("email") String email
     );
     @FormUrlEncoded
@@ -225,6 +231,26 @@ public interface ApiService {
             @Field("deposite") String deposite,
             @Field("vemail") String vemail
     );
+    @FormUrlEncoded
+    @POST("set_custprofile.php")
+    Call<ChangeStatusResponseModel> setCustomerProfile(
+            @Field("mobile") String mobile,
+            @Field("emergency_no") String emergency_no,
+            @Field("house") String house,
+            @Field("area") String area,
+            @Field("landmark") String landmark,
+            @Field("city") String city,
+            @Field("dlic") String dlic,
+            @Field("acard") String acard,
+            @Field("pan") String pan,
+            @Field("dlverify") String dlverify,
+            @Field("acverify") String acverify,
+            @Field("panverify") String panverify,
+            @Field("customerAdhaarFront") String customerAdhaarFront,
+            @Field("customerAdhaarBack") String customerAdhaarBack,
+            @Field("customerDriving") String customerDriving,
+            @Field("customerOfficeId") String customerOfficeId
+    );
 
     @FormUrlEncoded
     @POST("set_bank.php")
@@ -241,14 +267,17 @@ public interface ApiService {
             @Field("email") String email,
             @Field("dl") String dl,
             @Field("aadhar") String aadhar,
-            @Field("pan") String pan
+            @Field("pan") String pan,
+            @Field("aadharpic") String aadharpic,
+            @Field("panpic") String panpic,
+            @Field("licensepic") String licensepic
     );
     @FormUrlEncoded
     @POST("set_homedelivery.php")
     Call<ChangeStatusResponseModel> homeDelivery(
             @Field("email") String email,
             @Field("homedel") String homedel,
-            @Field("lessthen3km") String lessthen3km,
+            @Field("lessthan3km") String lessthen3km,
             @Field("threeto5km") String threeto5km,
             @Field("fiveto8km") String fiveto8km,
             @Field("eightto10km") String eightto10km,
@@ -335,6 +364,21 @@ public interface ApiService {
 
     );
     @FormUrlEncoded
+    @POST("mybikesdocuments.php")
+    Call<ChangeStatusResponseModel> setMyBikeDocument(
+            @Field("bike_id") String bike_id,
+            @Field("vemail") String vemail,
+            @Field("RC") String RC,
+            @Field("Insurance") String Insurance,
+            @Field("PUC") String PUC,
+            @Field("Permit") String Permit,
+            @Field("permit_b") String permit_b,
+            @Field("Purchase_Bill") String Purchase_Bill,
+            @Field("EngineNo") String EngineNo,
+            @Field("chassisNo") String chassisNo
+
+    );
+    @FormUrlEncoded
     @POST("set_t&c.php")
     Call<ChangeStatusResponseModel> setTandC(
             @Field("tc") String tc,
@@ -363,9 +407,15 @@ public interface ApiService {
             @Field("insurance_ex") String insurance_ex,
             @Field("puc_expiry") String puc_expiry,
             @Field("permit_expiry") String permit_expiry,
-            @Field("fitness_expiry") String fitness_expiry
+            @Field("fitness_expiry") String fitness_expiry,
+            @Field("bikefront") String bikefront,
+            @Field("bikeback") String bikeback,
+            @Field("bikeleft") String bikeleft,
+            @Field("biketop") String biketop,
+            @Field("bikemeter") String bikemeter
 
     );
+
     @FormUrlEncoded
     @POST("get_AddBikes.php")
     Call<ApiResponseModel<ArrayList<BikeBrandNameResponseModel>>> getAddBikes(
@@ -383,11 +433,7 @@ public interface ApiService {
             @Field("mobile") String mobile
             );
 
-    @FormUrlEncoded
-    @POST("get_settings.php")
-    Call<ChangeStatusResponseModel> getSettings(
-            @Field("email") String email
-    );
+
 
 
 }

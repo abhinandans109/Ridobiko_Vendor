@@ -66,269 +66,8 @@
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:text="Home Delivery Charges(For one side)"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="5dp"
-        android:elevation="7dp"
-        android:background="@color/white"
-        android:padding="5dp">
 
-<!--        checkbox-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:elevation="4dp"
-            android:background="@color/white"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Do you provide home delivery? "
-                android:textColor="@color/black"
-                android:textStyle="bold"/>
-
-
-            <LinearLayout
-                android:layout_weight="1"
-                android:minHeight="40dp"
-                android:layout_width="wrap_content"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yes"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    />
-                <CheckBox
-                    android:id="@+id/hd_checked"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="40dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    />
-                <CheckBox
-                    android:id="@+id/hd_unchecked"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Less than 3 KM"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginRight="5dp"
-                />
-            <LinearLayout
-                android:layout_weight="6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/less3km"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
-
-
-
-            </LinearLayout>
-    </LinearLayout>
-
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="3 KM - 5 KM"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginRight="5dp"
-                />
-            <LinearLayout
-                android:layout_weight="6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/threeto5km"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="5 KM - 8 KM"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginRight="5dp"
-                />
-            <LinearLayout
-                android:layout_weight="6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/fiveto8km"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
-
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="8 KM - 10 KM"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginRight="5dp"
-                />
-            <LinearLayout
-                android:layout_weight="6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/eightto10km"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
-
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_weight="4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="10 KM More then"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginRight="5dp"
-                />
-            <LinearLayout
-                android:layout_weight="6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/morethan10km"
-                    android:textSize="15sp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textAllCaps="false"
-                    android:inputType="number"
-                    android:background="@drawable/btn_grey"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"/>
-
-
-            </LinearLayout>
-        </LinearLayout>
-        <Button
-            android:id="@+id/btnHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Update"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:backgroundTint="#2C2C2C"/>
-
+        <!--        address-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -338,6 +77,59 @@
             android:orientation="vertical"
             android:padding="5dp">
 
+            <!--        checkbox-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Do you provide home delivery? "
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="40dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yes"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/hd_checked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="40dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/hd_unchecked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -350,21 +142,30 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="5dp"
                     android:layout_weight="4"
-                    android:text="Landmark"
+                    android:text="Less than 3 KM"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/landmark"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="6"
-                    android:background="@drawable/btn_grey"
-                    android:gravity="center"
-                    android:inputType="text"
-                    android:textAllCaps="false"
-                    android:textSize="15sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6">
+
+                    <EditText
+                        android:id="@+id/less3km"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -378,21 +179,68 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="5dp"
                     android:layout_weight="4"
-                    android:text="Area"
+                    android:text="3 KM - 5 KM"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/area"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6">
+
+                    <EditText
+                        android:id="@+id/threeto5km"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="6"
-                    android:background="@drawable/btn_grey"
-                    android:gravity="center"
-                    android:inputType="text"
-                    android:textAllCaps="false"
-                    android:textSize="15sp" />
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="4"
+                    android:text="5 KM - 8 KM"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6">
+
+                    <EditText
+                        android:id="@+id/fiveto8km"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -406,21 +254,30 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="5dp"
                     android:layout_weight="4"
-                    android:text="City"
+                    android:text="8 KM - 10 KM"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/city"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="6"
-                    android:background="@drawable/btn_grey"
-                    android:gravity="center"
-                    android:inputType="text"
-                    android:textAllCaps="false"
-                    android:textSize="15sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6">
+
+                    <EditText
+                        android:id="@+id/eightto10km"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -434,25 +291,34 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="5dp"
                     android:layout_weight="4"
-                    android:text="Pin code"
+                    android:text="10 KM More then"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/pincode"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="6"
-                    android:background="@drawable/btn_grey"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:textAllCaps="false"
-                    android:textSize="15sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6">
+
+                    <EditText
+                        android:id="@+id/morethan10km"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
             </LinearLayout>
 
             <Button
-                android:id="@+id/btnAddress"
+                android:id="@+id/btnHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -461,11 +327,143 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
 
-    <!--        address-->
-    <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@color/white"
+                android:elevation="7dp"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="4"
+                        android:text="Landmark"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/landmark"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="6"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="4"
+                        android:text="Area"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/area"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="6"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="4"
+                        android:text="City"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/city"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="6"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="text"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="4"
+                        android:text="Pin code"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/pincode"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="6"
+                        android:background="@drawable/btn_grey"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:textAllCaps="false"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#2C2C2C"
+                    android:text="Update"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -514,6 +512,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/yes_week_rental"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="40dp"
@@ -527,6 +526,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/no_week_rental"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -568,6 +568,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/yes_remaining"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="40dp"
@@ -581,6 +582,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/no_remaining"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -601,6 +603,7 @@
                 android:textColor="@color/black"
                 android:text="Rent calculation option" />
             <Spinner
+                android:id="@+id/rent_type"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="5dp"
@@ -644,6 +647,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/yes_charged"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="40dp"
@@ -657,6 +661,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/no_charged"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -679,7 +684,9 @@
                 android:paddingBottom="5dp"
                  android:textColor="@color/black"
                 android:text="How much do you charge for pillion rider helmet?" />
-            <Spinner
+            <EditText
+                android:textAlignment="center"
+                android:id="@+id/helmet_charge"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/btn_grey"
@@ -1066,6 +1073,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/mon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -1079,6 +1087,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/tue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -1088,12 +1097,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Web"
+                    android:text="Wen"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/wed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -1108,6 +1118,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/thus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -1131,6 +1142,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/fri"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -1143,6 +1155,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/sat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -1155,6 +1168,7 @@
                     android:textColor="@color/black"
                     />
                 <CheckBox
+                    android:id="@+id/sun"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -1181,6 +1195,7 @@
             android:text="Opening" />
 
         <EditText
+            android:id="@+id/opening"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginRight="5dp"
@@ -1208,6 +1223,7 @@
              />
 
         <EditText
+            android:id="@+id/closing"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="6"
@@ -1358,8 +1374,9 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"
+                            android:id="@+id/dl_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:src="@drawable/bike_placeholder"/>
 
                         <LinearLayout
@@ -1374,6 +1391,7 @@
                                 android:src="@drawable/download" />
 
                             <ImageView
+                                android:id="@+id/dl_upload"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
@@ -1401,8 +1419,9 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"
+                            android:id="@+id/adhaar_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:src="@drawable/bike_placeholder"/>
 
                         <LinearLayout
@@ -1417,6 +1436,7 @@
                                 android:src="@drawable/download" />
 
                             <ImageView
+                                android:id="@+id/adhaar_upload"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
@@ -1442,8 +1462,9 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"
+                            android:id="@+id/pan_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
                             android:src="@drawable/bike_placeholder"/>
 
                         <LinearLayout
@@ -1458,6 +1479,7 @@
                                 android:src="@drawable/download" />
 
                             <ImageView
+                                android:id="@+id/pan_upload"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"

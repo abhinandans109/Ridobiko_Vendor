@@ -187,7 +187,7 @@ class Drop : Fragment() {
                 ImagePicker.with(this).start(5)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("Drop images",
                     BASE_IMAGE+selectedBooking.pictures.bike_left_drop))
 
         }
@@ -196,7 +196,7 @@ class Drop : Fragment() {
                 ImagePicker.with(this).start(6)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("Drop images",
                     BASE_IMAGE+selectedBooking.pictures.bike_right_drop))
         }
         binding.front.setOnClickListener {
@@ -204,7 +204,7 @@ class Drop : Fragment() {
                 ImagePicker.with(this).start(7)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("Drop images",
                     BASE_IMAGE+selectedBooking.pictures.bike_front_drop))
         }
         binding.back.setOnClickListener {
@@ -212,7 +212,7 @@ class Drop : Fragment() {
                 ImagePicker.with(this).start(8)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("Drop images",
                     BASE_IMAGE+selectedBooking.pictures.bike_back_drop))
         }
         binding.fuelMeter.setOnClickListener {
@@ -220,7 +220,7 @@ class Drop : Fragment() {
                 ImagePicker.with(this).start(9)
             else
                 requireActivity().startActivity(Intent(requireContext(),
-                    ImageViewerActivity::class.java).putExtra("image",
+                    ImageViewerActivity::class.java).putExtra("Drop images",
                     BASE_IMAGE+selectedBooking.pictures.bike_fuel_meter_drop))
         }
 

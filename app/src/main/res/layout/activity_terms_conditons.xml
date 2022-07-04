@@ -20,6 +20,7 @@
     android:elevation="5dp"
     android:orientation="horizontal">
     <CheckBox
+        android:id="@+id/c_pan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
@@ -39,6 +40,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_damages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -58,6 +60,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_extra_helmet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -78,6 +81,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_fuel_charges"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -97,6 +101,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_right_to_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -116,6 +121,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_200"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -136,6 +142,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_ability"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -155,6 +162,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_zero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -175,6 +183,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_2000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -194,6 +203,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_400"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
@@ -213,6 +223,7 @@
         android:elevation="5dp"
         android:orientation="horizontal">
         <CheckBox
+            android:id="@+id/c_3000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>

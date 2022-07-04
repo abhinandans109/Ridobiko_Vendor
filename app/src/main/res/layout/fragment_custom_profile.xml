@@ -13,6 +13,12 @@
         android:layout_height="wrap_content"
         android:padding="3dp"
         android:orientation="vertical">
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pb"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +51,8 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:focusable="false"
+                    android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -73,7 +80,8 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:focusable="false"
+                    android:id="@+id/mobile"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -101,6 +109,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/email"
 
                     android:layout_width="0dp"
                     android:layout_height="40dp"
@@ -129,7 +138,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/emergency"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -156,21 +165,68 @@
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
-                <EditText
-
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="6"
-                    android:background="@drawable/btn_grey"
-                    android:gravity="top|start"
-                    android:maxLines="5"
-                    android:lines="3"
-                    android:padding="5dp"
-                    android:minLines="2"
-                    android:inputType="textImeMultiLine"
-                    android:textAllCaps="false"
-                    android:textSize="15sp" />
+               <LinearLayout
+                   android:layout_weight="6"
+                   android:layout_width="0dp"
+                   android:orientation="vertical"
+                   android:layout_height="wrap_content">
+                   <EditText
+                       android:id="@+id/house"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:minHeight="40dp"
+                       android:layout_gravity="center"
+                       android:layout_weight="6"
+                       android:background="@drawable/btn_grey"
+                       android:gravity="center"
+                       android:padding="5dp"
+                       android:hint="House"
+                       android:inputType="textMultiLine"
+                       android:textAllCaps="false"
+                       android:textSize="15sp" />
+                   <EditText
+                       android:id="@+id/area"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:minHeight="40dp"
+                       android:layout_gravity="center"
+                       android:layout_weight="6"
+                       android:background="@drawable/btn_grey"
+                       android:gravity="center"
+                       android:hint="Area"
+                       android:padding="5dp"
+                       android:inputType="textMultiLine"
+                       android:textAllCaps="false"
+                       android:textSize="15sp" />
+                   <EditText
+                       android:id="@+id/landmark"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:minHeight="40dp"
+                       android:layout_gravity="center"
+                       android:layout_weight="6"
+                       android:hint="Lankmark"
+                       android:background="@drawable/btn_grey"
+                       android:gravity="center"
+                       android:padding="5dp"
+                       android:inputType="textMultiLine"
+                       android:textAllCaps="false"
+                       android:textSize="15sp" />
+                   <EditText
+                       android:id="@+id/city"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:minHeight="40dp"
+                       android:hint="City"
+                       android:layout_gravity="center"
+                       android:layout_weight="6"
+                       android:background="@drawable/btn_grey"
+                       android:gravity="center"
+                       android:padding="5dp"
+                       android:inputType="textMultiLine"
+                       android:textAllCaps="false"
+                       android:textSize="15sp" />
+               </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -205,6 +261,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/dl"
 
                     android:layout_width="0dp"
                     android:layout_height="40dp"
@@ -233,7 +290,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/adhaar"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -261,7 +318,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-
+                    android:id="@+id/pan"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -297,6 +354,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
+                            android:id="@+id/a_front"
                             android:layout_width="120dp"
                             android:src="@drawable/bike_placeholder"
                             android:layout_height="120dp" />
@@ -339,6 +397,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
+                            android:id="@+id/a_back"
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:src="@drawable/bike_placeholder"
@@ -390,6 +449,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
+                            android:id="@+id/dl_img"
                             android:layout_width="120dp"
                             android:layout_height="120dp"
                             android:src="@drawable/bike_placeholder"/>
@@ -432,6 +492,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
+                            android:id="@+id/pan_img"
                             android:layout_width="120dp"
                             android:src="@drawable/bike_placeholder"
                             android:layout_height="120dp" />
@@ -459,16 +520,18 @@
 
             </LinearLayout>
 
-
-
-
-
-
-
-
-
         </LinearLayout>
-
+        <Button
+            android:layout_margin="10dp"
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:backgroundTint="#2C2C2C"/>
 
 
 

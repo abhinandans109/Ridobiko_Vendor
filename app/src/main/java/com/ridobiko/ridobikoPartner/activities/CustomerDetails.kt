@@ -3,6 +3,7 @@ package com.ridobiko.ridobikoPartner.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ridobiko.ridobikoPartner.adapters.CustomerDetailsAdapter
 import com.ridobiko.ridobikoPartner.api.API
@@ -31,6 +32,8 @@ class CustomerDetails : AppCompatActivity() {
                 call: Call<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>>,
                 response: Response<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>>
             ) {
+                binding.pb.visibility= View.GONE
+
                 if(response.isSuccessful){
                     if(response.body()?.success==Constants.SUCCESS){
                         CustDetailsList= response.body()?.data!!
@@ -45,7 +48,7 @@ class CustomerDetails : AppCompatActivity() {
                 call: Call<ApiResponseModel<ArrayList<CustomerDetailsResponseModel>>>,
                 t: Throwable
             ) {
-                TODO("Not yet implemented")
+                binding.pb.visibility= View.GONE
             }
 
         })
