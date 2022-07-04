@@ -5,9 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
@@ -17,6 +15,7 @@ import com.squareup.picasso.Picasso
 
 class MyBikeAdapter(val context: Context, private val bikeList: ArrayList<MyBikesResponseModel>)
     :RecyclerView.Adapter<MyBikeAdapter.BikesViewHolder>(){
+
     class BikesViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
         val bike_image:ImageView=itemView.findViewById(R.id.bike_Image)
         val bike_name:TextView=itemView.findViewById(R.id.bike_Name)
@@ -69,5 +68,6 @@ class MyBikeAdapter(val context: Context, private val bikeList: ArrayList<MyBike
     override fun getItemCount(): Int {
        return bikeList.size
     }
+
 
 }

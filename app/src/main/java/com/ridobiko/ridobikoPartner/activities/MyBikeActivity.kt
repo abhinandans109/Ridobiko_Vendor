@@ -1,22 +1,34 @@
-package com.ridobiko.ridobikoPartner.activities
+ package com.ridobiko.ridobikoPartner.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.core.view.contains
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.adapters.MyBikeAdapter
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.ActivityMyBikeBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
+import com.ridobiko.ridobikoPartner.models.MybikeModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import java.util.Locale.filter
+import kotlin.collections.ArrayList
 
-class MyBikeActivity : AppCompatActivity() {
+ class MyBikeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMyBikeBinding
 //    private  lateinit var recyclerView: RecyclerView
     private  lateinit var bikeList: ArrayList<MyBikesResponseModel>
+
     private  lateinit var myBikeAdapter: MyBikeAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         binding= ActivityMyBikeBinding.inflate(layoutInflater)
@@ -56,10 +68,26 @@ class MyBikeActivity : AppCompatActivity() {
 
 
 
-
-
-
-
     }
 
+     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+         menuInflater.inflate(R.menu.new_menu,menu)
+
+         val search = menu!!.findItem(R.id.action_search)
+         val searchView = search.actionView as SearchView
+         searchView.queryHint = "Search"
+         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+             override fun onQueryTextSubmit(query: String?): Boolean {
+                 return false
+             }
+             override fun onQueryTextChange(newText: String?): Boolean {
+               MyBikeAdapter.filter.(newText)
+
+
+                 return true
+             }
+         })
+
+         return super.onCreateOptionsMenu(menu)
+     }
 }
