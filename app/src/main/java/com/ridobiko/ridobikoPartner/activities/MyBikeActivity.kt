@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
+
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.contains
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ridobiko.ridobikoPartner.R
@@ -66,25 +67,34 @@ import kotlin.collections.ArrayList
 
         });
 
-
-
-
-
     }
+
+     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+         return super.onOptionsItemSelected(item)
+     }
 
      override fun onCreateOptionsMenu(menu: Menu?): Boolean {
          menuInflater.inflate(R.menu.new_menu,menu)
-
          val search = menu!!.findItem(R.id.action_search)
          val searchView = search.actionView as SearchView
+         searchView.isFocusable=true
          searchView.queryHint = "Search"
          searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
              override fun onQueryTextSubmit(query: String?): Boolean {
                  return false
              }
              override fun onQueryTextChange(newText: String?): Boolean {
-               MyBikeAdapter.filter.(newText)
-
+                var flist=ArrayList<MyBikesResponseModel>();
+                 for(item in bikeList){
+                     if(item.bike_id.lowercase().contains(newText.toString().lowercase())){
+                         flist.add(item)
+                     }
+                     if(item.bike_name.lowercase().contains(newText.toString().lowercase())){
+                         flist.add(item)
+                     }
+                 }
+                myBikeAdapter.filterList(flist)
 
                  return true
              }

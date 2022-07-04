@@ -23,15 +23,6 @@
             android:layout_weight="1"
             android:background="@drawable/btn_grey" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_search"
-            android:text="Search"
-            android:textColor="#F8F5F5"
-            android:textSize="12sp" />
     </LinearLayout>
 
 
@@ -43,6 +34,7 @@
         tools:listitem="@layout/booking_item" />
     <ProgressBar
         android:id="@+id/pb"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"

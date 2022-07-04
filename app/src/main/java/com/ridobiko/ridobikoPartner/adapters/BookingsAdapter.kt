@@ -22,6 +22,7 @@ import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.activities.BookingActivity
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel
+import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
 
 class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseModel>) : RecyclerView.Adapter<BookingsAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -55,6 +56,11 @@ class BookingsAdapter(var context:Context,var list: ArrayList<BookingResponseMod
     override fun getItemViewType(position: Int): Int {
 
         return position
+    }
+
+    fun filterList(filterllist: ArrayList<BookingResponseModel>) {
+        list = filterllist
+        notifyDataSetChanged()
     }
 
     @SuppressLint("SetTextI18n")

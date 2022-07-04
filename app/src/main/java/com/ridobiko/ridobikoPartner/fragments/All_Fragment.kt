@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,12 +15,15 @@ import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.*
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.BookingResponseModel
+import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class All_Fragment : Fragment() {
 
+    private var list: ArrayList<BookingResponseModel>?=null
+    private var adapter: BookingsAdapter?=null
     lateinit var binding: FragmentAllBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +33,29 @@ class All_Fragment : Fragment() {
     ): View? {
         binding = FragmentAllBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+        binding.searchView.queryHint="Search"
+        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
 
+            override fun onQueryTextChange(newText: String?): Boolean {
+               if(adapter!=null){
+                   if(list!=null){
+                    var filList=ArrayList<BookingResponseModel>();
+                       for(item in list!!){
+                           if(item.customer_name.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                           if(item.trans_id.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                           if(item.customer_mobile.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                           if(item.bikes_id.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                       }
+                       adapter!!.filterList(filList)
+                   }
+               }
+                return false
+            }
+
+        })
 
         API.get()
             .getAllBookings(requireActivity().getSharedPreferences(Constants.PREFS_LOGIN_DETAILS,
@@ -39,8 +65,10 @@ class All_Fragment : Fragment() {
                     call: Call<ApiResponseModel<ArrayList<BookingResponseModel>>>,
                     response: Response<ApiResponseModel<ArrayList<BookingResponseModel>>>
                 ) {
+                    list=response.body()!!.data
+                    adapter=BookingsAdapter(requireActivity().applicationContext,list!!)
                     binding.rvTodaysPickups.layoutManager=LinearLayoutManager(requireActivity().applicationContext)
-                    binding.rvTodaysPickups.adapter=BookingsAdapter(requireActivity().applicationContext,response.body()!!.data)
+                    binding.rvTodaysPickups.adapter=adapter
                     binding.pb.visibility= View.GONE
                 }
 

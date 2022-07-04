@@ -13,7 +13,7 @@ import com.ridobiko.ridobikoPartner.activities.SingleBikeActivity
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
 import com.squareup.picasso.Picasso
 
-class MyBikeAdapter(val context: Context, private val bikeList: ArrayList<MyBikesResponseModel>)
+class MyBikeAdapter(val context: Context, private var bikeList: ArrayList<MyBikesResponseModel>)
     :RecyclerView.Adapter<MyBikeAdapter.BikesViewHolder>(){
 
     class BikesViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
@@ -31,6 +31,10 @@ class MyBikeAdapter(val context: Context, private val bikeList: ArrayList<MyBike
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BikesViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.mybike_item,parent,false)
         return BikesViewHolder(view)
+    }
+    fun filterList(filterllist: ArrayList<MyBikesResponseModel>) {
+        bikeList = filterllist
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: BikesViewHolder, position: Int) {
@@ -63,7 +67,9 @@ class MyBikeAdapter(val context: Context, private val bikeList: ArrayList<MyBike
             AppVendor.selectedMyBike=mybikeModel
             context.startActivity(Intent(context,SingleBikeActivity::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
         }
+
     }
+
 
     override fun getItemCount(): Int {
        return bikeList.size
