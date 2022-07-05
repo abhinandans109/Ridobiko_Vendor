@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                        binding.upcommingBookingNumber.visibility= View.VISIBLE
                        binding.allNo.visibility= View.VISIBLE
                        binding.bikeDatabase.visibility= View.VISIBLE
-                       binding.paymentTracker.visibility= View.VISIBLE
+
 
                    }
                }
@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                 binding.pb3.visibility= View.GONE
                 binding.pb4.visibility= View.GONE
                 binding.pb5.visibility= View.GONE
-                binding.pb6.visibility= View.GONE
             }
 
             override fun onFailure(
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 binding.pb3.visibility= View.GONE
                 binding.pb4.visibility= View.GONE
                 binding.pb5.visibility= View.GONE
-                binding.pb6.visibility= View.GONE
+
 
             }
 
@@ -106,9 +105,7 @@ class MainActivity : AppCompatActivity() {
         binding.bikeDatabaseCard.setOnClickListener{
             startActivity(Intent(applicationContext, BikeDatabase_Activity::class.java))
         }
-        binding.paymentTrackerCard.setOnClickListener{
-            startActivity(Intent(applicationContext, PaymentTracker_Activity::class.java))
-        }
+
 
 
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TodaysDrop : Fragment() {
-
+    private var list: ArrayList<BookingResponseModel>?=null
+    private var adapter: BookingsAdapter?=null
     lateinit var binding: FragmentTodaysDropBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +31,30 @@ class TodaysDrop : Fragment() {
     ): View? {
         binding = FragmentTodaysDropBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+
+        binding.searchView.queryHint="Search"
+        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if(adapter!=null){
+                    if(list!=null){
+                        var filList=ArrayList<BookingResponseModel>();
+                        for(item in list!!){
+                            if(item.customer_name.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                            if(item.trans_id.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                            if(item.customer_mobile.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                            if(item.bikes_id.lowercase().contains(newText.toString().lowercase())) filList.add(item)
+                        }
+                        adapter!!.filterList(filList)
+                    }
+                }
+                return false
+            }
+
+        })
 
 
         API.get()

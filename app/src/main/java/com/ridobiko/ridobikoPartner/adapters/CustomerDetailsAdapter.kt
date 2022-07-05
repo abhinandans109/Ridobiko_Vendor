@@ -12,8 +12,9 @@ import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.activities.SingleCustDetailsActivity
 import com.ridobiko.ridobikoPartner.models.CustomerDetailsResponseModel
+import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
 
-class CustomerDetailsAdapter(private val context: Context,private  val  CustDetailsList: ArrayList<CustomerDetailsResponseModel>):RecyclerView.Adapter<CustomerDetailsAdapter.CustDwtailsViewHolder>() {
+class CustomerDetailsAdapter(private val context: Context,private var CustDetailsList: ArrayList<CustomerDetailsResponseModel>):RecyclerView.Adapter<CustomerDetailsAdapter.CustDwtailsViewHolder>() {
 
     class CustDwtailsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val cust_name: TextView =itemView.findViewById(R.id.cust_name)
@@ -28,6 +29,10 @@ class CustomerDetailsAdapter(private val context: Context,private  val  CustDeta
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustDwtailsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.customer_items, parent, false)
         return CustomerDetailsAdapter.CustDwtailsViewHolder(view)
+    }
+    fun filterList(filterllist: ArrayList<CustomerDetailsResponseModel>) {
+        CustDetailsList= filterllist
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: CustDwtailsViewHolder, position: Int) {

@@ -33,6 +33,7 @@ class All_Fragment : Fragment() {
     ): View? {
         binding = FragmentAllBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+
         binding.searchView.queryHint="Search"
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {

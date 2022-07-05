@@ -7,31 +7,7 @@
     android:padding="5dp"
     android:orientation="vertical"
     tools:context=".activities.CustomerDetails">
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        >
-
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="302dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_grey" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_search"
-            android:text="Search"
-            android:textColor="#F8F5F5"
-            android:textSize="12sp" />
-    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/pb"

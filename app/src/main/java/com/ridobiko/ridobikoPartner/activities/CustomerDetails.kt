@@ -3,14 +3,19 @@ package com.ridobiko.ridobikoPartner.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.adapters.CustomerDetailsAdapter
 import com.ridobiko.ridobikoPartner.api.API
 import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.ActivityCustomerDetailsBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.CustomerDetailsResponseModel
+import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,15 +58,39 @@ class CustomerDetails : AppCompatActivity() {
 
         })
 
-
-
-
-
-//        CustomerDetailsAdapter.onItemClick={
-//            val intent= Intent(this,SingleCustDetailsActivity::class.java)
-//            startActivity(intent)
-//        }
-
-
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.new_menu,menu)
+        val search = menu!!.findItem(R.id.action_search)
+        val searchView = search.actionView as SearchView
+        searchView.isFocusable=true
+        searchView.queryHint="Search"
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                var flist=ArrayList<CustomerDetailsResponseModel>();
+                for(item in CustDetailsList){
+                    if (item.name!=null)
+                    if(item.name.lowercase().contains(newText.toString().lowercase())){
+                        flist.add(item)
+                    }
+                    if(item.customer_mobile.lowercase().contains(newText.toString().lowercase())){
+                        flist.add(item)
+                    }
+                }
+                CustomerDetailsAdapter.filterList(flist)
+
+                return true
+            }
+
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
 }
