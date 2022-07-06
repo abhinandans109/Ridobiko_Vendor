@@ -16,6 +16,7 @@ import android.widget.Toast
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
+import com.ridobiko.ridobikoPartner.activities.ImageViewerActivity
 import com.ridobiko.ridobikoPartner.activities.MainActivity
 import com.ridobiko.ridobikoPartner.activities.MyBikeActivity
 import com.ridobiko.ridobikoPartner.api.API
@@ -72,6 +73,43 @@ class Documents : Fragment() {
                 MemoryPolicy.NO_CACHE).into(binding.purchaseImage)
         binding.engineNo.hint = selectedMyBike.engineNo
         binding.chassisNo.hint = selectedMyBike.chassisNo
+
+//        imageViwerActivity
+        binding.RcImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("Image",
+                BASE_IMAGE + selectedMyBike.RC))
+        }
+        binding.InsuranceImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("Image",
+                BASE_IMAGE + selectedMyBike.Insurance))
+        }
+
+        binding.PucImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("Image",
+                BASE_IMAGE + selectedMyBike.PUC))
+        }
+        binding.permitAImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("Image",
+                BASE_IMAGE + selectedMyBike.Permit))
+        }
+        binding.permitBImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("Image",
+                BASE_IMAGE + selectedMyBike.permit_b))
+        }
+
+        binding.purchaseImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("Image",
+                BASE_IMAGE + selectedMyBike.Purchase_Bill))
+        }
+
+
+
 
         binding.rcUpload.setOnClickListener {
 
