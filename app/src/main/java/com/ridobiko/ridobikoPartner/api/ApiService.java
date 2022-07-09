@@ -433,6 +433,13 @@ public interface ApiService {
             @Field("mobile") String mobile
             );
 
+    @FormUrlEncoded
+    @POST("get_myBikesDashboard.php")
+    Call<ChangeStatusResponseModel> getMyBikesDashboard(
+            @Field("email") String email,
+            @Field("bike_id") String bike_id,
+            @Field("from") String from,
+            @Field("to") String to);
 
 
 

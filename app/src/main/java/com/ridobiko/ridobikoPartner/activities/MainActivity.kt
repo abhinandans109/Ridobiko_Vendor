@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.ridobiko.ridobikoPartner.constants.Constants
 import android.view.View
+import android.widget.Toast
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.api.API
 
