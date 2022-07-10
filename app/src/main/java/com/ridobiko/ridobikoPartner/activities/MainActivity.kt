@@ -2,21 +2,25 @@ package com.ridobiko.ridobikoPartner.activities
 
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
-import com.ridobiko.ridobikoPartner.constants.Constants
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
+import android.widget.LinearLayout
+import android.widget.PopupWindow
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.ridobiko.ridobikoPartner.AppVendor
+import com.ridobiko.ridobikoPartner.R
 import com.ridobiko.ridobikoPartner.api.API
-
+import com.ridobiko.ridobikoPartner.constants.Constants
 import com.ridobiko.ridobikoPartner.databinding.ActivityMainBinding
 import com.ridobiko.ridobikoPartner.models.ApiResponseModel
 import com.ridobiko.ridobikoPartner.models.FuelPriceAndNumbers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class MainActivity : AppCompatActivity() {
    private lateinit var binding :ActivityMainBinding
@@ -94,8 +98,70 @@ class MainActivity : AppCompatActivity() {
         binding.allBookings.setOnClickListener {
             startActivity(Intent(applicationContext,AllBookings::class.java))
         }
-        binding.support.setOnClickListener {
-            startActivity(Intent(applicationContext,SupportActivity::class.java))
+        binding.underDev1.setOnClickListener {
+            val inflater = layoutInflater
+            val popupView: View = LayoutInflater.from(applicationContext).inflate(R.layout.popup, null)
+            val width = LinearLayout.LayoutParams.WRAP_CONTENT
+            val height = LinearLayout.LayoutParams.WRAP_CONTENT
+            val focusable = true
+            val popupWindow = PopupWindow(popupView, width, height, focusable)
+            popupWindow.showAtLocation(it, Gravity.CENTER, 0, 0)
+            popupView.setOnTouchListener { v, event ->
+                popupWindow.dismiss()
+                true
+            }
+        }
+        binding.underDev1.setOnClickListener {
+            val inflater = layoutInflater
+            val popupView: View = LayoutInflater.from(applicationContext).inflate(R.layout.popup, null)
+            val width = LinearLayout.LayoutParams.WRAP_CONTENT
+            val height = LinearLayout.LayoutParams.WRAP_CONTENT
+            val focusable = true
+            val popupWindow = PopupWindow(popupView, width, height, focusable)
+            popupWindow.showAtLocation(it, Gravity.CENTER, 0, 0)
+            popupView.setOnTouchListener { v, event ->
+                popupWindow.dismiss()
+                true
+            }
+        }
+        binding.underDev2.setOnClickListener {
+            val inflater = layoutInflater
+            val popupView: View = LayoutInflater.from(applicationContext).inflate(R.layout.popup, null)
+            val width = LinearLayout.LayoutParams.WRAP_CONTENT
+            val height = LinearLayout.LayoutParams.WRAP_CONTENT
+            val focusable = true
+            val popupWindow = PopupWindow(popupView, width, height, focusable)
+            popupWindow.showAtLocation(it, Gravity.CENTER, 0, 0)
+            popupView.setOnTouchListener { v, event ->
+                popupWindow.dismiss()
+                true
+            }
+        }
+        binding.underDev3.setOnClickListener {
+            val inflater = layoutInflater
+            val popupView: View = LayoutInflater.from(applicationContext).inflate(R.layout.popup, null)
+            val width = LinearLayout.LayoutParams.WRAP_CONTENT
+            val height = LinearLayout.LayoutParams.WRAP_CONTENT
+            val focusable = true
+            val popupWindow = PopupWindow(popupView, width, height, focusable)
+            popupWindow.showAtLocation(it, Gravity.CENTER, 0, 0)
+            popupView.setOnTouchListener { v, event ->
+                popupWindow.dismiss()
+                true
+            }
+        }
+        binding.underDev4.setOnClickListener {
+            val inflater = layoutInflater
+            val popupView: View = LayoutInflater.from(applicationContext).inflate(R.layout.popup, null)
+            val width = LinearLayout.LayoutParams.WRAP_CONTENT
+            val height = LinearLayout.LayoutParams.WRAP_CONTENT
+            val focusable = true
+            val popupWindow = PopupWindow(popupView, width, height, focusable)
+            popupWindow.showAtLocation(it, Gravity.CENTER, 0, 0)
+            popupView.setOnTouchListener { v, event ->
+                popupWindow.dismiss()
+                true
+            }
         }
         binding.settings.setOnClickListener{
             startActivity(Intent(applicationContext, SettingActivity::class.java))

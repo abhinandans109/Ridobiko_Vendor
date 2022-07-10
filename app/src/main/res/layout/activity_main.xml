@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/popup_holder"
     android:layout_height="match_parent"
     android:padding="15dp"
     android:background="@color/purple_500"
@@ -198,7 +199,7 @@
             <!--card 1-->
 
             <LinearLayout
-                android:id="@+id/payments"
+                android:id="@+id/under_dev1"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
@@ -318,7 +319,7 @@
             <!--card 1-->
 
             <LinearLayout
-                android:id="@+id/account"
+                android:id="@+id/under_dev2"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_width="wrap_content"
@@ -353,7 +354,7 @@
             <!--        card2-->
 
             <LinearLayout
-                android:id="@+id/support"
+                android:id="@+id/under_dev3"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -756,6 +757,7 @@
                     app:cardElevation="10dp">
 
                     <LinearLayout
+                        android:id="@+id/under_dev4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -774,6 +776,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

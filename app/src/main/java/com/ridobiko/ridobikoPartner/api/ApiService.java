@@ -364,7 +364,7 @@ public interface ApiService {
 
     );
     @FormUrlEncoded
-    @POST("mybikesdocuments.php")
+    @POST("mybikesdocument.php")
     Call<ChangeStatusResponseModel> setMyBikeDocument(
             @Field("bike_id") String bike_id,
             @Field("vemail") String vemail,

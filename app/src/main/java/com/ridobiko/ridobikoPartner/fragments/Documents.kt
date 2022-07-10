@@ -77,34 +77,34 @@ class Documents : Fragment() {
 //        imageViwerActivity
         binding.RcImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("Image",
+                ImageViewerActivity::class.java).putExtra("documents",
                 BASE_IMAGE + selectedMyBike.RC))
         }
         binding.InsuranceImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("Image",
+                ImageViewerActivity::class.java).putExtra("documents",
                 BASE_IMAGE + selectedMyBike.Insurance))
         }
 
         binding.PucImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("Image",
+                ImageViewerActivity::class.java).putExtra("documents",
                 BASE_IMAGE + selectedMyBike.PUC))
         }
         binding.permitAImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("Image",
+                ImageViewerActivity::class.java).putExtra("documents",
                 BASE_IMAGE + selectedMyBike.Permit))
         }
         binding.permitBImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("Image",
+                ImageViewerActivity::class.java).putExtra("documents",
                 BASE_IMAGE + selectedMyBike.permit_b))
         }
 
         binding.purchaseImage.setOnClickListener{
             requireActivity().startActivity(Intent(requireContext(),
-                ImageViewerActivity::class.java).putExtra("Image",
+                ImageViewerActivity::class.java).putExtra("documents",
                 BASE_IMAGE + selectedMyBike.Purchase_Bill))
         }
 
@@ -142,7 +142,7 @@ class Documents : Fragment() {
 
         }
         binding.upload.setOnClickListener{
-           Thread {
+
                API.get().setMyBikeDocument(selectedMyBike.bike_id,selectedMyBike.vendor_email_id,rcImage,inImage,pucImage,perAImage,perBImage,billImage,binding.engineNo.text.toString(),binding.chassisNo.text.toString())
                    .enqueue(object:Callback<ChangeStatusResponseModel>{
                        override fun onResponse(
@@ -156,19 +156,19 @@ class Documents : Fragment() {
                        }
 
                    })
-           }.start()
-            requireActivity().runOnUiThread {
-                requireActivity().startActivity(
-                    Intent(
-                        requireContext(),
-                        MyBikeActivity::class.java
-                    )
-                )
-                Toast.makeText(context, "Documents will be uploaded...", Toast.LENGTH_SHORT).show()
-                requireActivity().finish()
 
-
-            }
+//            requireActivity().runOnUiThread {
+//                requireActivity().startActivity(
+//                    Intent(
+//                        requireContext(),
+//                        MyBikeActivity::class.java
+//                    )
+//                )
+//                Toast.makeText(context, "Documents will be uploaded...", Toast.LENGTH_SHORT).show()
+//                requireActivity().finish()
+//
+//
+//            }
         }
 
 

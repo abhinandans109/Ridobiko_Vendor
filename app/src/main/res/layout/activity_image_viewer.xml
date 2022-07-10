@@ -8,6 +8,24 @@
     android:id="@+id/image_parent"
     tools:context=".activities.ImageViewerActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_forward"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.ravikoradiya.zoomableimageview.ZoomableImageView
         android:id="@+id/image"
@@ -19,12 +37,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/slider"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal" />
+<!--    <LinearLayout-->
+<!--        android:id="@+id/slider"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:orientation="horizontal" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

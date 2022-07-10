@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
+import com.ridobiko.ridobikoPartner.activities.ImageViewerActivity
 import com.ridobiko.ridobikoPartner.activities.MyBikeActivity
 import com.ridobiko.ridobikoPartner.activities.TermsConditonsActivity
 import com.ridobiko.ridobikoPartner.api.API
@@ -28,6 +29,9 @@ import com.ridobiko.ridobikoPartner.databinding.FragmentSettingBinding
 import com.ridobiko.ridobikoPartner.databinding.FragmentTodaysDropBinding
 import com.ridobiko.ridobikoPartner.models.ChangeStatusResponseModel
 import com.ridobiko.ridobikoPartner.models.MyBikesResponseModel
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,6 +48,7 @@ class Setting : Fragment() {
     var frontImage:String?=null
     var backImage:String?=null
     var feulImage:String?=null
+    var BASE_IMAGE="";
 //    var bikeFuel:String?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,6 +70,7 @@ class Setting : Fragment() {
                 "24 hours rental",
                 "Count 1 day till 10 AM"
             ))
+        BASE_IMAGE="https://www.ridobiko.com/android_app_ridobiko_owned_store/vehicle_images/"
 
 //        API.get().getMyBikes(requireContext().getSharedPreferences(Constants.PREFS_LOGIN_DETAILS, AppCompatActivity.MODE_PRIVATE).getString(Constants.EMAIL,null))
         binding.bookedFrom.setText(selectedMyBike.pickup.split(" ")[0])
@@ -100,8 +106,43 @@ class Setting : Fragment() {
         binding.s3.setText(selectedMyBike.Sub_3month)
         binding.s6.setText(selectedMyBike.Sub_6month)
         binding.s12.setText(selectedMyBike.Sub_12month)
-//        binding.d30.setText(selectedMyBike.rent_per_day_30_100)
+        Picasso.get().load(BASE_IMAGE+selectedMyBike.limg).placeholder(R.drawable.bike_placeholder).networkPolicy(
+            NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.leftImage)
+        Picasso.get().load(BASE_IMAGE+selectedMyBike.fimg).placeholder(R.drawable.bike_placeholder).networkPolicy(
+            NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.settingFront)
+        Picasso.get().load(BASE_IMAGE+selectedMyBike.timg).placeholder(R.drawable.bike_placeholder).networkPolicy(
+            NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.topImage)
+        Picasso.get().load(BASE_IMAGE+selectedMyBike.fuelimg).placeholder(R.drawable.bike_placeholder).networkPolicy(
+            NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.fm)
+        Picasso.get().load(BASE_IMAGE+selectedMyBike.bimg).placeholder(R.drawable.bike_placeholder).networkPolicy(
+            NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(binding.BackImage)
 
+//        binding.d30.setText(selectedMyBike.rent_per_day_30_100)
+        binding.settingFront.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("myBikeSettingsBikeImages",
+                BASE_IMAGE + selectedMyBike.Purchase_Bill))
+        }
+        binding.BackImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("myBikeSettingsBikeImages",
+                BASE_IMAGE + selectedMyBike.Purchase_Bill))
+        }
+        binding.leftImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("myBikeSettingsBikeImages",
+                BASE_IMAGE + selectedMyBike.Purchase_Bill))
+        }
+        binding.topImage.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("myBikeSettingsBikeImages",
+                BASE_IMAGE + selectedMyBike.Purchase_Bill))
+        }
+        binding.fm.setOnClickListener{
+            requireActivity().startActivity(Intent(requireContext(),
+                ImageViewerActivity::class.java).putExtra("myBikeSettingsBikeImages",
+                BASE_IMAGE + selectedMyBike.Purchase_Bill))
+        }
 
         binding.btnBlockVehicle.setOnClickListener {
             binding.pb.visibility=View.VISIBLE

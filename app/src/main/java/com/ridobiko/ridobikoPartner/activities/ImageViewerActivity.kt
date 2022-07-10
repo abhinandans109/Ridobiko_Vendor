@@ -23,6 +23,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.ravikoradiya.zoomableimageview.ZoomableImageView
 import com.ridobiko.ridobikoPartner.AppVendor
 import com.ridobiko.ridobikoPartner.R
@@ -33,6 +34,9 @@ import java.io.File
 import kotlin.math.abs
 
 
+
+
+
 class ImageViewerActivity : AppCompatActivity() {
     private var BASE_IMAGE: String=""
     private var imageUrl=""
@@ -41,18 +45,22 @@ class ImageViewerActivity : AppCompatActivity() {
     var cindex=0;
     private var scaleGestureDetector: ScaleGestureDetector? = null
     private val mScaleFactor = 1.0f
-    private val imageView: ImageView? = null
+    private var imageView: ImageView? = null
     lateinit var listImages:MutableList<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_image_viewer)
         actionBar?.setDisplayHomeAsUpEnabled(true);
 //        supportActionBar?.setIcon(R.drawable.download)
+        imageView = findViewById(R.id.imageView)
+//        scaleGestureDetector = ScaleGestureDetector(this, ScaleListener())
 
         var img=findViewById<ZoomableImageView>(R.id.image)
         var isCustomerImages=intent.hasExtra("Customer Images")
         var isPickupImages=intent.hasExtra("pickup")
         var isDropImages=intent.hasExtra("Drop images")
+        var isDoucumentImages=intent.hasExtra("documents")
+        var isMyBikeSettingsBikeImages=intent.hasExtra("myBikeSettingsBikeImages")
         imageUrl= intent.getStringExtra("image").toString()
         Picasso.get().load(intent.getStringExtra("image")).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
         if(isCustomerImages){
@@ -97,34 +105,86 @@ class ImageViewerActivity : AppCompatActivity() {
             )
             imageUrl=listImages[0]
             Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
+        }else if(isDoucumentImages){
+            supportActionBar?.title="Documents"
+            BASE_IMAGE="https://www.ridobiko.com/android_app_ridobiko_owned_store/vehicle_images/"
+            var images=AppVendor.selectedMyBike
+            BASE_IMAGE+=images.vendor_email_id+"/"
+            listImages= mutableListOf(
+                BASE_IMAGE+images.RC,
+                BASE_IMAGE+images.Insurance,
+                BASE_IMAGE+images.PUC,
+                BASE_IMAGE+images.Permit,
+                BASE_IMAGE+images.permit_b,
+                BASE_IMAGE+images.Purchase_Bill,
+            )
+            imageUrl=listImages[0]
+            Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
+        }else if(isMyBikeSettingsBikeImages){
+            supportActionBar?.title="Documents"
+            BASE_IMAGE="https://www.ridobiko.com/android_app_ridobiko_owned_store/vehicle_images/"
+            var images=AppVendor.selectedMyBike
+            BASE_IMAGE+=images.vendor_email_id+"/"
+            listImages= mutableListOf(
+                BASE_IMAGE+images.fimg,
+                BASE_IMAGE+images.bimg,
+                BASE_IMAGE+images.limg,
+                BASE_IMAGE+images.timg,
+                BASE_IMAGE+images.fuelimg,
+            )
+            imageUrl=listImages[0]
+            Picasso.get().load(listImages[0]).placeholder(R.drawable.bike_placeholder).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(img)
         }
 
-
-        findViewById<LinearLayout>(R.id.slider).setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
-        object:OnSwipeTouchListener(applicationContext) {
-            @Override
-            override fun onSwipeLeft() {
-                super.onSwipeLeft()
-                imageUrl=listImages[abs((--cindex) %listImages.size)]
+        findViewById<FloatingActionButton>(R.id.left).setOnClickListener{
+            imageUrl=listImages[abs((--cindex) %listImages.size)]
                 Picasso.get().load( listImages[abs((cindex) %listImages.size)]).placeholder(R.drawable.bike_placeholder).into(img)
-
-
-            }
-
-            @Override
-            override fun onSwipeRight() {
-                super.onSwipeRight()
-                imageUrl=listImages[abs((++cindex) %listImages.size)]
+        }
+        findViewById<FloatingActionButton>(R.id.right).setOnClickListener{
+            imageUrl=listImages[abs((++cindex) %listImages.size)]
                 Picasso.get().load( listImages[abs((cindex) %listImages.size)]).placeholder(R.drawable.bike_placeholder).into(img)
+        }
 
-
-            }
-        })
+//
+//        findViewById<LinearLayout>(R.id.slider).setOnTouchListener(@SuppressLint("ClickableViewAccessibility")
+//        object:OnSwipeTouchListener(applicationContext) {
+//            @Override
+//            override fun onSwipeLeft() {
+//                super.onSwipeLeft()
+//                imageUrl=listImages[abs((--cindex) %listImages.size)]
+//                Picasso.get().load( listImages[abs((cindex) %listImages.size)]).placeholder(R.drawable.bike_placeholder).into(img)
+//
+//
+//            }
+//
+//            @Override
+//            override fun onSwipeRight() {
+//                super.onSwipeRight()
+//                imageUrl=listImages[abs((++cindex) %listImages.size)]
+//                Picasso.get().load( listImages[abs((cindex) %listImages.size)]).placeholder(R.drawable.bike_placeholder).into(img)
+//
+//
+//            }
+//        })
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
     }
+//    private class ScaleListener : SimpleOnScaleGestureListener() {
+//        override fun onScale(scaleGestureDetector: ScaleGestureDetector): Boolean {
+//            mScaleFactor *= scaleGestureDetector.scaleFactor
+//            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f))
+//            imageView.setScaleX(mScaleFactor)
+//            imageView.setScaleY(mScaleFactor)
+//            return true
+//        }
+//    }
+//
+//    override fun onTouchEvent(motionEvent: MotionEvent?): Boolean {
+//        scaleGestureDetector!!.onTouchEvent(motionEvent)
+//        return true
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)

@@ -77,8 +77,20 @@ class BookingCustomer : Fragment() {
             }
 
         }
+        var s1=""
+        var s2=""
+        if(selectedBooking.admin_status=="pending"){
+            s1="confirmed"
+            s2="Cancelled"
+        }else if(selectedBooking.admin_status=="confirmed"){
+            s1="pending"
+            s2="Cancelled"
+        }else{
+            s2="pending"
+            s1="confirmed"
+        }
         binding.bookingStatus.adapter=ArrayAdapter<String>(requireContext(),R.layout.spinner_item,
-            mutableListOf(selectedBooking.admin_status,if(selectedBooking.admin_status=="pending")"confirmed" else "pending","Cancelled"))
+            mutableListOf(selectedBooking.admin_status,s1,s2))
 
         //call button
         binding.callButton.setOnClickListener {
