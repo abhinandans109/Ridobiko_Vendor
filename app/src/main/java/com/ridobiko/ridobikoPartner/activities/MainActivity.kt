@@ -124,19 +124,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
         }
-        binding.underDev2.setOnClickListener {
-            val inflater = layoutInflater
-            val popupView: View = LayoutInflater.from(applicationContext).inflate(R.layout.popup, null)
-            val width = LinearLayout.LayoutParams.WRAP_CONTENT
-            val height = LinearLayout.LayoutParams.WRAP_CONTENT
-            val focusable = true
-            val popupWindow = PopupWindow(popupView, width, height, focusable)
-            popupWindow.showAtLocation(it, Gravity.CENTER, 0, 0)
-            popupView.setOnTouchListener { v, event ->
-                popupWindow.dismiss()
-                true
-            }
-        }
+
         binding.underDev3.setOnClickListener {
             val inflater = layoutInflater
             val popupView: View = LayoutInflater.from(applicationContext).inflate(R.layout.popup, null)
@@ -172,7 +160,10 @@ class MainActivity : AppCompatActivity() {
         binding.bikeDatabaseCard.setOnClickListener{
             startActivity(Intent(applicationContext, BikeDatabase_Activity::class.java))
         }
+        binding.underDev2.setOnClickListener {
+            startActivity(Intent(applicationContext, AccountActivity::class.java))
 
+        }
 
 
 

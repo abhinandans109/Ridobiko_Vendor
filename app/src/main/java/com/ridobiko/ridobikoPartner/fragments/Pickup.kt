@@ -74,6 +74,28 @@ class Pickup : Fragment() {
         // Inflate the layout for this fragment
         binding=FragmentPickupBinding.inflate(inflater,container,false)
         binding.showDropDown.tag = com.ridobiko.ridobikoPartner.R.drawable.drop_down
+        binding.callButton.setOnClickListener {
+
+
+//            call button
+            val intent = Intent(Intent.ACTION_DIAL);
+            val number = selectedBooking.customer_mobile
+            intent.data = Uri.parse("tel:$number")
+            startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+
+        }
+        binding.btnEmr.setOnClickListener {
+
+            val intent = Intent(Intent.ACTION_DIAL);
+            val number = binding.emergencyMobile.text.toString()
+            intent.data = Uri.parse("tel:$number")
+            startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+
+        }
+
+
+
+
         selectedBooking=AppVendor.selectedBooking
         binding.remainingAmount.text = "Rs "+selectedBooking.amount_left
         binding.amountInWallet.text = "Rs 0"

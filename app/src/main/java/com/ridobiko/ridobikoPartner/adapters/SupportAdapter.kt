@@ -22,6 +22,7 @@ class SupportAdapter(private  val  supportList: ArrayList<Support_Model>):Recycl
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SupportAdapter.SupportViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.support_items, parent, false)
         return SupportAdapter.SupportViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: SupportViewHolder, position: Int) {

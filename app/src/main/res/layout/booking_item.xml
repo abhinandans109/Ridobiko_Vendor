@@ -19,8 +19,8 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:padding="3dp"
             android:background="@color/colourHINT"
+            android:padding="3dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -265,7 +265,6 @@
 
         <LinearLayout
             android:id="@+id/more_drop_down"
-            android:visibility="gone"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -288,12 +287,15 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/remaining_amount"
-                    android:text="Rs 1800"
-                    android:textColor="@android:color/holo_red_dark"
+                    android:text="Remaining amount"
+                    android:textColor="@android:color/black"
                     android:gravity="right"
-                    android:textStyle="bold"
                     />
+
+
+
+
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -305,14 +307,21 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:text="Document upload status"/>
+
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Remaining amount"
-                    android:textColor="@android:color/black"
+                    android:id="@+id/remaining_amount"
+                    android:text="Rs 1800"
+                    android:textColor="@android:color/holo_red_dark"
                     android:gravity="right"
+                    android:textStyle="bold"
                     />
+
+
+
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -326,16 +335,18 @@
                     android:text="Pending"
                     android:textStyle="bold"
                     android:textColor="@android:color/holo_orange_light" />
+
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/security_deposit"
-                    android:text="Rs 1800"
+                    android:text="Security deposit"
                     android:textColor="@android:color/black"
                     android:gravity="right"
-                    android:textStyle="bold"
                     />
+
+
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -347,14 +358,18 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:text="Document verification status"/>
+
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Security deposit"
+                    android:id="@+id/security_deposit"
+                    android:text="Rs 1800"
                     android:textColor="@android:color/black"
                     android:gravity="right"
+                    android:textStyle="bold"
                     />
+
             </LinearLayout>
 
         </LinearLayout>
